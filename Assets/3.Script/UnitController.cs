@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class UnitController : MonoBehaviour
 {
@@ -10,27 +11,31 @@ public class UnitController : MonoBehaviour
     public Animation RunAnimation;
     public Animation DieAnimation;
     
-    private Animator animator;
-    private UnitData unitData;
+    public Animator animator;
+    public UnitData unitData;
+    public NavMeshAgent agent;
     
     public IUnitState currentState;
+    public Transform target;
+    public float targetDistance;
 
     private void Awake()
     {
-        transform.TryGetComponent(out animator);
+        animator = GetComponentInChildren<Animator>();
         transform.TryGetComponent(out unitData);
-        ChangeState(new WaitState(this));
+        transform.TryGetComponent(out agent);
     }
 
     void Start()
     {
-        
+        ChangeState(new WaitState(this));
     }
 
     // Update is called once per frame
     void Update()
     {
         currentState.Update();
+        UpdateTargetDistance();
     }
 
     public void ChangeState(IUnitState newState)
@@ -39,5 +44,10 @@ public class UnitController : MonoBehaviour
         currentState = newState;
         currentState.Enter();
         Debug.Log($"현재 상태: {currentState}");
+    }
+
+    private void UpdateTargetDistance()
+    {
+        targetDistance = Vector3.Distance(transform.position, target.position);
     }
 }

@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class UnitData : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string Name;
+    public string Type;
+    public string AttackType;
+    public float HP;
+    public int Rank;
+    public float Damage;
+    public float AttackDistance;
+    public float AttackRate;
+    public float MoveSpeed;
+    public bool Triple;
 }
