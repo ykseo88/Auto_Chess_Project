@@ -17,11 +17,12 @@ public class RunState : IUnitState
         animator = unitController.animator;
         animator.SetTrigger(RUN);
         navMeshAgent = unitController.agent;
+        navMeshAgent.speed = unitController.unitData.MoveSpeed;
     }
 
     public void Update()
     {
-        navMeshAgent.SetDestination(unitController.target.position);
+        navMeshAgent.SetDestination(unitController.closeTarget.position);
         if (unitController.targetDistance <= unitController.unitData.AttackDistance)
         {
             unitController.ChangeState(new AttackState(unitController));

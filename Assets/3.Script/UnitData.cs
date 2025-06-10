@@ -7,6 +7,7 @@ public class UnitData : MonoBehaviour
     public string Name;
     public string Type;
     public string AttackType;
+    public string Team;
     public float HP;
     public int Rank;
     public float Damage;
@@ -14,4 +15,5 @@ public class UnitData : MonoBehaviour
     public float AttackRate;
     public float MoveSpeed;
     public bool Triple;
+    public bool isDead = false;
 }

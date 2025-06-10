@@ -16,7 +16,8 @@ public class UnitController : MonoBehaviour
     public NavMeshAgent agent;
     
     public IUnitState currentState;
-    public Transform target;
+    public GameObject[] targets;
+    public Transform closeTarget;
     public float targetDistance;
 
     private void Awake()
@@ -29,12 +30,16 @@ public class UnitController : MonoBehaviour
     void Start()
     {
         ChangeState(new WaitState(this));
+        targets = GameObject.FindGameObjectsWithTag("Unit");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         currentState.Update();
+        
+        FindCloseTarget();
         UpdateTargetDistance();
     }
 
@@ -48,6 +53,21 @@ public class UnitController : MonoBehaviour
 
     private void UpdateTargetDistance()
     {
-        targetDistance = Vector3.Distance(transform.position, target.position);
+        targetDistance = Vector3.Distance(transform.position, closeTarget.position);
+    }
+    
+    private void FindCloseTarget()
+    {
+        float minDistance = float.MaxValue;
+        foreach (GameObject target in targets)
+        {
+            target.transform.TryGetComponent(out UnitData targetUnitData);
+            float distance = Vector3.Distance(transform.position, target.transform.position);
+            if (distance < minDistance && targetUnitData.Team != unitData.Team && !unitData.isDead)
+            {
+                minDistance = distance;
+                closeTarget = target.transform;
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ public class AttackState : IUnitState
     public void Enter()
     {
         animator = unitController.animator;
+        animator.speed = unitController.unitData.AttackRate;
         animator.SetTrigger(ATTACK);
     }
 
@@ -26,6 +27,6 @@ public class AttackState : IUnitState
 
     public void Exit()
     {
-        
+        animator.speed = 1f;
     }
 }
