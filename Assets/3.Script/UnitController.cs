@@ -31,6 +31,7 @@ public class UnitController : MonoBehaviour
     void Start()
     {
         ChangeState(new WaitState(this));
+        unitData.Team.UnitAmount++;
     }
 
     // Update is called once per frame

@@ -7,6 +7,8 @@ public class Team : MonoBehaviour
 {
     public string teamName;
     public List<GameObject> EnemyList;
+    public int UnitAmount = 0;
+    public Team EnemyTeam;
 
     private void Start()
     {

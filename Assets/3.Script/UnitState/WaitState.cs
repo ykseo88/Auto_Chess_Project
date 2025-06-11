@@ -16,9 +16,17 @@ public class WaitState : IUnitState
 
     public void Update()
     {
+        if (unitController.unitData.isDead)
+        {
+            unitController.ChangeState(new DieState(unitController));
+        }
         if (GameManager.Instance.isFightStart)
         {
             unitController.ChangeState(new RunState(unitController));
+        }
+        if (unitController.unitData.Team.EnemyTeam.UnitAmount == 0)
+        {
+            unitController.ChangeState(new WinState(unitController));
         }
     }
 

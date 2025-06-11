@@ -22,10 +22,18 @@ public class RunState : IUnitState
 
     public void Update()
     {
+        if (unitController.unitData.isDead)
+        {
+            unitController.ChangeState(new DieState(unitController));
+        }
         navMeshAgent.SetDestination(unitController.closeTarget.position);
         if (unitController.targetDistance <= unitController.unitData.AttackDistance)
         {
             unitController.ChangeState(new AttackState(unitController));
+        }
+        if (unitController.unitData.Team.EnemyTeam.UnitAmount == 0)
+        {
+            unitController.ChangeState(new WinState(unitController));
         }
     }
 

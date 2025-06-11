@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class DieState : IUnitState
+public class WinState : IUnitState
 {
-    private static readonly int DIE = Animator.StringToHash("Die");
+    private static readonly int WIN = Animator.StringToHash("Win");
     private UnitController unitController;
-    public DieState(UnitController unitController) => this.unitController = unitController;
+    public WinState(UnitController unitController) => this.unitController = unitController;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
-
+    
+    
     public void Enter()
     {
         animator = unitController.animator;
+        animator.SetTrigger(WIN);
         navMeshAgent = unitController.agent;
-        animator.SetTrigger(DIE);
-        unitController.unitData.Team.UnitAmount--;
         navMeshAgent.enabled = false;
     }
 
@@ -27,6 +27,6 @@ public class DieState : IUnitState
 
     public void Exit()
     {
-        
+
     }
 }
