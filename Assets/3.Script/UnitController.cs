@@ -32,6 +32,7 @@ public class UnitController : MonoBehaviour
     {
         ChangeState(new WaitState(this));
         unitData.Team.UnitAmount++;
+        unitData.Team.EnemyTeam.EnemyUnitAmount++;
     }
 
     // Update is called once per frame
@@ -60,7 +61,7 @@ public class UnitController : MonoBehaviour
     private void FindCloseTarget()
     {
         float minDistance = float.MaxValue;
-        foreach (GameObject target in unitData.Team.EnemyList.ToList())
+        foreach (GameObject target in unitData.Team.EnemyUnitList.ToList())
         {
             target.transform.TryGetComponent(out UnitData targetUnitData);
             

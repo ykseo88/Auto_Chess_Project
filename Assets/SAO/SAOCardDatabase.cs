@@ -31,6 +31,9 @@ public class SAOCardDatabase : ScriptableObject
         public List<UnitElement> Units;
         public string Description;
         public Sprite Image;
+        public Sprite TypeImage;
+        public Sprite RankImage;
+        public Sprite BackgroundImage;
         public bool Triple = false; // 트리플 카드 여부
     }
     

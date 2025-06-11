@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0923d9af6fc3a47b8bfddf39a0de6d, type: 3}
   m_Name: SAOCardDatabase
   m_EditorClassIdentifier: 
-  cards: []
+  cards:
+  - ID: Card_Knight_Lv1_0
+    Name: SwordMan
+    Rank: 1
+    Type: 0
+    Units:
+    - Unit: {fileID: 1015277382743670091, guid: c0d76cb9aefef4e4a996242b470409b2,
+        type: 3}
+      UnitName: SwordMan
+      UnitAmount: 5
+    Description: "3\uACE8\uB4DC\uB97C \uC18C\uBAA8\uD560 \uB54C\uB9C8\uB2E4 SwordMan\uC744
+      2\uAE30 \uCD94\uAC00"
+    Image: {fileID: 21300000, guid: 5daab5001e539de4d97928f7309ae7bc, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: 6df3545ab9190c244af53bd54903b162, type: 3}
+    BackgroundImage: {fileID: 0}
+    Triple: 0

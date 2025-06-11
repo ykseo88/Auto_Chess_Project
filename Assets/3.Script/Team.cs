@@ -6,21 +6,26 @@ using UnityEngine;
 public class Team : MonoBehaviour
 {
     public string teamName;
-    public List<GameObject> EnemyList;
+    public List<GameObject> EnemyUnitList;
+    public List<GameObject> PlayerUnitList;
     public int UnitAmount = 0;
+    public int EnemyUnitAmount = 0;
     public Team EnemyTeam;
 
     private void Start()
     {
+        /*
         GameObject[] temp = GameObject.FindGameObjectsWithTag("Unit");
         for (int i = 0; i < temp.Length; i++)
         {
             temp[i].transform.TryGetComponent(out UnitData unitData);
             if (unitData.Team != this)
             {
-                EnemyList.Add(temp[i]);
+                EnemyUnitList.Add(temp[i]);
             }
         }
+        */
+        EnemyUnitList = EnemyTeam.PlayerUnitList;
     }
 
     private void Update()
@@ -30,20 +35,20 @@ public class Team : MonoBehaviour
 
     protected void UpdateEnemyList()
     {
-        for(int i = 0; i < EnemyList.Count; i++)
+        for(int i = 0; i < EnemyUnitList.Count; i++)
         {
-            EnemyList[i].transform.TryGetComponent(out UnitData unitData);
+            EnemyUnitList[i].transform.TryGetComponent(out UnitData unitData);
             if (unitData.isDead)
             {
-                EnemyList.RemoveAt(i);
-                i--; // Adjust index after removal
+                EnemyUnitList.RemoveAt(i);
+                i--;
             }
         }
     }
 
     private void WinSign()
     {
-        if(EnemyList.Count == 0)
+        if(EnemyUnitList.Count == 0)
         {
             if (teamName == "Player")
             {
