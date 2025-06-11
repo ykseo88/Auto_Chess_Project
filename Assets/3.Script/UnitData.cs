@@ -7,7 +7,7 @@ public class UnitData : MonoBehaviour
     public string Name;
     public string Type;
     public string AttackType;
-    public string Team;
+    public Team Team;
     public float HP;
     public int Rank;
     public float Damage;

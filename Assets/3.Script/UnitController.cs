@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,7 +17,7 @@ public class UnitController : MonoBehaviour
     public NavMeshAgent agent;
     
     public IUnitState currentState;
-    public GameObject[] targets;
+    //public List<GameObject> targets;
     public Transform closeTarget;
     public float targetDistance;
 
@@ -30,8 +31,6 @@ public class UnitController : MonoBehaviour
     void Start()
     {
         ChangeState(new WaitState(this));
-        targets = GameObject.FindGameObjectsWithTag("Unit");
-        
     }
 
     // Update is called once per frame
@@ -41,6 +40,7 @@ public class UnitController : MonoBehaviour
         
         FindCloseTarget();
         UpdateTargetDistance();
+        UpdateDead();
     }
 
     public void ChangeState(IUnitState newState)
@@ -59,15 +59,24 @@ public class UnitController : MonoBehaviour
     private void FindCloseTarget()
     {
         float minDistance = float.MaxValue;
-        foreach (GameObject target in targets)
+        foreach (GameObject target in unitData.Team.EnemyList.ToList())
         {
             target.transform.TryGetComponent(out UnitData targetUnitData);
+            
             float distance = Vector3.Distance(transform.position, target.transform.position);
-            if (distance < minDistance && targetUnitData.Team != unitData.Team && !unitData.isDead)
+            if (distance < minDistance)
             {
                 minDistance = distance;
                 closeTarget = target.transform;
             }
+        }
+    }
+
+    private void UpdateDead()
+    {
+        if(unitData.HP <= 0f && !unitData.isDead)
+        {
+            unitData.isDead = true;
         }
     }
 }

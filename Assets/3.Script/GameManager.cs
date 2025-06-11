@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public int startCountDown = 3;
     public bool isFightStart = false;
+
+    public bool isEnemyWin = false;
+    public bool isPlayerWin = false;
     
     private void Awake()
     {
