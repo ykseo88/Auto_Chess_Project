@@ -29,3 +29,140 @@ MonoBehaviour:
     RankImage: {fileID: 21300000, guid: 6df3545ab9190c244af53bd54903b162, type: 3}
     BackgroundImage: {fileID: 0}
     Triple: 0
+    MaxNum: 1
+  - ID: Card_Knight_Lv2_0
+    Name: SpearMan
+    Rank: 2
+    Type: 0
+    Units:
+    - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
+        type: 3}
+      UnitName: SpearMan
+      UnitAmount: 2
+    Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
+      SwordMan 2\uAE30\uB97C SpearMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 7728fdf7f139dde4ca2cddecc599bf2b, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
+    BackgroundImage: {fileID: 0}
+    Triple: 0
+    MaxNum: 2
+  - ID: 1234
+    Name: 3
+    Rank: 6
+    Type: 0
+    Units:
+    - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
+        type: 3}
+      UnitName: SpearMan
+      UnitAmount: 4
+    Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
+      SwordMan 2\uAE30\uB97C SpearMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 71cebfefac3f1b7489f3d7e5aece34dd, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
+    BackgroundImage: {fileID: 0}
+    Triple: 0
+    MaxNum: 3
+  - ID: 4545
+    Name: 4
+    Rank: 5
+    Type: 0
+    Units:
+    - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
+        type: 3}
+      UnitName: SpearMan
+      UnitAmount: 4
+    Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
+      SwordMan 2\uAE30\uB97C SpearMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
+    BackgroundImage: {fileID: 0}
+    Triple: 0
+    MaxNum: 4
+  - ID: 55
+    Name: 5
+    Rank: 1
+    Type: 0
+    Units:
+    - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
+        type: 3}
+      UnitName: SpearMan
+      UnitAmount: 4
+    Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
+      SwordMan 2\uAE30\uB97C SpearMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 8bbada7d6cb660c409f30de875e29a95, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
+    BackgroundImage: {fileID: 0}
+    Triple: 0
+    MaxNum: 5
+  - ID: Card_Knight_Lv2_0aaasdssssd
+    Name: 6
+    Rank: 4
+    Type: 0
+    Units:
+    - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
+        type: 3}
+      UnitName: SpearMan
+      UnitAmount: 4
+    Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
+      SwordMan 2\uAE30\uB97C SpearMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 8bbada7d6cb660c409f30de875e29a95, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
+    BackgroundImage: {fileID: 0}
+    Triple: 0
+    MaxNum: 6
+  - ID: Card_sd_Lv2_0aaasdssssd
+    Name: 7
+    Rank: 3
+    Type: 0
+    Units:
+    - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
+        type: 3}
+      UnitName: SpearMan
+      UnitAmount: 4
+    Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
+      SwordMan 2\uAE30\uB97C SpearMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 92b3e3fd3be84f5468675a4b385d8f00, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
+    BackgroundImage: {fileID: 0}
+    Triple: 0
+    MaxNum: 7
+  - ID: asdasd
+    Name: 8
+    Rank: 2
+    Type: 0
+    Units:
+    - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
+        type: 3}
+      UnitName: SpearMan
+      UnitAmount: 4
+    Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
+      SwordMan 2\uAE30\uB97C SpearMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: fbe98f93aa444ef4a9b172a444d3a78a, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
+    BackgroundImage: {fileID: 0}
+    Triple: 0
+    MaxNum: 8
+  - ID: sdsdsdsd
+    Name: 9
+    Rank: 1
+    Type: 0
+    Units:
+    - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
+        type: 3}
+      UnitName: SpearMan
+      UnitAmount: 4
+    Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
+      SwordMan 2\uAE30\uB97C SpearMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: c9b17ed740964774284531670cc9f4a2, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
+    BackgroundImage: {fileID: 0}
+    Triple: 0
+    MaxNum: 9

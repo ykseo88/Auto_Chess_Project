@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public int startCountDown = 3;
     public bool isFightStart = false;
+    public bool isCombatTurn = false;
+    public bool isReadyTurn = false;
 
     public bool isEnemyWin = false;
     public bool isPlayerWin = false;
@@ -26,8 +28,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerUnitSpawn();
-        StartCoroutine(CountDown());
+        
+    }
+
+    private void Update()
+    {
+        if (isCombatTurn)
+        {
+            PlayerUnitSpawn();
+            StartCoroutine(CountDown());
+            isCombatTurn = false;
+        }
     }
 
     private IEnumerator CountDown()

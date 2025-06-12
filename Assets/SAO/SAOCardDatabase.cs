@@ -35,6 +35,7 @@ public class SAOCardDatabase : ScriptableObject
         public Sprite RankImage;
         public Sprite BackgroundImage;
         public bool Triple = false; // 트리플 카드 여부
+        public int MaxNum = 1; // 카드 최대 개수
     }
     
     public List<CardData> cards = new List<CardData>();
