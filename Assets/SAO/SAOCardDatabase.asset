@@ -66,7 +66,7 @@ MonoBehaviour:
     MaxNum: 3
   - ID: 4545
     Name: 4
-    Rank: 5
+    Rank: 6
     Type: 0
     Units:
     - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
@@ -83,7 +83,7 @@ MonoBehaviour:
     MaxNum: 4
   - ID: 55
     Name: 5
-    Rank: 1
+    Rank: 5
     Type: 0
     Units:
     - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
@@ -150,7 +150,7 @@ MonoBehaviour:
     Triple: 0
     MaxNum: 8
   - ID: sdsdsdsd
-    Name: 9
+    Name: 7num
     Rank: 1
     Type: 0
     Units:
@@ -165,4 +165,4 @@ MonoBehaviour:
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}
     Triple: 0
-    MaxNum: 9
+    MaxNum: 7

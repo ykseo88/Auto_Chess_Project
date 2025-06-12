@@ -5,5 +5,5 @@ using UnityEngine;
 
 public class Field : MonoBehaviour
 {
-    public Card[] fieldCards;
+    public List<GameObject> fieldCards;
 }

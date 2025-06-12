@@ -57,20 +57,22 @@ public class GameManager : MonoBehaviour
 
     private void PlayerUnitSpawn()
     {
-        for (int i = 0; i < playerField.fieldCards.Length; i++)
+        Debug.Log(playerField.fieldCards);
+        for (int i = 0; i < playerField.fieldCards.Count; i++)
         {
-            if (playerField.fieldCards[i].currentCardData != null)
+            playerField.fieldCards[i].transform.TryGetComponent(out Card card);
+            if (card.currentCardData != null)
             {
-                for (int j = 0; j < playerField.fieldCards[i].currentCardData.Units.Count; j++)
+                for (int j = 0; j < card.currentCardData.Units.Count; j++)
                 {
-                    for (int k = 0; k < playerField.fieldCards[i].currentCardData.Units[j].UnitAmount; k++)
+                    for (int k = 0; k < card.currentCardData.Units[j].UnitAmount; k++)
                     {
-                        GameObject temp = Instantiate(playerField.fieldCards[i].currentCardData.Units[j].Unit, Vector3.zero, Quaternion.identity);
+                        GameObject temp = Instantiate(card.currentCardData.Units[j].Unit, Vector3.zero, Quaternion.identity);
                         temp.transform.TryGetComponent(out UnitData unitData);
                         unitData.Team = playerTeam;
                         playerTeam.PlayerUnitList.Add(temp);
                         
-                        temp = Instantiate(playerField.fieldCards[i].currentCardData.Units[j].Unit, Vector3.right*10, Quaternion.identity);
+                        temp = Instantiate(card.currentCardData.Units[j].Unit, Vector3.right*10, Quaternion.identity);
                         temp.transform.TryGetComponent(out unitData);
                         unitData.Team = enemyTeam;
                         enemyTeam.PlayerUnitList.Add(temp);

@@ -10,14 +10,15 @@ public class Shop : MonoBehaviour
 {
     public SAOCardDatabase cardDatabase;
     public GameObject cardPrefab;
+    public CardInventroy cardInventroy;
 
-    public class CardPool
+    public class CardInven
     {
         public SAOCardDatabase.CardData card;
         public int maxNum;
         public int currentNum;
         
-        public CardPool(SAOCardDatabase.CardData card, int maxNum, int currentNum)
+        public CardInven(SAOCardDatabase.CardData card, int maxNum, int currentNum)
         {
             this.card = card;
             this.maxNum = maxNum;
@@ -25,8 +26,8 @@ public class Shop : MonoBehaviour
         }
     }
 
-    private Dictionary<int, List<CardPool>> cardPool = new Dictionary<int, List<CardPool>>();
-    private List<CardPool> currentAllowCards = new List<CardPool>();
+    private Dictionary<int, List<CardInven>> cardPool = new Dictionary<int, List<CardInven>>();
+    public List<CardInven> currentAllowCards = new List<CardInven>();
     
     [SerializeField] private int[] shopCardNum = new int[6] { 3, 4, 4, 5, 5, 6 };
     
@@ -51,12 +52,12 @@ public class Shop : MonoBehaviour
         for (int i = 0; i < maxRank; i++)
         {
             sellCards.Add(i+1, new Card[shopCardNum[i]]);
-            cardPool.Add(i+1, new List<CardPool>());
+            cardPool.Add(i+1, new List<CardInven>());
         }
         
         for (int i = 0; i < cardDatabase.cards.Count; i++)
         {
-            CardPool temp = new CardPool(cardDatabase.cards[i], cardDatabase.cards[i].MaxNum, cardDatabase.cards[i].MaxNum);
+            CardInven temp = new CardInven(cardDatabase.cards[i], cardDatabase.cards[i].MaxNum, cardDatabase.cards[i].MaxNum);
             int tempRank = cardDatabase.cards[i].Rank;
             
             cardPool[tempRank].Add(temp);
@@ -68,24 +69,29 @@ public class Shop : MonoBehaviour
 
     public void ReRoll()
     {
-        while (currentSellCards.Count < shopCardNum[shopRank - 1])
+        SetSellCards();
+
+        
+        while(currentSellCards.Count < shopCardNum[shopRank - 1] && currentSellCards.Count != currentAllowCards.Count)
         {
             GameObject tempCard = Instantiate(cardPrefab);
             tempCard.transform.SetParent(transform);
             currentSellCards.Add(tempCard);
         }
         
-        CardPool[] backUpList = currentAllowCards.ToArray();
-
+        CardInven[] backUpList = currentAllowCards.ToArray();
         for (int i = 0; i < currentSellCards.Count; i++)
         {
             currentSellCards[i].transform.TryGetComponent(out Card card);
-            CardPool tempCardData = currentAllowCards[Random.Range(0, currentAllowCards.Count)];
+            CardInven tempCardData = currentAllowCards[Random.Range(0, currentAllowCards.Count)];
             card.InsertCard(tempCardData.card);
+            card.parentList = currentSellCards;
+            card.inventorys = tempCardData;
             currentAllowCards.Remove(tempCardData);
         }
-        
         currentAllowCards = backUpList.ToList();
+        
+        
     }
     
     public void UpgradeShop()
@@ -108,6 +114,7 @@ public class Shop : MonoBehaviour
     {
         Debug.Log("상점 재고 목록");
         Debug.Log($"현재 등록된 카드 수: {cardDatabase.cards.Count}");
+        Debug.Log($"상점 등장 카드 수: {currentAllowCards.Count}");
 
         for (int i = 0; i < maxRank; i++)
         {
@@ -119,7 +126,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    private void SetSellCards()
+    public void SetSellCards()
     {
         currentAllowCards.Clear();
         for (int i = 0; i < shopRank; i++)
