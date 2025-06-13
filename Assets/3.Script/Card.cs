@@ -34,6 +34,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
         shop = GetComponentInParent<Shop>();
+        GameObject tempField = GameObject.Find("Field");
+        tempField.transform.TryGetComponent(out field);
     }
     
     void Update()
@@ -42,12 +44,22 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         {
             InsertCard(cardDatabase.cards[0]);
         }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            UnitCountUpTest();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            DebugLogTest();
+        }
     }
 
     public void InsertCard(SAOCardDatabase.CardData insertData)
     {
         
-        currentCardData = insertData;
+        InputCardData(insertData);
         
         int allAmount = 0;
         for (int i = 0; i < currentCardData.Units.Count; i++)
@@ -62,11 +74,37 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         TypeImage.sprite = currentCardData.TypeImage;
     }
 
+    public void InputCardData(SAOCardDatabase.CardData insertData)
+    {
+        currentCardData.ID = insertData.ID;
+        currentCardData.Name = insertData.Name;
+        currentCardData.Rank = insertData.Rank;
+        currentCardData.Type = insertData.Type;
+        currentCardData.Units.Clear();
+        for (int i = 0; i < insertData.Units.Count; i++)
+        {
+            currentCardData.Units.Add(new SAOCardDatabase.UnitElement());
+            currentCardData.Units[i].UnitAmount = insertData.Units[i].UnitAmount;
+            currentCardData.Units[i].UnitName = insertData.Units[i].UnitName;
+            currentCardData.Units[i].Unit = insertData.Units[i].Unit;
+        }
+        currentCardData.Description = insertData.Description;
+        currentCardData.Image = insertData.Image;
+        currentCardData.TypeImage = insertData.TypeImage;
+        currentCardData.RankImage = insertData.RankImage;
+        currentCardData.BackgroundImage = insertData.BackgroundImage;
+        currentCardData.Triple = insertData.Triple;
+        currentCardData.MaxNum = insertData.MaxNum;
+        
+        
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         returnParent = transform.parent.gameObject;
         transform.SetParent(transform.root);
         canvasGroup.blocksRaycasts = false;
+        inventorys.currentNum--;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -89,15 +127,22 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 transform.SetParent(target.transform);
                 parentList.Remove(gameObject);
                 targetField.fieldCards.Add(gameObject);
+                parentList = targetField.fieldCards;
                 parentList.Add(gameObject);
                 shop.currentSellCards.Remove(gameObject);
-                inventorys.currentNum--;
                 shop.SetSellCards();
                 break;
             case "Shop":
-                parentList.Remove(gameObject);
-                inventorys.currentNum++;
-                Destroy(gameObject);
+                if (parentList == field.fieldCards)
+                {
+                    parentList.Remove(gameObject);
+                    inventorys.currentNum++;
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    returnToParent();
+                }
                 break;
             default:
                 returnToParent();
@@ -109,5 +154,40 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void returnToParent()
     {
         transform.SetParent(returnParent.transform);
+        inventorys.currentNum++;
+    }
+    
+    private void DebugLogTest()
+    {
+        Debug.Log($"카드 이름: {currentCardData.Name}");
+        Debug.Log($"카드 타입: {currentCardData.Type}");
+        Debug.Log($"카드 등급: {currentCardData.Rank}");
+        Debug.Log($"카드 이미지: {currentCardData.Image.name}");
+        Debug.Log($"카드 설명: {currentCardData.Description}");
+
+        for (int i = 0; i < currentCardData.Units.Count; i++)
+        {
+            Debug.Log($"카드 유닛: {currentCardData.Units[i].UnitName}, 수량: {currentCardData.Units[i].UnitAmount}");
+        }
+    }
+
+    private void UnitCountUpTest()
+    {
+        currentCardData.Units[0].UnitAmount++;
+        UpdateCardInfo();
+    }
+
+    private void UpdateCardInfo()
+    {
+        int allAmount = 0;
+        for (int i = 0; i < currentCardData.Units.Count; i++)
+        {
+            allAmount += currentCardData.Units[i].UnitAmount;
+        }
+        Title.text = currentCardData.Name;
+        CardImage.sprite = currentCardData.Image;
+        Amount.text = allAmount.ToString();
+        RankImage.sprite = currentCardData.RankImage;
+        TypeImage.sprite = currentCardData.TypeImage;
     }
 }

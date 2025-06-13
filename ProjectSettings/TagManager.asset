@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Collide
   - Unit
+  - Card
+  - ToolTip
   layers:
   - Default
   - TransparentFX

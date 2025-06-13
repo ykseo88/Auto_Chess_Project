@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Reflection;
 
 [CreateAssetMenu(fileName = "SAOCardDatabase", menuName = "ScriptableObjects/Card Database")]
 public class SAOCardDatabase : ScriptableObject
