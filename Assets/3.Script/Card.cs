@@ -22,9 +22,12 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public TMP_Text Amount;
     public Image RankImage;
     public Image TypeImage;
+    public int SellPrice = 1;
+    public int BuyPrice = 3;
 
     private Shop shop;
     private Field field;
+    private ReadyTurn readyTurn;
     
     private CanvasGroup canvasGroup;
     private Canvas canvas;
@@ -36,6 +39,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         shop = GetComponentInParent<Shop>();
         GameObject tempField = GameObject.Find("Field");
         tempField.transform.TryGetComponent(out field);
+        transform.root.TryGetComponent(out readyTurn);
     }
     
     void Update()
@@ -54,6 +58,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         {
             DebugLogTest();
         }
+
+        OnAbility();
     }
 
     public void InsertCard(SAOCardDatabase.CardData insertData)
@@ -119,17 +125,17 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         {
             case "Field":
                 target.transform.TryGetComponent(out Field targetField);
-                if (targetField.fieldCards.Count == 7)
+                if (targetField.fieldCards.Count == 7 || field.Gold < BuyPrice)
                 {
                     returnToParent();
                     break;
                 }
                 transform.SetParent(target.transform);
                 parentList.Remove(gameObject);
-                targetField.fieldCards.Add(gameObject);
                 parentList = targetField.fieldCards;
                 parentList.Add(gameObject);
                 shop.currentSellCards.Remove(gameObject);
+                field.Gold -= BuyPrice;
                 shop.SetSellCards();
                 break;
             case "Shop":
@@ -137,6 +143,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 {
                     parentList.Remove(gameObject);
                     inventorys.currentNum++;
+                    field.Gold += SellPrice;
                     Destroy(gameObject);
                 }
                 else
@@ -148,6 +155,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 returnToParent();
                 break;
         }
+        field.UpdateGold();
         canvasGroup.blocksRaycasts = true;
     }
     
@@ -177,7 +185,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         UpdateCardInfo();
     }
 
-    private void UpdateCardInfo()
+    public void UpdateCardInfo()
     {
         int allAmount = 0;
         for (int i = 0; i < currentCardData.Units.Count; i++)
@@ -189,5 +197,14 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         Amount.text = allAmount.ToString();
         RankImage.sprite = currentCardData.RankImage;
         TypeImage.sprite = currentCardData.TypeImage;
+    }
+
+    private void OnAbility()
+    {
+        if (parentList == field.fieldCards)
+        {
+            Debug.Log($"{currentCardData.Name} 카드의 능력이 발동 중입니다.");
+            AbilityManager.Instance.abilityDictionary[currentCardData.Name](gameObject);
+        }
     }
 }

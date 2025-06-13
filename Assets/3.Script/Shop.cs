@@ -32,10 +32,13 @@ public class Shop : MonoBehaviour
     [SerializeField] private int[] shopCardNum = new int[6] { 3, 4, 4, 5, 5, 6 };
     
     private ReadyTurn readyTurn;
+    
     public Dictionary<int, Card[]> sellCards = new Dictionary<int, Card[]>();
 
     public int shopRank = 1;
     public int maxRank = 6;
+    public int ReRollPrice = 1;
+    public Field field;
     
     public Image currentShopRankImage;
     public Sprite[] shopRankImages;
@@ -70,28 +73,29 @@ public class Shop : MonoBehaviour
     public void ReRoll()
     {
         SetSellCards();
-
-        
-        while(currentSellCards.Count < shopCardNum[shopRank - 1] && currentSellCards.Count != currentAllowCards.Count)
+        if (field.Gold >= ReRollPrice)
         {
-            GameObject tempCard = Instantiate(cardPrefab);
-            tempCard.transform.SetParent(transform);
-            currentSellCards.Add(tempCard);
+            field.Gold -= ReRollPrice;
+            field.UpdateGold();
+            while(currentSellCards.Count < shopCardNum[shopRank - 1] && currentSellCards.Count != currentAllowCards.Count)
+            {
+                GameObject tempCard = Instantiate(cardPrefab);
+                tempCard.transform.SetParent(transform);
+                currentSellCards.Add(tempCard);
+            }
+        
+            CardInven[] backUpList = currentAllowCards.ToArray();
+            for (int i = 0; i < currentSellCards.Count; i++)
+            {
+                currentSellCards[i].transform.TryGetComponent(out Card card);
+                CardInven tempCardData = currentAllowCards[Random.Range(0, currentAllowCards.Count)];
+                card.InsertCard(tempCardData.card);
+                card.parentList = currentSellCards;
+                card.inventorys = tempCardData;
+                currentAllowCards.Remove(tempCardData);
+            }
+            currentAllowCards = backUpList.ToList();
         }
-        
-        CardInven[] backUpList = currentAllowCards.ToArray();
-        for (int i = 0; i < currentSellCards.Count; i++)
-        {
-            currentSellCards[i].transform.TryGetComponent(out Card card);
-            CardInven tempCardData = currentAllowCards[Random.Range(0, currentAllowCards.Count)];
-            card.InsertCard(tempCardData.card);
-            card.parentList = currentSellCards;
-            card.inventorys = tempCardData;
-            currentAllowCards.Remove(tempCardData);
-        }
-        currentAllowCards = backUpList.ToList();
-        
-        
     }
     
     public void UpgradeShop()
