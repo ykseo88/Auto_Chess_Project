@@ -23,7 +23,7 @@ public class ToolTip : MonoBehaviour
 
     private void OnOffToolTip()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             // 1. PointerEventData 객체 생성
             //    이 객체에 현재 마우스 커서의 위치 정보를 담습니다.
@@ -51,13 +51,13 @@ public class ToolTip : MonoBehaviour
                 Debug.Log("eventData.button");
                 GameObject temp = topMostUI.gameObject;
                 Card tempCard = topMostUI.gameObject.GetComponentInParent<Card>();
-                if (tempCard.CompareTag("Card"))
+                if (temp.CompareTag("Card"))
                 {
                     InputToolTipInput(tempCard.currentCardData);
                     ToolTipPanel.transform.position  = tempCard.transform.position;
                     ToolTipPanel.gameObject.SetActive(true);
                 }
-                else if(tempCard.CompareTag("ToolTip"))
+                else if(temp.gameObject.Equals(ToolTipPanel))
                 {
                     ToolTipPanel.gameObject.SetActive(false);
                 }
