@@ -4663,7 +4663,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2488396a7c8148d4cbc1991297b5dd72, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 78c89fb214ae335418fd6d36b76d8545, type: 2}
   m_sharedMaterial: {fileID: 9020852778362354104, guid: 2488396a7c8148d4cbc1991297b5dd72,
     type: 2}
   m_fontSharedMaterials: []
@@ -4728,7 +4728,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &379786194
@@ -8841,6 +8841,7 @@ GameObject:
   - component: {fileID: 837077301}
   - component: {fileID: 837077303}
   - component: {fileID: 837077302}
+  - component: {fileID: 837077304}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -8964,6 +8965,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837077300}
   m_CullTransparentMesh: 1
+--- !u!114 &837077304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837077300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d9d92128e00064d9841aa7538cf259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputTimeLimitSecond: 65
 --- !u!1 &858929442
 GameObject:
   m_ObjectHideFlags: 0
@@ -9980,6 +9994,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 993607990}
+  - component: {fileID: 993607991}
   m_Layer: 0
   m_Name: AbilityManager
   m_TagString: Untagged
@@ -10002,6 +10017,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &993607991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993607989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e7e90d930ed0a44b50287a6a5d00fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardDatabase: {fileID: 11400000, guid: ca70c6a51d88fbc46a6bebd2af39eef2, type: 2}
+  field: {fileID: 712031110}
+  hand: {fileID: 588722126}
+  shop: {fileID: 805548852}
+  readyTurn: {fileID: 277776791}
 --- !u!1 &997273488
 GameObject:
   m_ObjectHideFlags: 0
