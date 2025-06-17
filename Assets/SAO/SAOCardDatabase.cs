@@ -20,7 +20,7 @@ public class SAOCardDatabase : ScriptableObject
         public GameObject Unit;
         public string UnitName;
         public int UnitAmount;
-    }
+    } // 카드 프리팹
     
     
     [System.Serializable]
@@ -36,7 +36,7 @@ public class SAOCardDatabase : ScriptableObject
         public Sprite TypeImage;
         public Sprite RankImage;
         public Sprite BackgroundImage;
-        public bool Triple = false; // 트리플 카드 여부
+        public bool Golden = false; // 트리플 카드 여부
         public int MaxNum = 1; // 카드 최대 개수
     }
     

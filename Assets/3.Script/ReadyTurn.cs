@@ -14,6 +14,7 @@ public class ReadyTurn : MonoBehaviour
     public Field field;
     public Shop shop;
     public Hand hand;
+    public Choice choice;
     public TMP_Text Gold;
 
     private void CombatStart()

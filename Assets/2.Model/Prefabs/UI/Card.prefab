@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.86100054, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -680,6 +680,7 @@ MonoBehaviour:
     MaxNum: 1
   parentList: []
   returnParent: {fileID: 0}
+  BackGroundImage: {fileID: 3120798722819878482}
   TitleImage: {fileID: 7348246259979030236}
   Title: {fileID: 7986893917383380032}
   CardImage: {fileID: 370304869650878693}
@@ -687,6 +688,8 @@ MonoBehaviour:
   Amount: {fileID: 923987567569839460}
   RankImage: {fileID: 1863936169713469578}
   TypeImage: {fileID: 3000075269150525504}
+  SellPrice: 1
+  BuyPrice: 3
 --- !u!225 &-6920399016703954981
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -28,8 +28,8 @@ MonoBehaviour:
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 6df3545ab9190c244af53bd54903b162, type: 3}
     BackgroundImage: {fileID: 0}
-    Triple: 0
-    MaxNum: 1
+    Golden: 0
+    MaxNum: 3
   - ID: Card_Knight_Lv2_0
     Name: SpearMan
     Rank: 2
@@ -45,7 +45,7 @@ MonoBehaviour:
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}
-    Triple: 0
+    Golden: 0
     MaxNum: 2
   - ID: 1234
     Name: 3
@@ -62,7 +62,7 @@ MonoBehaviour:
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}
-    Triple: 0
+    Golden: 0
     MaxNum: 3
   - ID: 4545
     Name: 4
@@ -79,7 +79,7 @@ MonoBehaviour:
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}
-    Triple: 0
+    Golden: 0
     MaxNum: 4
   - ID: 55
     Name: 5
@@ -96,7 +96,7 @@ MonoBehaviour:
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}
-    Triple: 0
+    Golden: 0
     MaxNum: 5
   - ID: Card_Knight_Lv2_0aaasdssssd
     Name: 6
@@ -113,7 +113,7 @@ MonoBehaviour:
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}
-    Triple: 0
+    Golden: 0
     MaxNum: 6
   - ID: Card_sd_Lv2_0aaasdssssd
     Name: 7
@@ -130,7 +130,7 @@ MonoBehaviour:
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}
-    Triple: 0
+    Golden: 0
     MaxNum: 7
   - ID: asdasd
     Name: 8
@@ -147,12 +147,12 @@ MonoBehaviour:
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}
-    Triple: 0
+    Golden: 0
     MaxNum: 8
   - ID: sdsdsdsd
     Name: 7num
     Rank: 1
-    Type: 0
+    Type: 1
     Units:
     - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
         type: 3}
@@ -164,5 +164,5 @@ MonoBehaviour:
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}
-    Triple: 0
+    Golden: 0
     MaxNum: 7

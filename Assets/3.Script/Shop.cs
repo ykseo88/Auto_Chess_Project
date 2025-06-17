@@ -26,7 +26,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    private Dictionary<int, List<CardInven>> cardPool = new Dictionary<int, List<CardInven>>();
+    public Dictionary<int, List<CardInven>> cardPool = new Dictionary<int, List<CardInven>>();
     public List<CardInven> currentAllowCards = new List<CardInven>();
     
     [SerializeField] private int[] shopCardNum = new int[6] { 3, 4, 4, 5, 5, 6 };
@@ -149,5 +149,18 @@ public class Shop : MonoBehaviour
         {
             Debug.Log(currentAllowCards[i].card.Name);
         }
+    }
+
+    public List<SAOCardDatabase.CardData> GetAllowCardList(int rank)
+    {
+        List<SAOCardDatabase.CardData> tempList = new List<SAOCardDatabase.CardData>();
+        for (int i = 0; i < cardPool[rank].Count; i++)
+        {
+            for(int j = 0; j < cardPool[rank][i].currentNum; j++)
+            {
+                tempList.Add(cardPool[rank][i].card);
+            }
+        }
+        return tempList;
     }
 }
