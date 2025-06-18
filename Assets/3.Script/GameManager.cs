@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public bool isPlayerWin = false;
 
     public Field playerField;
+    
+    public Transform PlayerSpawnPoint;
+    public Transform EnemySpawnPoint;
 
     private void Awake()
     {
@@ -67,12 +70,12 @@ public class GameManager : MonoBehaviour
                 {
                     for (int k = 0; k < card.currentCardData.Units[j].UnitAmount; k++)
                     {
-                        GameObject temp = Instantiate(card.currentCardData.Units[j].Unit, Vector3.zero, Quaternion.identity);
+                        GameObject temp = Instantiate(card.currentCardData.Units[j].Unit, PlayerSpawnPoint.position, Quaternion.identity);
                         temp.transform.TryGetComponent(out UnitData unitData);
                         unitData.Team = playerTeam;
                         playerTeam.PlayerUnitList.Add(temp);
                         
-                        temp = Instantiate(card.currentCardData.Units[j].Unit, Vector3.right*10, Quaternion.identity);
+                        temp = Instantiate(card.currentCardData.Units[j].Unit, EnemySpawnPoint.position, Quaternion.identity);
                         temp.transform.TryGetComponent(out unitData);
                         unitData.Team = enemyTeam;
                         enemyTeam.PlayerUnitList.Add(temp);
