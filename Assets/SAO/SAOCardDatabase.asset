@@ -119,15 +119,32 @@ MonoBehaviour:
     Rank: 5
     Type: 0
     Units:
-    - Unit: {fileID: 3637295338793833923, guid: 1e729a0aa78c4b04ba7cdc4dea08d7ad,
+    - Unit: {fileID: 7957023106250218011, guid: 8e7dc812a07121247972f7b1be596723,
         type: 3}
       UnitName: WarLord
       UnitAmount: 2
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       Banneret 2\uAE30\uB97C WarLord\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
-    Image: {fileID: 21300000, guid: e96dfcd689ee914488cd57570c44f706, type: 3}
+    Image: {fileID: 21300000, guid: 1dab4e8778300b049b081193bc94100a, type: 3}
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: c9b17ed740964774284531670cc9f4a2, type: 3}
     BackgroundImage: {fileID: 0}
     Golden: 0
     MaxNum: 16
+  - ID: Card_Knight_Lv6_0
+    Name: Knight
+    Rank: 6
+    Type: 0
+    Units:
+    - Unit: {fileID: 4365756304651908956, guid: 653416dbb3ab44146b8651bc634c4930,
+        type: 3}
+      UnitName: Knight
+      UnitAmount: 2
+    Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
+      WarLord 2\uAE30\uB97C Knight\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 5804a31525cb119488f1f29b82a36279, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: 8bbada7d6cb660c409f30de875e29a95, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 7

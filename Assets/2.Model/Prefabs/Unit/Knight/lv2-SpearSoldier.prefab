@@ -271,8 +271,8 @@ MonoBehaviour:
   Team: {fileID: 0}
   HP: 100
   Rank: 1
-  Damage: 20
-  AttackDistance: 3
+  Damage: 30
+  AttackDistance: 4
   AttackRate: 2
   MoveSpeed: 2
   Triple: 0

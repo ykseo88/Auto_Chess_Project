@@ -615,10 +615,10 @@ MonoBehaviour:
   Team: {fileID: 0}
   HP: 100
   Rank: 1
-  Damage: 20
+  Damage: 10
   AttackDistance: 20
-  AttackRate: 2
-  MoveSpeed: 2
+  AttackRate: 1
+  MoveSpeed: 1
   Triple: 0
   isDead: 0
 --- !u!136 &4426577935404434828

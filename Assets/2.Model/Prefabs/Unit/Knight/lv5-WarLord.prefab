@@ -1731,13 +1731,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4060862571837451072}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.70710677, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: -0.4, y: 8.4, z: 1.4}
+  m_LocalRotation: {x: -0.04374552, y: 0.6581446, z: -0.75064033, w: -0.03835486}
+  m_LocalPosition: {x: 7.2305193, y: 2.7046297, z: 1.4605908}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8675645529939568827}
-  m_LocalEulerAnglesHint: {x: 90, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: 97.513, y: 186.671, z: 0}
 --- !u!33 &7117837533640266357
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3399,12 +3399,12 @@ MonoBehaviour:
   Type: Knight
   AttackType: Melee
   Team: {fileID: 0}
-  HP: 400
+  HP: 500
   Rank: 3
-  Damage: 75
-  AttackDistance: 2
+  Damage: 120
+  AttackDistance: 4
   AttackRate: 1
-  MoveSpeed: 3
+  MoveSpeed: 2
   Triple: 0
   isDead: 0
 --- !u!136 &1219575197549428256
@@ -3690,7 +3690,7 @@ Animator:
   m_GameObject: {fileID: 9120039875183476829}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
-  m_Controller: {fileID: 22100000, guid: 50588ffbb44fe60439d650caa4881ef5, type: 2}
+  m_Controller: {fileID: 22100000, guid: 98a7af9b307c1bb4ba26b4ee589155d0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
