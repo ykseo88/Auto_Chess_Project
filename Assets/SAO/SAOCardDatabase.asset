@@ -24,7 +24,7 @@ MonoBehaviour:
       UnitAmount: 5
     Description: "3\uACE8\uB4DC\uB97C \uC18C\uBAA8\uD560 \uB54C\uB9C8\uB2E4 SwordMan\uC744
       2\uAE30 \uCD94\uAC00"
-    Image: {fileID: 21300000, guid: cfa1a4f6a19bce847a395369ba8634a4, type: 3}
+    Image: {fileID: 21300000, guid: 3722d9689d1929142a7d4f00963fb368, type: 3}
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 6df3545ab9190c244af53bd54903b162, type: 3}
     BackgroundImage: {fileID: 0}
@@ -52,13 +52,13 @@ MonoBehaviour:
     Rank: 2
     Type: 0
     Units:
-    - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
+    - Unit: {fileID: 1015277382743670091, guid: db6d18f9917cd0640ae58990852da6d4,
         type: 3}
       UnitName: SpearMan
       UnitAmount: 2
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       SwordMan 2\uAE30\uB97C SpearMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
-    Image: {fileID: 21300000, guid: eca5659140fd34a419906a73e10978ef, type: 3}
+    Image: {fileID: 21300000, guid: c1932fe4660a91e43adebc9c6d582e26, type: 3}
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}
@@ -77,6 +77,57 @@ MonoBehaviour:
     Image: {fileID: 21300000, guid: 82c96ad7a3a48f1428e5e53f48368fc9, type: 3}
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16
+  - ID: Card_Knight_Lv3_0
+    Name: Bachelor
+    Rank: 3
+    Type: 0
+    Units:
+    - Unit: {fileID: 5214124157295079514, guid: 44c2a127499059c4fb46513f0f51fad5,
+        type: 3}
+      UnitName: Bachelor
+      UnitAmount: 2
+    Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
+      SwordMan 2\uAE30\uB97C Bachelor\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 52bbb11ce75de7c4bb3fd2df2483d9e5, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: ef55e7222c244704d845e9a4fee4d9d0, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16
+  - ID: Card_Knight_Lv4_0
+    Name: Banneret
+    Rank: 4
+    Type: 0
+    Units:
+    - Unit: {fileID: 3637295338793833923, guid: 1e729a0aa78c4b04ba7cdc4dea08d7ad,
+        type: 3}
+      UnitName: Banneret
+      UnitAmount: 2
+    Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
+      Bachelor 2\uAE30\uB97C Banneret\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: e96dfcd689ee914488cd57570c44f706, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: 41cd76b1c69568f40a1989d4796eed23, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16
+  - ID: Card_Knight_Lv5_0
+    Name: WarLord
+    Rank: 5
+    Type: 0
+    Units:
+    - Unit: {fileID: 3637295338793833923, guid: 1e729a0aa78c4b04ba7cdc4dea08d7ad,
+        type: 3}
+      UnitName: WarLord
+      UnitAmount: 2
+    Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
+      Banneret 2\uAE30\uB97C WarLord\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: e96dfcd689ee914488cd57570c44f706, type: 3}
+    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    RankImage: {fileID: 21300000, guid: c9b17ed740964774284531670cc9f4a2, type: 3}
     BackgroundImage: {fileID: 0}
     Golden: 0
     MaxNum: 16
