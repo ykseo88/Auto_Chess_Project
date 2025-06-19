@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
                 {
                     for (int k = 0; k < card.currentCardData.Units[j].UnitAmount; k++)
                     {
+                        Debug.Log(card.currentCardData.Units[j].UnitName);
                         GameObject temp = Instantiate(card.currentCardData.Units[j].Unit, PlayerSpawnPoint.position, Quaternion.identity);
                         temp.transform.TryGetComponent(out UnitData unitData);
                         unitData.Team = playerTeam;

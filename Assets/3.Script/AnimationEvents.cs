@@ -8,6 +8,8 @@ public class AnimationEvents : MonoBehaviour
     private Transform Unit;
     private UnitController unitController;
     private UnitData unitData;
+    public GameObject projectilePrefab;
+    public float projectileSpeed;
 
     private void Start()
     {
@@ -20,5 +22,10 @@ public class AnimationEvents : MonoBehaviour
     {
         unitController.closeTarget.TryGetComponent(out UnitData targetUnitData);
         targetUnitData.HP -= unitData.Damage;
+    }
+
+    private void GiveRangeDamage()
+    {
+        
     }
 }

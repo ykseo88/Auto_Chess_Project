@@ -107,6 +107,7 @@ public class TripleSystem : MonoBehaviour
                 goldenCardObj.transform.TryGetComponent(out Card goldenCard);
                 goldenCard.InsertCard(tripleCards[0].currentCardData);
                 goldenCard.parentList = field.fieldCards;
+                goldenCard.parentList.Add(goldenCardObj);
                 goldenCard.currentCardData.Golden = true;
                 goldenCard.currentCardData.Units.Clear();
                 goldenCard.currentCardData.Units.AddRange(goldenCardUnits);
@@ -115,7 +116,6 @@ public class TripleSystem : MonoBehaviour
                 for (int i = 0; i < tripleCards.Count; i++)
                 {
                     field.fieldCards.Remove(tripleCards[i].gameObject);
-                    tripleCards[i].inventorys.currentNum++;
                     Destroy(tripleCards[i].gameObject);
                 }
                 

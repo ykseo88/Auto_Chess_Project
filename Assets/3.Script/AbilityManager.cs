@@ -43,21 +43,36 @@ public class AbilityManager : MonoBehaviour
         // 3골드를 사용할 때마다 카드에 SwordMan 2기 추가
         int plusUnitNum = 2;
         int checkGold = 3;
-        
-        if(field.consumedGold % checkGold == 0 && field.consumedGold != 0)
+        cardObj.transform.TryGetComponent(out Card card);
+
+        if (card.intAbilityValue2 < 0)
         {
-            cardObj.transform.TryGetComponent(out Card card);
+            card.intAbilityValue2 = field.consumedGold;
+            card.intAbilityValue1 = 0;
+        }
+        
+        card.intAbilityValue1 = field.consumedGold - card.intAbilityValue2;
+        
+        if(card.intAbilityValue1 >= checkGold)
+        {
             Debug.Log("늘어남!");
-            field.consumedGold  = 0;
-            for (int i = 0; i < card.currentCardData.Units.Count; i++)
+
+            for (int j = 0; j < Mathf.FloorToInt(card.intAbilityValue1 / checkGold); j++)
             {
-                if (card.currentCardData.Units[i].UnitName == "SwordMan")
+                for (int i = 0; i < card.currentCardData.Units.Count; i++)
                 {
-                    card.currentCardData.Units[i].UnitAmount += plusUnitNum;
-                    break;
+                    if (card.currentCardData.Units[i].UnitName == "SwordMan")
+                    {
+                        card.currentCardData.Units[i].UnitAmount += plusUnitNum;
+                        break;
+                    }
                 }
             }
 
+            int tempLeast = card.intAbilityValue1 % checkGold;
+            int tempInt = card.intAbilityValue1 - tempLeast;
+            card.intAbilityValue2 += tempInt;
+            card.intAbilityValue1 = tempLeast;
             card.UpdateCardInfo();
         }
     }

@@ -676,7 +676,7 @@ MonoBehaviour:
     TypeImage: {fileID: 0}
     RankImage: {fileID: 0}
     BackgroundImage: {fileID: 0}
-    Triple: 0
+    Golden: 0
     MaxNum: 1
   parentList: []
   returnParent: {fileID: 0}
@@ -686,10 +686,16 @@ MonoBehaviour:
   CardImage: {fileID: 370304869650878693}
   AmountImage: {fileID: 1128520654490319866}
   Amount: {fileID: 923987567569839460}
+  AllAmount: 0
   RankImage: {fileID: 1863936169713469578}
   TypeImage: {fileID: 3000075269150525504}
   SellPrice: 1
   BuyPrice: 3
+  intAbilityValue1: -1
+  intAbilityValue2: -1
+  floatAbilityValue: 0
+  isChoiceCard: 0
+  choicePanel: {fileID: 0}
 --- !u!225 &-6920399016703954981
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -37,6 +37,10 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     private CanvasGroup canvasGroup;
     private Canvas canvas;
 
+    public int intAbilityValue1;
+    public int intAbilityValue2;
+    public float floatAbilityValue = 0f;
+
     public bool isChoiceCard = false;
     public GameObject choicePanel;
     
