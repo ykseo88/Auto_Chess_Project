@@ -1203,6 +1203,13 @@ ModelImporter:
     102390: Chr_Head_No_Elements_Male_11
     102392: Chr_Head_No_Elements_Male_12
     102394: Chr_Head_No_Elements_Male_13
+    102396: Chr_Eyebrow_Female_01
+    102398: Chr_Eyebrow_Female_02
+    102400: Chr_Eyebrow_Female_03
+    102402: Chr_Eyebrow_Female_04
+    102404: Chr_Eyebrow_Female_05
+    102406: Chr_Eyebrow_Female_06
+    102408: Chr_Eyebrow_Female_07
     400000: _polySurface883_aaa
     400002: All_13_HeadCoverings
     400004: All_14_Hair
@@ -2401,6 +2408,13 @@ ModelImporter:
     402390: Chr_Head_No_Elements_Male_11
     402392: Chr_Head_No_Elements_Male_12
     402394: Chr_Head_No_Elements_Male_13
+    402396: Chr_Eyebrow_Female_01
+    402398: Chr_Eyebrow_Female_02
+    402400: Chr_Eyebrow_Female_03
+    402402: Chr_Eyebrow_Female_04
+    402404: Chr_Eyebrow_Female_05
+    402406: Chr_Eyebrow_Female_06
+    402408: Chr_Eyebrow_Female_07
     2300000: _polySurface883_aaa
     2300002: Cape2
     2300004: CapeClean
@@ -5285,6 +5299,13 @@ ModelImporter:
     4302110: Chr_Head_No_Elements_Female_11
     4302112: Chr_Head_No_Elements_Female_12
     4302114: Chr_Head_No_Elements_Female_13
+    4302116: Chr_Eyebrow_Female_01
+    4302118: Chr_Eyebrow_Female_02
+    4302120: Chr_Eyebrow_Female_03
+    4302122: Chr_Eyebrow_Female_04
+    4302124: Chr_Eyebrow_Female_05
+    4302126: Chr_Eyebrow_Female_06
+    4302128: Chr_Eyebrow_Female_07
     9500000: //RootNode
     13700000: Chr_ArmLowerRight_Male_00
     13700002: Chr_ArmLowerRight_Male_01
@@ -6150,6 +6171,13 @@ ModelImporter:
     13701722: Chr_Head_No_Elements_Male_11
     13701724: Chr_Head_No_Elements_Male_12
     13701726: Chr_Head_No_Elements_Male_13
+    13701728: Chr_Eyebrow_Female_01
+    13701730: Chr_Eyebrow_Female_02
+    13701732: Chr_Eyebrow_Female_03
+    13701734: Chr_Eyebrow_Female_04
+    13701736: Chr_Eyebrow_Female_05
+    13701738: Chr_Eyebrow_Female_06
+    13701740: Chr_Eyebrow_Female_07
   materials:
     importMaterials: 0
     materialName: 0

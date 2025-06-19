@@ -41,7 +41,7 @@ MonoBehaviour:
       UnitAmount: 3
     Description: "\uD544\uB4DC\uC5D0 \uC9C4\uC785\uD560 \uB54C 1\uACE8\uB4DC\uB97C
       \uC5BB\uC2B5\uB2C8\uB2E4."
-    Image: {fileID: 21300000, guid: eca5659140fd34a419906a73e10978ef, type: 3}
+    Image: {fileID: 21300000, guid: 7530e7f1ab21f864482cc9feff77e970, type: 3}
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 6df3545ab9190c244af53bd54903b162, type: 3}
     BackgroundImage: {fileID: 0}
@@ -69,13 +69,12 @@ MonoBehaviour:
     Rank: 2
     Type: 0
     Units:
-    - Unit: {fileID: 8320227787592280106, guid: b7d7c5aaea64e784bb66de7736d916c3,
-        type: 3}
-      UnitName: SpearMan
+    - Unit: {fileID: 730948036133473203, guid: 76f0bca3f36f3ae4fb3ae0f601dd064b, type: 3}
+      UnitName: BowMan
       UnitAmount: 2
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       SwordMan 2\uAE30\uB97C BowMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
-    Image: {fileID: 21300000, guid: eca5659140fd34a419906a73e10978ef, type: 3}
+    Image: {fileID: 21300000, guid: 82c96ad7a3a48f1428e5e53f48368fc9, type: 3}
     TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}

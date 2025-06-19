@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7001d98c627a94249baba9acfb3beb8c
-timeCreated: 1555552424
+guid: 166bf23b27ab8f0409f3369fe230f34f
+timeCreated: 1556686771
 licenseType: Store
 ModelImporter:
   serializedVersion: 19
@@ -46,7 +46,7 @@ ModelImporter:
     useFileUnits: 1
     optimizeMeshForGPU: 0
     keepQuads: 0
-    weldVertices: 1
+    weldVertices: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
