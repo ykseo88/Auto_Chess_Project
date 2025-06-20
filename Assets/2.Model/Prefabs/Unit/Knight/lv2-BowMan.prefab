@@ -3135,6 +3135,7 @@ MonoBehaviour:
   projectileRigidbody: {fileID: 0}
   targetTransform: {fileID: 0}
   launchAngleDegrees: 30
+  initialForceMagnitude: 15
 --- !u!1 &5578523240196663606
 GameObject:
   m_ObjectHideFlags: 0

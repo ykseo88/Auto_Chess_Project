@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public bool isPlayerWin = false;
 
     public Field field;
+    public RoundManager roundManager;
     public GameObject readyUI;
     
     public Transform PlayerSpawnPoint;
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
         if (isCombatTurn)
         {
             PlayerUnitSpawn();
+            EnemyUnitSpawn();
             StartCoroutine(StartCountDown());
             isCombatTurn = false;
         }
@@ -86,6 +88,8 @@ public class GameManager : MonoBehaviour
         readyUI.SetActive(true);
         isReadyTurn = true;
         isFightStart = false;
+        roundManager.currentRoundIndex++;
+        roundManager.currentRoundInfo = roundManager.roundInfos[roundManager.currentRoundIndex-1];
         endCountDown = BackupCount;
     }
 
@@ -121,14 +125,24 @@ public class GameManager : MonoBehaviour
                         temp.transform.TryGetComponent(out UnitData unitData);
                         unitData.Team = playerTeam;
                         playerTeam.PlayerUnitList.Add(temp);
-                        
-                        temp = Instantiate(card.currentCardData.Units[j].Unit, EnemySpawnPoint.position, Quaternion.identity);
-                        temp.transform.TryGetComponent(out unitData);
-                        unitData.Team = enemyTeam;
-                        enemyTeam.PlayerUnitList.Add(temp);
-                        Debug.Log("Spawned");
+                        Debug.Log("Player Unit Spawned");
                     }
                 }
+            }
+        }
+    }
+
+    private void EnemyUnitSpawn()
+    {
+        for (int i = 0; i < roundManager.currentRoundInfo.EnemyUnits.Count; i++)
+        {
+            for (int j = 0; j < roundManager.currentRoundInfo.EnemyUnits[i].UnitAmount; j++)
+            {
+                GameObject temp = Instantiate(roundManager.currentRoundInfo.EnemyUnits[i].Unit,EnemySpawnPoint.position, Quaternion.identity);
+                temp.transform.TryGetComponent(out UnitData unitData);
+                unitData.Team = enemyTeam;
+                enemyTeam.PlayerUnitList.Add(temp);
+                Debug.Log("Enemy Unit Spawned");
             }
         }
     }

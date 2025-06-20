@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class RoundManager : MonoBehaviour
     public Hand hand;
     
     public RoundInfo currentRoundInfo;
+    public int currentRoundIndex = 1;
     
     public SAOCardDatabase cardDatabase;
     
@@ -21,6 +23,9 @@ public class RoundManager : MonoBehaviour
     }
     
     public RoundInfo[] roundInfos = new RoundInfo[15];
-    
-    
+
+    private void Start()
+    {
+        currentRoundInfo = roundInfos[currentRoundIndex-1];
+    }
 }

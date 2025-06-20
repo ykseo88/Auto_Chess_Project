@@ -38,6 +38,5 @@ public class Projectile : MonoBehaviour
             Vector3 velocity = rb.velocity;
             transform.rotation = Quaternion.LookRotation(velocity, Vector3.up);
         }
-        
     }
 }
