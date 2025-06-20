@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public Team enemyTeam;
 
     public int startCountDown = 3;
+    public int endCountDown = 3;
+    
     public bool isFightStart = false;
     public bool isCombatTurn = false;
     public bool isReadyTurn = false;
@@ -18,7 +20,8 @@ public class GameManager : MonoBehaviour
     public bool isEnemyWin = false;
     public bool isPlayerWin = false;
 
-    public Field playerField;
+    public Field field;
+    public GameObject readyUI;
     
     public Transform PlayerSpawnPoint;
     public Transform EnemySpawnPoint;
@@ -39,14 +42,21 @@ public class GameManager : MonoBehaviour
         if (isCombatTurn)
         {
             PlayerUnitSpawn();
-            StartCoroutine(CountDown());
+            StartCoroutine(StartCountDown());
             isCombatTurn = false;
+        }
+
+        if (isPlayerWin)
+        {
+            StartCoroutine(EndCountDown());
+            isPlayerWin = false;
         }
     }
 
-    private IEnumerator CountDown()
+    private IEnumerator StartCountDown()
     {
         WaitForSeconds wfs = new WaitForSeconds(1f);
+        int BackupCount = startCountDown;
 
         while (startCountDown >= 0)
         {
@@ -55,15 +65,51 @@ public class GameManager : MonoBehaviour
             startCountDown--;
         }
 
+        startCountDown = BackupCount;
         isFightStart = true;
+    }
+    
+    private IEnumerator EndCountDown()
+    {
+        WaitForSeconds wfs = new WaitForSeconds(1f);
+        int BackupCount = endCountDown;
+
+        while (endCountDown >= 0)
+        {
+            yield return wfs;
+            Debug.Log(endCountDown);
+            endCountDown--;
+        }
+
+        ClearMap();
+        field.maxGold++;
+        readyUI.SetActive(true);
+        isReadyTurn = true;
+        isFightStart = false;
+        endCountDown = BackupCount;
+    }
+
+    private void ClearMap()
+    {
+        playerTeam.PlayerUnitList.Clear();
+        enemyTeam.PlayerUnitList.Clear();
+        playerTeam.UnitAmount = 0;
+        enemyTeam.UnitAmount = 0;
+        playerTeam.EnemyUnitAmount = 0;
+        enemyTeam.EnemyUnitAmount = 0;
+        GameObject[] ClearList = GameObject.FindGameObjectsWithTag("Unit");
+        for(int i = 0; i < ClearList.Length; i++)
+        {
+            Destroy(ClearList[i]);
+        }
     }
 
     private void PlayerUnitSpawn()
     {
-        Debug.Log(playerField.fieldCards);
-        for (int i = 0; i < playerField.fieldCards.Count; i++)
+        Debug.Log(field.fieldCards);
+        for (int i = 0; i < field.fieldCards.Count; i++)
         {
-            playerField.fieldCards[i].transform.TryGetComponent(out Card card);
+            field.fieldCards[i].transform.TryGetComponent(out Card card);
             if (card.currentCardData != null)
             {
                 for (int j = 0; j < card.currentCardData.Units.Count; j++)

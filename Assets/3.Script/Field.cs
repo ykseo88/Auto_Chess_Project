@@ -6,15 +6,18 @@ using UnityEngine;
 public class Field : MonoBehaviour
 {
     public List<GameObject> fieldCards;
+    public int maxGold = 3;
     public int Gold = 10;
     public ReadyTurn readyTurn;
     public int consumedGold = 0;
     public int takeGold = 0;
     private int preGold = 0;
+    
 
     private void Start()
     {
         transform.root.TryGetComponent(out readyTurn);
+        UpdateGold();
     }
 
     public void UpdateGold()

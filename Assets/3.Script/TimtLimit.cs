@@ -26,6 +26,7 @@ public class TimtLimit : MonoBehaviour
         SecondToMinute();
         UpdateTimer();
         FlowTime();
+        TimeOver();
     }
 
     private void UpdateTimer()
@@ -46,5 +47,15 @@ public class TimtLimit : MonoBehaviour
     {
         minute = Mathf.FloorToInt(tempTimeLimitSecond / 60);
         second = Mathf.FloorToInt(tempTimeLimitSecond % 60);
+    }
+
+    private void TimeOver()
+    {
+        if(tempTimeLimitSecond < 0)
+        {
+            readyTurn.CombatStart();
+            tempTimeLimitSecond = inputTimeLimitSecond; // Reset timer
+            Debug.Log("Time Over! Turn Ended.");
+        }
     }
 }
