@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
         roundManager.currentRoundIndex++;
         roundManager.currentRoundInfo = roundManager.roundInfos[roundManager.currentRoundIndex-1];
         endCountDown = BackupCount;
+        OnCardTurnStart();
     }
 
     private void ClearMap()
@@ -143,9 +144,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnCardTurnEne()
+    public void OnCardTurnEne()
     {
-        
+        foreach (GameObject cardObj in field.fieldCards)
+        {
+            cardObj.transform.TryGetComponent(out Card card);
+            card.turnEnd = true;
+            card.turnStart = false;
+        }
+    }
+    
+    private void OnCardTurnStart()
+    {
+        foreach (GameObject cardObj in field.fieldCards)
+        {
+            cardObj.transform.TryGetComponent(out Card card);
+            card.turnStart = true;
+            card.turnEnd = false;
+        }
     }
 
     private void EnemyUnitSpawn()

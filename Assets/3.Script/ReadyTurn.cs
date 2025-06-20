@@ -18,14 +18,31 @@ public class ReadyTurn : MonoBehaviour
     public Choice choice;
     public TMP_Text Gold;
 
-    public void CombatStart()
+    private IEnumerator ChangeToCombat()
     {
+        float currentTime = 0f;
+        
+        while (currentTime < 2f)
+        {
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+        
+        
+        
         GameManager.Instance.isReadyTurn = false;
         GameManager.Instance.isCombatTurn = true;
         GameManager.Instance.isFightStart = false;
         shop.UpgradePrice[shop.shopRank - 1]--;
         shop.UpdateUpgradeButton();
         gameObject.SetActive(false);
+    }
+    
+    public void CombatStart()
+    {
+        GameManager.Instance.OnCardTurnEne();
+        field.UpadateFieldCardInfo();
+        StartCoroutine(ChangeToCombat());
     }
 
     private void OnEnable()

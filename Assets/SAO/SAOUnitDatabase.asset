@@ -17,7 +17,7 @@ MonoBehaviour:
     Unit: {fileID: 1015277382743670091, guid: c0d76cb9aefef4e4a996242b470409b2, type: 3}
   - Name: BowMan
     Unit: {fileID: 730948036133473203, guid: 76f0bca3f36f3ae4fb3ae0f601dd064b, type: 3}
-  - Name: SpearSoldier
+  - Name: SpearMan
     Unit: {fileID: 1015277382743670091, guid: db6d18f9917cd0640ae58990852da6d4, type: 3}
   - Name: Bachelor
     Unit: {fileID: 5214124157295079514, guid: 44c2a127499059c4fb46513f0f51fad5, type: 3}

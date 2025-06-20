@@ -49,6 +49,15 @@ public class Field : MonoBehaviour
         DebugLogTest();
     }
 
+    public void UpadateFieldCardInfo()
+    {
+        foreach (GameObject card in fieldCards)
+        {
+            card.transform.TryGetComponent(out Card cardInfo);
+            cardInfo.UpdateCardInfo();
+        }
+    }
+
     private void DebugLogTest()
     {
         if (Input.GetKeyDown(KeyCode.G))
