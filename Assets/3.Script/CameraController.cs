@@ -1,45 +1,106 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float MoveSpeed = 5f;
+    [Header("Movement Settings")]
+    [Tooltip("카메라 이동 속도 (미터/초)")]
+    public float movementSpeed = 5.0f; 
+    [Tooltip("Shift 키를 눌렀을 때의 이동 속도 배율")]
+    public float sprintMultiplier = 3.0f;
+
+    [Header("Rotation Settings")]
+    [Tooltip("카메라 회전 속도")]
+    public float rotationSpeed = 2.0f; 
+
+    private float currentMovementSpeed;
+    private float yaw = 0.0f; // Y축 회전 (좌우)
+    private float pitch = 0.0f; // X축 회전 (상하)
     
-    [Range(10, 50)]
-    public float Height = 40f;
-    // Start is called before the first frame update
+    private bool cursorLocked = true; // 커서 잠금 상태
+
     void Start()
     {
-        
+        // 현재 카메라의 회전 값으로 초기화 (시작 시 튀는 현상 방지)
+        Vector3 rot = transform.eulerAngles;
+        yaw = rot.y;
+        pitch = rot.x;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        UpdateInput();
+        HandleMovement();
+        HandleRotation();
+
+        // Esc 키를 누르면 커서 잠금 해제 및 보이기
+        if (GameManager.Instance.isReadyTurn)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            cursorLocked = false;
+        }
+        else if (GameManager.Instance.isCombatTurn)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            cursorLocked = true;
+        }
     }
 
-    private void UpdateInput()
+    void HandleMovement()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveZ = Input.GetAxisRaw("Vertical");
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Shift 키를 누르면 빠르게 이동
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
-            if (Height <= 10f)
-            {
-                Height = 50f;
-            }
-            else
-            {
-                Height -= 10f;
-            }
+            currentMovementSpeed = movementSpeed * sprintMultiplier;
         }
+        else
+        {
+            currentMovementSpeed = movementSpeed;
+        }
+
+        // 키 입력에 따른 이동 벡터 계산
+        float horizontalInput = Input.GetAxisRaw("Horizontal"); // A/D 또는 좌/우 화살표
+        float verticalInput = Input.GetAxisRaw("Vertical");   // W/S 또는 상/하 화살표
         
-        Vector3 moveDirection = new Vector3(moveX, 0, moveZ);
-        
-        transform.position += moveDirection * (Time.deltaTime * MoveSpeed);
-        transform.position = new Vector3(transform.position.x, Height, transform.position.z);
-        
+        Vector3 moveDirection = Vector3.zero;
+
+        // 전후좌우 이동
+        moveDirection += transform.forward * verticalInput;
+        moveDirection += transform.right * horizontalInput;
+
+        // 위아래 이동 (Q/E 또는 Space/Ctrl)
+        if (Input.GetKey(KeyCode.Q)) // 아래로 이동
+        {
+            moveDirection += Vector3.down;
+        }
+        if (Input.GetKey(KeyCode.E)) // 위로 이동
+        {
+            moveDirection += Vector3.up;
+        }
+        // 또는 Space/Ctrl 조합:
+        // if (Input.GetKey(KeyCode.Space)) // 위로 이동
+        // {
+        //     moveDirection += Vector3.up;
+        // }
+        // if (Input.GetKey(KeyCode.LeftControl)) // 아래로 이동
+        // {
+        //     moveDirection += Vector3.down;
+        // }
+
+        // 이동 벡터 정규화 (대각선 이동 시 속도 증가 방지) 및 속도 적용
+        transform.position += moveDirection.normalized * (currentMovementSpeed * Time.deltaTime);
+    }
+
+    void HandleRotation()
+    {
+        // 마우스 입력에 따른 회전 값 계산
+        yaw += Input.GetAxis("Mouse X") * rotationSpeed;
+        pitch -= Input.GetAxis("Mouse Y") * rotationSpeed; // Y축 마우스 이동은 상하 회전 (Pitch)
+
+        // 상하 회전(Pitch) 값 제한 (너무 많이 위/아래로 보지 못하게)
+        pitch = Mathf.Clamp(pitch, -90f, 90f);
+
+        // 계산된 회전 값을 카메라에 적용
+        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
     }
 }

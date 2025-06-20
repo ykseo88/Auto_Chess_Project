@@ -40,9 +40,13 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public int intAbilityValue1;
     public int intAbilityValue2;
     public float floatAbilityValue = 0f;
+    public bool boolAbilityValue = false;
 
     public bool isChoiceCard = false;
     public GameObject choicePanel;
+    
+    public bool turnEnd = false;
+    public bool turnStart = false;
     
     void Start()
     {
@@ -100,10 +104,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         currentCardData.Units.Clear();
         for (int i = 0; i < insertData.Units.Count; i++)
         {
-            currentCardData.Units.Add(new SAOCardDatabase.UnitElement());
-            currentCardData.Units[i].UnitAmount = insertData.Units[i].UnitAmount;
-            currentCardData.Units[i].UnitName = insertData.Units[i].UnitName;
-            currentCardData.Units[i].Unit = insertData.Units[i].Unit;
+            currentCardData.Units.Add(new SAOCardDatabase.UnitElement(insertData.Units[i].Unit, insertData.Units[i].UnitName, insertData.Units[i].UnitAmount));
         }
         currentCardData.Description = insertData.Description;
         currentCardData.Image = insertData.Image;

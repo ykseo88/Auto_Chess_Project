@@ -20,6 +20,13 @@ public class SAOCardDatabase : ScriptableObject
         public GameObject Unit;
         public string UnitName;
         public int UnitAmount;
+        
+        public UnitElement(GameObject unit, string unitName, int unitAmount)
+        {
+            Unit = unit;
+            UnitName = unitName;
+            UnitAmount = unitAmount;
+        }
     } // 카드 프리팹
     
     

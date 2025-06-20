@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
     public Transform PlayerSpawnPoint;
     public Transform EnemySpawnPoint;
 
+    public GameObject Camera;
+    public Transform cameraStartTransform;
+    
+    public int maxPlusGold = 6;
+
     private void Awake()
     {
         Instance = this;
@@ -42,6 +47,8 @@ public class GameManager : MonoBehaviour
     {
         if (isCombatTurn)
         {
+            Camera.transform.position = cameraStartTransform.position;
+            Camera.transform.rotation = cameraStartTransform.rotation;
             PlayerUnitSpawn();
             EnemyUnitSpawn();
             StartCoroutine(StartCountDown());
@@ -84,7 +91,11 @@ public class GameManager : MonoBehaviour
         }
 
         ClearMap();
-        field.maxGold++;
+        if (maxPlusGold > 0)
+        {
+            field.maxGold++;
+            maxPlusGold--;
+        }
         readyUI.SetActive(true);
         isReadyTurn = true;
         isFightStart = false;
@@ -130,6 +141,11 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnCardTurnEne()
+    {
+        
     }
 
     private void EnemyUnitSpawn()

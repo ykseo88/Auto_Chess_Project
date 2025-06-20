@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5e0b044f7fdf44eb3352297b5eea0e, type: 3}
+  m_Name: SAOUnitDatabase
+  m_EditorClassIdentifier: 
+  UnitPrefabs:
+  - Name: SwordMan
+    Unit: {fileID: 1015277382743670091, guid: c0d76cb9aefef4e4a996242b470409b2, type: 3}
+  - Name: BowMan
+    Unit: {fileID: 730948036133473203, guid: 76f0bca3f36f3ae4fb3ae0f601dd064b, type: 3}
+  - Name: SpearSoldier
+    Unit: {fileID: 1015277382743670091, guid: db6d18f9917cd0640ae58990852da6d4, type: 3}
+  - Name: Bachelor
+    Unit: {fileID: 5214124157295079514, guid: 44c2a127499059c4fb46513f0f51fad5, type: 3}
+  - Name: Banneret
+    Unit: {fileID: 3637295338793833923, guid: 1e729a0aa78c4b04ba7cdc4dea08d7ad, type: 3}
+  - Name: WarLord
+    Unit: {fileID: 7957023106250218011, guid: 8e7dc812a07121247972f7b1be596723, type: 3}
+  - Name: Knight
+    Unit: {fileID: 4365756304651908956, guid: 653416dbb3ab44146b8651bc634c4930, type: 3}

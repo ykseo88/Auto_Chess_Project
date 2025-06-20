@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AbilityManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class AbilityManager : MonoBehaviour
     
     public Dictionary<string, Action<GameObject>> abilityDictionary = new Dictionary<string, Action<GameObject>>();
     public SAOCardDatabase cardDatabase;
+    public SAOUnitPrefabDatabase unitPrefabDatabase;
     public Field field;
     public Hand hand;
     public Shop shop;
@@ -24,6 +26,52 @@ public class AbilityManager : MonoBehaviour
     private void Start()
     {
         InsertAbilityDictionary("SwordMan", SwordManAbility);
+        InsertAbilityDictionary("FreshMan", FreshManAbility);
+        InsertAbilityDictionary("SpearMan", SpearManAbility);
+        InsertAbilityDictionary("BowMan", BowManAbility);
+        InsertAbilityDictionary("Bachelor", BachelorAbility);
+        InsertAbilityDictionary("Banneret", BanneretAbility);
+        InsertAbilityDictionary("WarLord", WarLordAbility);
+        InsertAbilityDictionary("Knight", KnightAbility);
+    }
+
+    private bool ContainNameList(List<SAOCardDatabase.UnitElement> list, string name)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i].UnitName == name)
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    private SAOCardDatabase.UnitElement GetUnitElementNameList(List<SAOCardDatabase.UnitElement> list, string name)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i].UnitName == name)
+            {
+                return list[i];
+            }
+        }
+        
+        return null;
+    }
+
+    private bool ContainNameArray(SAOCardDatabase.UnitElement[] array, string name)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i].UnitName == name)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void InsertAbilityDictionary(string CardName, Action<GameObject> abilityAction)
@@ -41,10 +89,13 @@ public class AbilityManager : MonoBehaviour
     public void SwordManAbility(GameObject cardObj)
     {
         // 3골드를 사용할 때마다 카드에 SwordMan 2기 추가
+        
+        cardObj.transform.TryGetComponent(out Card card);
+        
         int plusUnitNum = 2;
         int checkGold = 3;
-        cardObj.transform.TryGetComponent(out Card card);
-
+        if (card.currentCardData.Golden) plusUnitNum *= 2;
+        
         if (card.intAbilityValue2 < 0)
         {
             card.intAbilityValue2 = field.consumedGold;
@@ -75,5 +126,105 @@ public class AbilityManager : MonoBehaviour
             card.intAbilityValue1 = tempLeast;
             card.UpdateCardInfo();
         }
+    }
+
+    public void FreshManAbility(GameObject cardObj)
+    {
+        // 필드에 진입 시, 맨 왼쪽 SwordMan 카드에 SwordMan 2기 추가
+        cardObj.transform.TryGetComponent(out Card cardObjCard);
+        
+        int plusUnitNum = 2;
+        if (cardObjCard.currentCardData.Golden) plusUnitNum *= 2;
+
+        if (!cardObjCard.boolAbilityValue)
+        {
+            cardObjCard.boolAbilityValue = true;
+            for (int i = 0; i < field.fieldCards.Count; i++)
+            {
+                field.fieldCards[i].transform.TryGetComponent(out Card card);
+                if (card.currentCardData.Name == "SwordMan")
+                {
+                    //card.currentCardData.Units.FirstOrDefault(c => c.UnitName == "SwordMan").UnitAmount += 2;
+                    //card.UpdateCardInfo();
+
+                    for (int j = 0; j < card.currentCardData.Units.Count; j++)
+                    {
+                        if (card.currentCardData.Units[j].UnitName == "SwordMan")
+                        {
+                            card.currentCardData.Units[j].UnitAmount += plusUnitNum;
+                            card.UpdateCardInfo();
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+        
+        
+    }
+    public void SpearManAbility(GameObject cardObj)
+    {
+        //턴이 종료될 때마다 SwordMan 2기를 SpearMan으로 변환
+        cardObj.transform.TryGetComponent(out Card cardObjCard);
+        
+        
+        
+        string unitName = "SpearMan";
+        string targetUnitName = "SwordMan";
+        int changeUnitNum = 2;
+        if(cardObjCard.currentCardData.Golden) changeUnitNum *= 2;
+        
+        for (int i = 0; i < field.fieldCards.Count; i++)//필드에 놓인 카드들 중에서
+        {
+            field.fieldCards[i].transform.TryGetComponent(out Card card);
+            if (card.currentCardData.Name == targetUnitName)//SwordMan카드가 있으면
+            {
+                for (int j = 0; j < card.currentCardData.Units.Count; j++)//SwordMan카드가 가진 유닛 중에서
+                {
+                    if (card.currentCardData.Units[j].UnitName == targetUnitName)//SwordMan 유닛이 있고
+                    {
+                        int tempNum = changeUnitNum;
+                        if (card.currentCardData.Units[j].UnitAmount < changeUnitNum)//유닛 수가 변환하는 숫자보다 적으면
+                        {
+                            tempNum = card.currentCardData.Units[j].UnitAmount;//남아있는 유닛이라도 변화시킨다.
+                        }
+                        
+                        card.currentCardData.Units[j].UnitAmount -= tempNum;//변환하는 수만큼 유닛 수를 줄이고
+                        if (ContainNameList(card.currentCardData.Units, unitName))//이미 SpearMan이 그 카드에 존재하면
+                        {
+                            GetUnitElementNameList(card.currentCardData.Units,unitName).UnitAmount += tempNum;//SpearMan에 변환하는 수를 추가한다.
+                        }
+                        else//만약 SpearMan이 그 카드에 없다면
+                        {
+                            card.currentCardData.Units.Add(new SAOCardDatabase.UnitElement(unitPrefabDatabase.GetUnitPrefabByName(unitName), unitName, tempNum));//SpearMan을 새로 추가한다.
+                        }
+                        
+                        card.UpdateCardInfo();
+                        return;
+                    }
+                }
+            }
+        }
+    }
+    public void BowManAbility(GameObject cardObj)
+    {
+        
+    }
+    public void BachelorAbility(GameObject cardObj)
+    {
+        
+    }
+    public void BanneretAbility(GameObject cardObj)
+    {
+        
+    }
+    public void WarLordAbility(GameObject cardObj)
+    {
+        
+    }
+    public void KnightAbility(GameObject cardObj)
+    {
+        
     }
 }

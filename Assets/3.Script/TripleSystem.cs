@@ -86,20 +86,14 @@ public class TripleSystem : MonoBehaviour
                         }
                         else
                         {
-                            goldenCardUnitsDic.Add(tripleCards[i].currentCardData.Units[j].UnitName, new SAOCardDatabase.UnitElement());
-                            goldenCardUnitsDic[tripleCards[i].currentCardData.Units[j].UnitName].UnitName = tripleCards[i].currentCardData.Units[j].UnitName;
-                            goldenCardUnitsDic[tripleCards[i].currentCardData.Units[j].UnitName].UnitAmount = tripleCards[i].currentCardData.Units[j].UnitAmount;
-                            goldenCardUnitsDic[tripleCards[i].currentCardData.Units[j].UnitName].Unit = tripleCards[i].currentCardData.Units[j].Unit;
+                            goldenCardUnitsDic.Add(tripleCards[i].currentCardData.Units[j].UnitName, new SAOCardDatabase.UnitElement(tripleCards[i].currentCardData.Units[j].Unit, tripleCards[i].currentCardData.Units[j].UnitName, tripleCards[i].currentCardData.Units[j].UnitAmount));
                         }
                     }
                 }
 
                 foreach (var dics in goldenCardUnitsDic)
                 {
-                    SAOCardDatabase.UnitElement tempUnitElement = new SAOCardDatabase.UnitElement();
-                    tempUnitElement.UnitName = dics.Key;
-                    tempUnitElement.UnitAmount = dics.Value.UnitAmount;
-                    tempUnitElement.Unit = dics.Value.Unit;
+                    SAOCardDatabase.UnitElement tempUnitElement = new SAOCardDatabase.UnitElement(dics.Value.Unit, dics.Key, dics.Value.UnitAmount);
                     goldenCardUnits.Add(tempUnitElement);
                 }
                 
@@ -119,7 +113,7 @@ public class TripleSystem : MonoBehaviour
                     Destroy(tripleCards[i].gameObject);
                 }
                 
-                choice.OnChoice(shop.shopRank + 1);
+                choice.OnChoice(shop.shopRank == shop.maxRank ? shop.shopRank : shop.shopRank + 1);
                 
             }
         }
