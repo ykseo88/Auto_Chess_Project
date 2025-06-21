@@ -10,6 +10,7 @@ public class TripleSystem : MonoBehaviour
     public Shop shop;
     public Choice choice;
     
+    public GameObject cardPrefab;
     public int tripleCount = 3;
     
     public SAOCardDatabase cardDatabase;
@@ -97,7 +98,7 @@ public class TripleSystem : MonoBehaviour
                     goldenCardUnits.Add(tempUnitElement);
                 }
                 
-                GameObject goldenCardObj = Instantiate(shop.cardPrefab, field.transform);
+                GameObject goldenCardObj = Instantiate(cardPrefab, field.transform);
                 goldenCardObj.transform.TryGetComponent(out Card goldenCard);
                 goldenCard.InsertCard(tripleCards[0].currentCardData);
                 goldenCard.parentList = field.fieldCards;

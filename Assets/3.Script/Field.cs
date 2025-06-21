@@ -22,7 +22,7 @@ public class Field : MonoBehaviour
 
     public void UpdateGold()
     {
-        readyTurn.Gold.text = $"{Gold.ToString()} Gold";
+        readyTurn.Gold.text = Gold.ToString();
     }
 
     private void CheckGold()

@@ -47,6 +47,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     
     public bool turnEnd = false;
     public bool turnStart = false;
+
+    [SerializeField] private float customScale = 0.7f; 
     
     void Start()
     {
@@ -86,6 +88,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         }
 
         OnAbility();
+        //SetScale();
     }
 
     public void InsertCard(SAOCardDatabase.CardData insertData)
@@ -306,7 +309,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             {
                 Debug.Log("카드 선택됨: " + currentCardData.Name);
                 GameObject tempCard = Instantiate(gameObject, hand.transform);
-                tempCard.transform.localScale = new Vector3(1, 1, 1);
+                tempCard.transform.localScale = new Vector3(0.7f, 0.7f, 1);
                 tempCard.transform.TryGetComponent(out Card tempCardComponent);
                 tempCardComponent.InsertCard(currentCardData);
                 tempCardComponent.isChoiceCard = false;
@@ -318,6 +321,14 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 
             }
             choicePanel.SetActive(false);
+        }
+    }
+
+    private void SetScale()
+    {
+        if (transform.localScale.x != customScale)
+        {
+            transform.localScale = new Vector3(customScale, customScale, 1);
         }
     }
     
