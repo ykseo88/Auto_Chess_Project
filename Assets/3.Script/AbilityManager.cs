@@ -88,12 +88,12 @@ public class AbilityManager : MonoBehaviour
     
     public void SwordManAbility(GameObject cardObj)
     {
-        // 3골드를 사용할 때마다 카드에 SwordMan 2기 추가
+        // 5골드를 사용할 때마다 카드에 SwordMan 2기 추가
         
         cardObj.transform.TryGetComponent(out Card card);
         
         int plusUnitNum = 2;
-        int checkGold = 3;
+        int checkGold = 5;
         if (card.currentCardData.Golden) plusUnitNum *= 2;
         
         if (card.intAbilityValue2 < 0)

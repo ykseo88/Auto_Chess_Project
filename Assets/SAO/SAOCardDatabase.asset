@@ -22,10 +22,10 @@ MonoBehaviour:
         type: 3}
       UnitName: SwordMan
       UnitAmount: 4
-    Description: "3\uACE8\uB4DC\uB97C \uC18C\uBAA8\uD560 \uB54C\uB9C8\uB2E4 SwordMan\uC744
+    Description: "5\uACE8\uB4DC\uB97C \uC18C\uBAA8\uD560 \uB54C\uB9C8\uB2E4 SwordMan\uC744
       2\uAE30 \uCD94\uAC00"
     Image: {fileID: 21300000, guid: 3722d9689d1929142a7d4f00963fb368, type: 3}
-    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    TypeImage: {fileID: 21300000, guid: df2bd131b188c7740bacffedb069a237, type: 3}
     RankImage: {fileID: 21300000, guid: 6df3545ab9190c244af53bd54903b162, type: 3}
     BackgroundImage: {fileID: 0}
     Golden: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
     Description: "\uD544\uB4DC\uC5D0 \uC9C4\uC785\uD560 \uB54C SwordMan\uC5D0 SwordMan\uC744
       2\uAE30 \uCD94\uAC00\uD569\uB2C8\uB2E4."
     Image: {fileID: 21300000, guid: 7530e7f1ab21f864482cc9feff77e970, type: 3}
-    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    TypeImage: {fileID: 21300000, guid: df2bd131b188c7740bacffedb069a237, type: 3}
     RankImage: {fileID: 21300000, guid: 6df3545ab9190c244af53bd54903b162, type: 3}
     BackgroundImage: {fileID: 0}
     Golden: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       SwordMan 2\uAE30\uB97C SpearMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
     Image: {fileID: 21300000, guid: c1932fe4660a91e43adebc9c6d582e26, type: 3}
-    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    TypeImage: {fileID: 21300000, guid: df2bd131b188c7740bacffedb069a237, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}
     Golden: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       SwordMan 2\uAE30\uB97C BowMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
     Image: {fileID: 21300000, guid: 82c96ad7a3a48f1428e5e53f48368fc9, type: 3}
-    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    TypeImage: {fileID: 21300000, guid: df2bd131b188c7740bacffedb069a237, type: 3}
     RankImage: {fileID: 21300000, guid: 54bec4de0b7c84e45ad5fc4f0b1af4e5, type: 3}
     BackgroundImage: {fileID: 0}
     Golden: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       SwordMan 2\uAE30\uB97C Bachelor\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
     Image: {fileID: 21300000, guid: 52bbb11ce75de7c4bb3fd2df2483d9e5, type: 3}
-    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    TypeImage: {fileID: 21300000, guid: df2bd131b188c7740bacffedb069a237, type: 3}
     RankImage: {fileID: 21300000, guid: ef55e7222c244704d845e9a4fee4d9d0, type: 3}
     BackgroundImage: {fileID: 0}
     Golden: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       Bachelor 2\uAE30\uB97C Banneret\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
     Image: {fileID: 21300000, guid: e96dfcd689ee914488cd57570c44f706, type: 3}
-    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    TypeImage: {fileID: 21300000, guid: df2bd131b188c7740bacffedb069a237, type: 3}
     RankImage: {fileID: 21300000, guid: 41cd76b1c69568f40a1989d4796eed23, type: 3}
     BackgroundImage: {fileID: 0}
     Golden: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       Banneret 2\uAE30\uB97C WarLord\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
     Image: {fileID: 21300000, guid: 1dab4e8778300b049b081193bc94100a, type: 3}
-    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    TypeImage: {fileID: 21300000, guid: df2bd131b188c7740bacffedb069a237, type: 3}
     RankImage: {fileID: 21300000, guid: c9b17ed740964774284531670cc9f4a2, type: 3}
     BackgroundImage: {fileID: 0}
     Golden: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       WarLord 2\uAE30\uB97C Knight\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
     Image: {fileID: 21300000, guid: 5804a31525cb119488f1f29b82a36279, type: 3}
-    TypeImage: {fileID: 21300000, guid: 5f9d6aefc51e67e48a0743a50322af30, type: 3}
+    TypeImage: {fileID: 21300000, guid: df2bd131b188c7740bacffedb069a237, type: 3}
     RankImage: {fileID: 21300000, guid: 8bbada7d6cb660c409f30de875e29a95, type: 3}
     BackgroundImage: {fileID: 0}
     Golden: 0
