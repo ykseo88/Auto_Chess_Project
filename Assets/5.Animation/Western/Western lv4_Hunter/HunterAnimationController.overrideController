@@ -8,4 +8,10 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: HunterAnimationController
   m_Controller: {fileID: 9100000, guid: f09ed736bd58d9745a33d18cdfbd897a, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1d1f36208fb59ff47a3493999a4b98ca, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7002b1d42cf811441967a7137ffee0f0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 92958e495da8c534d8fd8829fe04cb1f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 97fdeab95c7a70e48a29a646c4ca0fe5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7e622cc3fe5dff741a375ac9246ca869, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b52e74d73506a5946a8b7a9d41cd077c, type: 2}

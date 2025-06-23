@@ -2440,6 +2440,8 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   launchAngleDegrees: 30
   initialForceMagnitude: 50
+  ShotGunShellNum: 10
+  Spread: 0
 --- !u!1 &4655867491472548060
 GameObject:
   m_ObjectHideFlags: 0

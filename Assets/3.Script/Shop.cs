@@ -16,6 +16,7 @@ public class Shop : MonoBehaviour
     public Sprite unlockImage;
     public bool isLocked = false;
     
+    private ToolTip toolTip;
 
     [System.Serializable]
     public class CardInven
@@ -55,6 +56,7 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
+        transform.root.TryGetComponent(out toolTip);
         transform.root.TryGetComponent(out readyTurn);
         currentShopRankImage.sprite = shopRankImages[shopRank - 1];
         
@@ -93,6 +95,10 @@ public class Shop : MonoBehaviour
 
     public void ReRoll()
     {
+        if (toolTip.ToolTipPanel.activeSelf)
+        {
+            toolTip.ToolTipPanel.SetActive(false);
+        }
         SetSellCards();
         if (field.Gold >= ReRollPrice)
         {

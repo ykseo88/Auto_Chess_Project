@@ -28,22 +28,42 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        HandleMovement();
-        HandleRotation();
-
-        // Esc 키를 누르면 커서 잠금 해제 및 보이기
-        if (GameManager.Instance.isReadyTurn)
+        if (GameManager.Instance.isFightStart)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            cursorLocked = true;
+            HandleMovement();
+            HandleRotation();
+        }
+        else
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             cursorLocked = false;
         }
-        else if (GameManager.Instance.isCombatTurn)
+
+        if (GameManager.Instance.isAssignTurn)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            cursorLocked = true;
+            UnitAssignControll();
         }
+        
+        
+    }
+
+    private void UnitAssignControll()
+    {
+        
+        float horizontalInput = Input.GetAxisRaw("Horizontal"); // A/D 또는 좌/우 화살표
+        float verticalInput = Input.GetAxisRaw("Vertical");   // W/S 또는 상/하 화살표
+        
+        Vector3 moveDirection = Vector3.zero;
+        
+        moveDirection += transform.up * verticalInput;
+        moveDirection += transform.right * horizontalInput;
+        
+        transform.position += moveDirection.normalized * (currentMovementSpeed * Time.deltaTime);
+        Debug.Log($"배치모드 카메라 실행중: {transform.position}, 움직임: {moveDirection}");
     }
 
     void HandleMovement()

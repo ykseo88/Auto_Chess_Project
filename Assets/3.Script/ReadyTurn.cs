@@ -11,6 +11,9 @@ public class ReadyTurn : MonoBehaviour
     public Button ReRollButton;
     public Button UpgradeButton;
     public Button LockButton;
+
+    public GameObject unitAssignTurn;
+    public Camera Camera;
     
     public Field field;
     public Shop shop;
@@ -27,19 +30,24 @@ public class ReadyTurn : MonoBehaviour
             currentTime += Time.deltaTime;
             yield return null;
         }
-        
-        
-        
+
+        Camera.transform.position = GameManager.Instance.cameraStartTransform.position;
+        Camera.transform.rotation = GameManager.Instance.cameraStartTransform.rotation;
         GameManager.Instance.isReadyTurn = false;
-        GameManager.Instance.isCombatTurn = true;
+        GameManager.Instance.isAssignTurn = true;
+        GameManager.Instance.isCombatTurn = false;
         GameManager.Instance.isFightStart = false;
+        GameManager.Instance.isCameraAssign = true;
         shop.UpgradePrice[shop.shopRank - 1]--;
         shop.UpdateUpgradeButton();
+        unitAssignTurn.SetActive(true);
         gameObject.SetActive(false);
     }
     
     public void CombatStart()
     {
+        transform.TryGetComponent(out ToolTip toolTip);
+        toolTip.ToolTipPanel.SetActive(false);
         GameManager.Instance.OnCardTurnEne();
         field.UpadateFieldCardInfo();
         StartCoroutine(ChangeToCombat());
@@ -67,6 +75,7 @@ public class ReadyTurn : MonoBehaviour
 
     private void Start()
     {
+        Camera = Camera.main;
         StartButton.onClick.AddListener(CombatStart);
         ReRollButton.onClick.AddListener(shop.ReRoll);
         UpgradeButton.onClick.AddListener(shop.UpgradeShop);

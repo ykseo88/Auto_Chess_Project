@@ -8,6 +8,9 @@ TagManager:
   - Unit
   - Card
   - ToolTip
+  - ActivateTrigger
+  - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -597,20 +597,6 @@ MonoBehaviour:
   agent: {fileID: 0}
   closeTarget: {fileID: 0}
   targetDistance: 0
-  BodyParts:
-  - {fileID: 5578523240196663606}
-  - {fileID: 7376561336943660062}
-  - {fileID: 7388213880180870418}
-  - {fileID: 1222081099127003481}
-  - {fileID: 1223545274635410433}
-  - {fileID: 399937209135474721}
-  - {fileID: 2238908957171366454}
-  - {fileID: 52846073595520744}
-  - {fileID: 6325846597586292673}
-  - {fileID: 4805475687169013181}
-  - {fileID: 8420781906242752947}
-  - {fileID: 8072731318081255398}
-  - {fileID: 7901724657910345408}
 --- !u!114 &551010795814829311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3153,6 +3139,8 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   launchAngleDegrees: 30
   initialForceMagnitude: 15
+  ShotGunShellNum: 10
+  Spread: 0
 --- !u!1 &5578523240196663606
 GameObject:
   m_ObjectHideFlags: 0

@@ -3716,9 +3716,15 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   projectileSpeed: 0
   shootPoint: {fileID: 0}
+  Gunshot: {fileID: 0}
+  BulletImpact: {fileID: 0}
+  FirePoint: {fileID: 0}
   projectileRigidbody: {fileID: 0}
   targetTransform: {fileID: 0}
   launchAngleDegrees: 30
+  initialForceMagnitude: 10
+  ShotGunShellNum: 10
+  Spread: 0
 --- !u!1 &9208086772717354645
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public bool isFightStart = false;
     public bool isCombatTurn = false;
     public bool isReadyTurn = false;
+    public bool isAssignTurn = false;
 
     public bool isEnemyWin = false;
     public bool isPlayerWin = false;
@@ -29,6 +30,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject Camera;
     public Transform cameraStartTransform;
+    public bool isCameraAssign = false;
+    
+    public Transform[] playerSpawnPoints;
+    public Transform[] enemySpawnPoints;
     
     public int maxPlusGold = 6;
 
@@ -47,8 +52,6 @@ public class GameManager : MonoBehaviour
     {
         if (isCombatTurn)
         {
-            Camera.transform.position = cameraStartTransform.position;
-            Camera.transform.rotation = cameraStartTransform.rotation;
             PlayerUnitSpawn();
             EnemyUnitSpawn();
             StartCoroutine(StartCountDown());
@@ -150,12 +153,12 @@ public class GameManager : MonoBehaviour
                 {
                     for (int k = 0; k < card.currentCardData.Units[j].UnitAmount; k++)
                     {
-                        Debug.Log(card.currentCardData.Units[j].UnitName);
-                        GameObject temp = Instantiate(card.currentCardData.Units[j].Unit, PlayerSpawnPoint.position, Quaternion.identity);
-                        temp.transform.TryGetComponent(out UnitData unitData);
-                        unitData.Team = playerTeam;
-                        playerTeam.PlayerUnitList.Add(temp);
-                        Debug.Log("Player Unit Spawned");
+                        //Debug.Log(card.currentCardData.Units[j].UnitName);
+                        //GameObject temp = Instantiate(card.currentCardData.Units[j].Unit, PlayerSpawnPoint.position, Quaternion.identity);
+                        //temp.transform.TryGetComponent(out UnitData unitData);
+                        //unitData.Team = playerTeam;
+                        //playerTeam.PlayerUnitList.Add(temp);
+                        //Debug.Log("Player Unit Spawned");
                     }
                 }
             }

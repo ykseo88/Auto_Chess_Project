@@ -39,10 +39,14 @@ public class UnitController : MonoBehaviour
     void Update()
     {
         currentState.Update();
+
+        if (GameManager.Instance.isFightStart)
+        {
+            FindCloseTarget();
+            UpdateTargetDistance();
+            UpdateDead();
+        }
         
-        FindCloseTarget();
-        UpdateTargetDistance();
-        UpdateDead();
     }
 
     public void ChangeState(IUnitState newState)
@@ -55,7 +59,7 @@ public class UnitController : MonoBehaviour
 
     private void UpdateTargetDistance()
     {
-        targetDistance = Vector3.Distance(transform.position, closeTarget.position);
+            targetDistance = Vector3.Distance(transform.position, closeTarget.position);
     }
     
     private void FindCloseTarget()

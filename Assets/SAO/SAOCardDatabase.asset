@@ -198,3 +198,20 @@ MonoBehaviour:
     BackgroundImage: {fileID: 0}
     Golden: 0
     MaxNum: 16
+  - ID: Card_Western_Lv4_0
+    Name: Hunter
+    Rank: 4
+    Type: 2
+    Units:
+    - Unit: {fileID: 7499373804371572254, guid: 4c842175d42d0eb45a5d6a1800b0fafc,
+        type: 3}
+      UnitName: Hunter
+      UnitAmount: 3
+    Description: "5\uACE8\uB4DC\uB97C \uC0AC\uC6A9\uD560 \uB54C\uB9C8\uB2E4 \uB370\uBBF8\uC9C0\uAC00
+      20\uC529 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 41cf055565cfb0e4fb1d6adde4790865, type: 3}
+    TypeImage: {fileID: 21300000, guid: 0bf48e1cd00c45a4db6c51a2df31e78a, type: 3}
+    RankImage: {fileID: 21300000, guid: d1d79f394b8564841afcdf8225a12ada, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16

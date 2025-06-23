@@ -23,11 +23,12 @@ public class WaitState : IUnitState
         if (GameManager.Instance.isFightStart)
         {
             unitController.ChangeState(new RunState(unitController));
+            if (unitController.unitData.Team.EnemyTeam.UnitAmount == 0)
+            {
+                unitController.ChangeState(new WinState(unitController));
+            }
         }
-        if (unitController.unitData.Team.EnemyTeam.UnitAmount == 0)
-        {
-            unitController.ChangeState(new WinState(unitController));
-        }
+        
     }
 
     public void Exit()
