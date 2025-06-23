@@ -9,12 +9,14 @@ public class AttackState : IUnitState
     public AttackState(UnitController unitController) => this.unitController = unitController;
     private Animator animator;
     private AnimatorStateInfo stateInfo;
+    private GameObject UnitObj;
     
     public void Enter()
     {
         animator = unitController.animator;
         animator.speed = unitController.unitData.AttackRate;
         animator.SetTrigger(ATTACK);
+        UnitObj = unitController.gameObject;
     }
 
     public void Update()
@@ -27,11 +29,12 @@ public class AttackState : IUnitState
         {
             unitController.ChangeState(new RunState(unitController));
         }
-
         if (unitController.unitData.Team.EnemyTeam.UnitAmount == 0)
         {
             unitController.ChangeState(new WinState(unitController));
         }
+        
+        UnitObj.transform.LookAt(unitController.closeTarget.transform);
     }
 
     public void Exit()

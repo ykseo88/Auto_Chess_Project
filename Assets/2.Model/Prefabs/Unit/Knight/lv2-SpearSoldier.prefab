@@ -231,6 +231,20 @@ MonoBehaviour:
   agent: {fileID: 5125073761209579136}
   closeTarget: {fileID: 0}
   targetDistance: 0
+  BodyParts:
+  - {fileID: 5289367822246261032}
+  - {fileID: 5626592885712651120}
+  - {fileID: 1901788996243504187}
+  - {fileID: 2749814902011717359}
+  - {fileID: 3370694525281688422}
+  - {fileID: 1525494828558930782}
+  - {fileID: 7600874905975676759}
+  - {fileID: 8734473011174038139}
+  - {fileID: 6919608982955032012}
+  - {fileID: 9024834338607733944}
+  - {fileID: 6377797438466610059}
+  - {fileID: 8205271554231094032}
+  - {fileID: 9114995105880162131}
 --- !u!195 &5125073761209579136
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3639,9 +3653,13 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   projectileSpeed: 0
   shootPoint: {fileID: 0}
+  Gunshot: {fileID: 0}
+  BulletImpact: {fileID: 0}
+  FirePoint: {fileID: 0}
   projectileRigidbody: {fileID: 0}
   targetTransform: {fileID: 0}
   launchAngleDegrees: 30
+  initialForceMagnitude: 10
 --- !u!1 &8734473011174038139
 GameObject:
   m_ObjectHideFlags: 0

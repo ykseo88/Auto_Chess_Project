@@ -22,7 +22,7 @@ MonoBehaviour:
         type: 3}
       UnitName: SwordMan
       UnitAmount: 4
-    Description: "5\uACE8\uB4DC\uB97C \uC18C\uBAA8\uD560 \uB54C\uB9C8\uB2E4 SwordMan\uC744
+    Description: "\uD134\uC774 \uC885\uB8CC\uB420 \uB54C\uB9C8\uB2E4 SwordMan\uC744
       2\uAE30 \uCD94\uAC00"
     Image: {fileID: 21300000, guid: 3722d9689d1929142a7d4f00963fb368, type: 3}
     TypeImage: {fileID: 21300000, guid: df2bd131b188c7740bacffedb069a237, type: 3}
@@ -148,3 +148,53 @@ MonoBehaviour:
     BackgroundImage: {fileID: 0}
     Golden: 0
     MaxNum: 7
+  - ID: Card_Western_Lv1_0
+    Name: Bandit
+    Rank: 1
+    Type: 2
+    Units:
+    - Unit: {fileID: 6602246735337940206, guid: 83414b21a0eb86b488b38fec1d270f2b,
+        type: 3}
+      UnitName: Bandit
+      UnitAmount: 3
+    Description: "\uC774 \uCE74\uB4DC\uB294 \uD314\uB9B4 \uB54C 1\uACE8\uB4DC\uB97C
+      \uB354 \uBC1B\uC2B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: bb03513f659e0c34a97a11b6d5632e3b, type: 3}
+    TypeImage: {fileID: 21300000, guid: 0bf48e1cd00c45a4db6c51a2df31e78a, type: 3}
+    RankImage: {fileID: 21300000, guid: 675c7937e9f816e4d83a35cc6ae967b1, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16
+  - ID: Card_Western_Lv2_0
+    Name: OutLaw
+    Rank: 2
+    Type: 2
+    Units:
+    - Unit: {fileID: 5552456964816726746, guid: 4963636fb6cbc7c4eab4f20925fab4bb,
+        type: 3}
+      UnitName: OutLaw
+      UnitAmount: 3
+    Description: "\uC774 \uCE74\uB4DC\uAC00 \uD544\uB4DC\uC5D0 \uC9C4\uC785\uD558\uBA74
+      \uB3D9\uC77C\uD55C \uCE74\uB4DC\uB97C \uD55C\uC7A5 \uC5BB\uC2B5\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 32dc0d4c0fbafe849aeec3ab94d2eeaf, type: 3}
+    TypeImage: {fileID: 21300000, guid: 0bf48e1cd00c45a4db6c51a2df31e78a, type: 3}
+    RankImage: {fileID: 21300000, guid: 6c92e953858828945b18c0931e615c43, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16
+  - ID: Card_Western_Lv3_0
+    Name: Deputy
+    Rank: 3
+    Type: 2
+    Units:
+    - Unit: {fileID: 225793473645016178, guid: 640d32a9d40b10149af54bd8bb64c54d, type: 3}
+      UnitName: Deputy
+      UnitAmount: 3
+    Description: "\uCE74\uB4DC\uB97C 10\uC7A5 \uD314 \uB54C\uB9C8\uB2E4 \uCD5C\uB300
+      \uACE8\uB4DC \uC218\uAC00 1 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 3b296ab1d4b4f0446b5ae7c59efa2f5d, type: 3}
+    TypeImage: {fileID: 21300000, guid: 0bf48e1cd00c45a4db6c51a2df31e78a, type: 3}
+    RankImage: {fileID: 21300000, guid: 5320b7a58b1f58e4eb6ccbba746b732c, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16

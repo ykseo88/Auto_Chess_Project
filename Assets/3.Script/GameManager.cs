@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
             StartCoroutine(EndCountDown());
             isPlayerWin = false;
         }
+        
+        TimeSlow();
     }
 
     private IEnumerator StartCountDown()
@@ -76,6 +78,22 @@ public class GameManager : MonoBehaviour
 
         startCountDown = BackupCount;
         isFightStart = true;
+    }
+
+    private void TimeSlow()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            if (Time.timeScale < 1)
+            {
+                Time.timeScale = 1;
+            }
+            else
+            {
+                Time.timeScale *= 0.01f;
+            }
+            
+        }
     }
     
     private IEnumerator EndCountDown()

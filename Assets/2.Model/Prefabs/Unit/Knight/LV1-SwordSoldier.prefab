@@ -380,7 +380,7 @@ MonoBehaviour:
   Damage: 10
   AttackDistance: 2
   AttackRate: 1
-  MoveSpeed: 10
+  MoveSpeed: 2
   Triple: 0
   isDead: 0
 --- !u!136 &5222040628683416497
@@ -3504,9 +3504,13 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   projectileSpeed: 0
   shootPoint: {fileID: 0}
+  Gunshot: {fileID: 0}
+  BulletImpact: {fileID: 0}
+  FirePoint: {fileID: 0}
   projectileRigidbody: {fileID: 0}
   targetTransform: {fileID: 0}
   launchAngleDegrees: 30
+  initialForceMagnitude: 10
 --- !u!1 &8734473011174038139
 GameObject:
   m_ObjectHideFlags: 0

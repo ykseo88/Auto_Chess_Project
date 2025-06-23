@@ -86,7 +86,7 @@ public class AbilityManager : MonoBehaviour
         }
     }
     
-    public void SwordManAbility(GameObject cardObj)
+    public void OldSwordManAbility(GameObject cardObj)
     {
         // 5골드를 사용할 때마다 카드에 SwordMan 2기 추가
         
@@ -94,6 +94,7 @@ public class AbilityManager : MonoBehaviour
         
         int plusUnitNum = 2;
         int checkGold = 5;
+        string TargetUnitName = "SwordMan";
         if (card.currentCardData.Golden) plusUnitNum *= 2;
         
         if (card.intAbilityValue2 < 0)
@@ -125,6 +126,31 @@ public class AbilityManager : MonoBehaviour
             card.intAbilityValue2 += tempInt;
             card.intAbilityValue1 = tempLeast;
             card.UpdateCardInfo();
+        }
+    }
+    
+    public void SwordManAbility(GameObject cardObj)
+    {
+        //턴이 종료될 때마다 SwordMan 2기 추가
+        cardObj.transform.TryGetComponent(out Card cardObjCard);
+        
+        string unitName = "SpearMan";
+        int plusUnitNum = 2;
+        if(cardObjCard.currentCardData.Golden) plusUnitNum *= 2;
+        
+        if(cardObjCard.turnEnd)
+        {
+            Debug.Log("턴 종료!");
+            cardObjCard.turnEnd = false;
+            
+            for (int i = 0; i < cardObjCard.currentCardData.Units.Count; i++)
+            {
+                if (cardObjCard.currentCardData.Units[i].UnitName == unitName)
+                {
+                    cardObjCard.currentCardData.Units[i].UnitAmount += plusUnitNum;
+                    break;
+                }
+            }
         }
     }
 
