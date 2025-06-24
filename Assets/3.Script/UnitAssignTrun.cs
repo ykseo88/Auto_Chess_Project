@@ -28,13 +28,19 @@ public class UnitAssignTrun : MonoBehaviour
     {
         CombatStartButton.onClick.AddListener(CombatStart);
         ResetButton.onClick.AddListener(Reset);
+        MakeSpawnCards();
     }
 
     private void OnEnable()
     {
-        foreach (GameObject card in SpawnCards)
+        MakeSpawnCards();
+    }
+
+    private void MakeSpawnCards()
+    {
+        for (int i = 0; i < SpawnCards.Count; i++)
         {
-            Destroy(card);
+            Destroy(SpawnCards[i]);
         }
         SpawnCards.Clear();
         for (int i = 0; i < field.fieldCards.Count; i++)
@@ -50,8 +56,8 @@ public class UnitAssignTrun : MonoBehaviour
             SpawnCards.Add(temp);
         }
         
-        currentSpawnCard = SpawnCards[0].transform.GetComponent<SpawnCard>();
-        ChangeCurrentCard(currentSpawnCard);
+        SpawnCards[0].transform.TryGetComponent(out SpawnCard tempSpawnCard);
+        ChangeCurrentCard(tempSpawnCard);
     }
 
     // Update is called once per frame

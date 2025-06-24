@@ -26,7 +26,12 @@ public class RunState : IUnitState
         {
             unitController.ChangeState(new DieState(unitController));
         }
-        navMeshAgent.SetDestination(unitController.closeTarget.position);
+
+        if (navMeshAgent != null)
+        {
+            navMeshAgent.SetDestination(unitController.closeTarget.position);
+        }
+        
         if (unitController.targetDistance <= unitController.unitData.AttackDistance)
         {
             unitController.ChangeState(new AttackState(unitController));

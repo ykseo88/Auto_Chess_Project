@@ -6,14 +6,17 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public GameObject parentUnitObj;
-    private UnitController unitController;
-    private UnitData unitData;
+    public UnitController unitController;
+    public UnitData unitData;
     private Rigidbody rb;
     private CapsuleCollider collider;
     private bool isStuck = false;
     public float stuckDepth = 0.1f;
     private Vector3 stuckPos;
     private Vector3 stuckDir;
+    
+    [SerializeField] private ParticleSystem Blood;
+    [SerializeField] private ParticleSystem GroundImpact;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,8 @@ public class Projectile : MonoBehaviour
         transform.TryGetComponent(out collider);
         parentUnitObj.transform.TryGetComponent(out unitController);
         parentUnitObj.transform.TryGetComponent(out unitData);
+        PoolManager.Instance.PoolParticleSystemQueuePlus(Blood, 10);
+        PoolManager.Instance.PoolParticleSystemQueuePlus(GroundImpact, 10);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -33,9 +38,14 @@ public class Projectile : MonoBehaviour
         stuckPos = transform.localPosition;
         stuckDir = transform.localRotation.eulerAngles;
         other.transform.root.TryGetComponent(out UnitData targetUnitData);
-        if (targetUnitData != null && other.gameObject.layer == LayerMask.NameToLayer("BodyParts"))
+        if (targetUnitData != null && other.gameObject.layer == LayerMask.NameToLayer("BodyParts") && targetUnitData.Team.teamName != unitData.Team.teamName)
         {
             targetUnitData.HP -= unitData.Damage;
+            PoolManager.Instance.ParticleSystemPoolActive(Blood, other.contacts[0].point, Quaternion.Euler(other.contacts[0].normal));
+        }
+        else
+        {
+            PoolManager.Instance.ParticleSystemPoolActive(GroundImpact, other.contacts[0].point, Quaternion.Euler(other.contacts[0].normal));
         }
     }
 

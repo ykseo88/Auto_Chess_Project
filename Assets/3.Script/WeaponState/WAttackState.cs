@@ -9,11 +9,15 @@ public class WAttackState : IWeaponState
     
     public WAttackState(UnitWeaponController weaponController) => this.weaponController = weaponController;
     private Animator animator;
+    private ParticleSystem GunShot;
     
     public void Enter()
     {
         animator = weaponController.animator;
         animator.SetTrigger(Attack);
+        weaponController.transform.TryGetComponent(out AnimationEvents animationEvents);
+        GunShot = animationEvents.Gunshot;
+        
     }
 
     public void Update()
@@ -23,6 +27,10 @@ public class WAttackState : IWeaponState
 
     public void Exit()
     {
-        
+        if (GunShot != null)
+        {
+            GunShot.Stop();
+            GunShot.transform.position -= new Vector3(0, 3f, 0);
+        }
     }
 }

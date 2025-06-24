@@ -27,3 +27,13 @@ MonoBehaviour:
     Unit: {fileID: 7957023106250218011, guid: 8e7dc812a07121247972f7b1be596723, type: 3}
   - Name: Knight
     Unit: {fileID: 4365756304651908956, guid: 653416dbb3ab44146b8651bc634c4930, type: 3}
+  - Name: Bandit
+    Unit: {fileID: 6602246735337940206, guid: 83414b21a0eb86b488b38fec1d270f2b, type: 3}
+  - Name: OutLaw
+    Unit: {fileID: 5552456964816726746, guid: 4963636fb6cbc7c4eab4f20925fab4bb, type: 3}
+  - Name: Deputy
+    Unit: {fileID: 225793473645016178, guid: 640d32a9d40b10149af54bd8bb64c54d, type: 3}
+  - Name: Hunter
+    Unit: {fileID: 7499373804371572254, guid: 4c842175d42d0eb45a5d6a1800b0fafc, type: 3}
+  - Name: ChainGun
+    Unit: {fileID: 6594074249560481506, guid: 6d85f925bab94da40b58d6594135350c, type: 3}

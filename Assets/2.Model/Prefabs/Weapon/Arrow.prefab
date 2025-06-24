@@ -100,6 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentUnitObj: {fileID: 0}
   stuckDepth: 0.1
+  Blood: {fileID: 198615267133080452, guid: 1293174ea2a13fa498c40e4189cba075, type: 3}
+  GroundImpact: {fileID: 198029139897396496, guid: 060b0fe5e48e76444ad08bbaae251c06,
+    type: 3}
 --- !u!136 &7872246824303338483
 CapsuleCollider:
   m_ObjectHideFlags: 0

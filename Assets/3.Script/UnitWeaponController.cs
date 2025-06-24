@@ -17,8 +17,6 @@ public class UnitWeaponController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         transform.TryGetComponent(out unitData);
         ChangeState(new WWaitState(this));
-        unitData.Team.UnitAmount++;
-        unitData.Team.EnemyTeam.EnemyUnitAmount++;
         transform.root.TryGetComponent(out unitController);
     }
 

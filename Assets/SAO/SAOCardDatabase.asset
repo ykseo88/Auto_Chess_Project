@@ -209,9 +209,59 @@ MonoBehaviour:
       UnitAmount: 3
     Description: "5\uACE8\uB4DC\uB97C \uC0AC\uC6A9\uD560 \uB54C\uB9C8\uB2E4 \uB370\uBBF8\uC9C0\uAC00
       20\uC529 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-    Image: {fileID: 21300000, guid: 41cf055565cfb0e4fb1d6adde4790865, type: 3}
+    Image: {fileID: 21300000, guid: 082d397bc3df7ab45b1e182b0d618bcd, type: 3}
     TypeImage: {fileID: 21300000, guid: 0bf48e1cd00c45a4db6c51a2df31e78a, type: 3}
     RankImage: {fileID: 21300000, guid: d1d79f394b8564841afcdf8225a12ada, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16
+  - ID: Card_Western_Lv5_0
+    Name: ChainGun
+    Rank: 5
+    Type: 2
+    Units:
+    - Unit: {fileID: 6594074249560481506, guid: 6d85f925bab94da40b58d6594135350c,
+        type: 3}
+      UnitName: ChainGun
+      UnitAmount: 1
+    Description: "\uB79C\uB364\uD55C \uCE74\uB4DC\uC758 \uB79C\uB364\uD55C \uC720\uB2DB
+      \uC218\uAC00 1 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 0dd781d6f38dc2b4f94d342f83301321, type: 3}
+    TypeImage: {fileID: 21300000, guid: 0bf48e1cd00c45a4db6c51a2df31e78a, type: 3}
+    RankImage: {fileID: 21300000, guid: 754989aca04736a4ea306f069213754e, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16
+  - ID: Card_Western_Lv6_0
+    Name: Bomber
+    Rank: 6
+    Type: 2
+    Units:
+    - Unit: {fileID: 7499373804371572254, guid: 6ac11ad77cc6fe34486c2c107e81a5d9,
+        type: 3}
+      UnitName: Bomber
+      UnitAmount: 2
+    Description: "\uB0B4 \uC720\uB2DB\uB4E4\uC758 \uACF5\uACA9\uB825\uC774 2\uBC30
+      \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: a58928e7409b6314d9ba20461a010547, type: 3}
+    TypeImage: {fileID: 21300000, guid: 0bf48e1cd00c45a4db6c51a2df31e78a, type: 3}
+    RankImage: {fileID: 21300000, guid: b44428771f1f0c24ebe2d821085ddc3d, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16
+  - ID: Card_Viking_lv1_0
+    Name: Thralls
+    Rank: 1
+    Type: 1
+    Units:
+    - Unit: {fileID: 1015277382743670091, guid: b299f7cc24146c34b826da6b6285cab3,
+        type: 3}
+      UnitName: Thralls
+      UnitAmount: 4
+    Description: "1\uD68C \uBB34\uB8CC\uB85C \uC0C8\uB85C\uACE0\uCE68\uC774 \uAC00\uB2A5\uD569\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 959f22bef86de0243acb3ca3bc6f3eeb, type: 3}
+    TypeImage: {fileID: 21300000, guid: 4bacdf4fb5db3f340a1a3fa561bb4ccf, type: 3}
+    RankImage: {fileID: 21300000, guid: 675c7937e9f816e4d83a35cc6ae967b1, type: 3}
     BackgroundImage: {fileID: 0}
     Golden: 0
     MaxNum: 16

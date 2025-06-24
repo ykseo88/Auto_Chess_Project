@@ -320,56 +320,63 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.083333336
-    functionName: UpdateState
+    functionName: ChainGunShotLow
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.083333336
+    functionName: OnGunshotEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.16666667
-    functionName: UpdateState
+    functionName: ChainGunShotLow
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: UpdateState
+    functionName: ChainGunShotLow
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.33333334
-    functionName: UpdateState
+    functionName: ChainGunShotLow
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.41666666
-    functionName: UpdateState
+    functionName: ChainGunShotLow
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.5
-    functionName: UpdateState
+    functionName: ChainGunShotLow
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.5833333
-    functionName: UpdateState
+    functionName: ChainGunShotLow
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.6666667
-    functionName: UpdateState
+    functionName: ChainGunShotLow
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

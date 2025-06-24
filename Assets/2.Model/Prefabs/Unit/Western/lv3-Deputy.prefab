@@ -5907,7 +5907,7 @@ MonoBehaviour:
   launchAngleDegrees: 30
   initialForceMagnitude: 50
   ShotGunShellNum: 10
-  Spread: 0
+  Spread: 3
 --- !u!1 &3034865555867642278
 GameObject:
   m_ObjectHideFlags: 0
