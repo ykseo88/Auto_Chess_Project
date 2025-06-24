@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -5,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SpawnCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class SpawnCard : MonoBehaviour, IPointerClickHandler
 {
     
     public SAOCardDatabase cardDatabase;
@@ -14,6 +15,7 @@ public class SpawnCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public SAOCardDatabase.CardData currentCardData;
     
     public Image BackGroundImage;
+    public Image ChoiceBackGroundImage;
     public Image TitleImage;
     public TMP_Text Title;
     public Image CardImage;
@@ -24,9 +26,15 @@ public class SpawnCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public Image TypeImage;
 
     public Transform ParentPanel;
+    public UnitAssignTrun unitAssignTrun;
 
     public float maxRayDistance = 50f;
-    
+
+    private void Start()
+    {
+        ParentPanel.root.TryGetComponent(out unitAssignTrun);
+    }
+
     public void InsertCard(SAOCardDatabase.CardData insertData)
     {
         
@@ -97,18 +105,8 @@ public class SpawnCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             }
         }
     }
-    
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        transform.SetParent(transform.root);
-    }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        transform.position = Input.mousePosition;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
+    /*public void OnEndDrag(PointerEventData eventData)
     {
         Vector3 mousePosition = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
@@ -143,10 +141,27 @@ public class SpawnCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             }
 
         }
-    }
+    }*/
 
     private void returnParent()
     {
         transform.SetParent(ParentPanel.transform);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        unitAssignTrun.ChangeCurrentCard(this);
+    }
+
+    public SAOCardDatabase.UnitElement GetUnitsByUnit(GameObject unit)
+    {
+        for (int i = 0; i < currentCardData.Units.Count; i++)
+        {
+            if (currentCardData.Units[i].Unit == unit)
+            {
+                return currentCardData.Units[i];
+            }
+        }
+        return null;
     }
 }

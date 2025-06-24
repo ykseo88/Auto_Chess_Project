@@ -199,5 +199,15 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void DestroyPlayerUnits()
+    {
+        for (int i = 0; i < playerTeam.PlayerUnitList.Count; i++)
+        {
+            Destroy(playerTeam.PlayerUnitList[i]);
+        }
+        playerTeam.PlayerUnitList.Clear();
+        
+    }
 }
     

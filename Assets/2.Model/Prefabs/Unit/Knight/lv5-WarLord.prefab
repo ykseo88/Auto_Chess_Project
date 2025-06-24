@@ -1716,7 +1716,7 @@ GameObject:
   - component: {fileID: 7117837533640266357}
   - component: {fileID: 7125188794759502717}
   - component: {fileID: 7115569555519251287}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Halberd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1805,7 +1805,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30

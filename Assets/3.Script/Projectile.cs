@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
         stuckPos = transform.localPosition;
         stuckDir = transform.localRotation.eulerAngles;
         other.transform.root.TryGetComponent(out UnitData targetUnitData);
-        if (targetUnitData != null)
+        if (targetUnitData != null && other.gameObject.layer == LayerMask.NameToLayer("BodyParts"))
         {
             targetUnitData.HP -= unitData.Damage;
         }

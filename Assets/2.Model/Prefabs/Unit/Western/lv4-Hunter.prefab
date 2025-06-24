@@ -8065,7 +8065,7 @@ MonoBehaviour:
   projectileRigidbody: {fileID: 0}
   targetTransform: {fileID: 0}
   launchAngleDegrees: 30
-  initialForceMagnitude: 50
+  initialForceMagnitude: 300
   ShotGunShellNum: 10
   Spread: 0
 --- !u!1 &7281935587478288675

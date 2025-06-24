@@ -770,6 +770,7 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 1
   BackGroundImage: {fileID: 3120798722819878482}
+  ChoiceBackGroundImage: {fileID: 5713168697566017629}
   TitleImage: {fileID: 7348246259979030236}
   Title: {fileID: 7986893917383380032}
   CardImage: {fileID: 370304869650878693}
@@ -779,6 +780,7 @@ MonoBehaviour:
   RankImage: {fileID: 1863936169713469578}
   TypeImage: {fileID: 3000075269150525504}
   ParentPanel: {fileID: 0}
+  unitAssignTrun: {fileID: 0}
   maxRayDistance: 50
 --- !u!1 &7846739440075152706
 GameObject:

@@ -85,4 +85,29 @@ public class UnitController : MonoBehaviour
             unitData.isDead = true;
         }
     }
+
+    public void UnitAssign()
+    {
+        StartCoroutine(UnitSpread());
+    }
+    
+    private IEnumerator UnitSpread()
+    {
+        float currentTime = 0f;
+
+        while (currentTime < 0.5f)
+        {
+            currentTime += Time.deltaTime;
+            transform.position += new Vector3(0.1f, 0, 0f);
+            yield return null;
+        }
+        currentTime = 0f;
+        
+        while (currentTime < 0.5f)
+        {
+            currentTime += Time.deltaTime;
+            transform.position -= new Vector3(0.1f, 0, 0f);
+            yield return null;
+        }
+    }
 }

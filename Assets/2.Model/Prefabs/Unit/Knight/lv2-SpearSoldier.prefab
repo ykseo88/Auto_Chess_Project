@@ -2922,7 +2922,7 @@ GameObject:
   - component: {fileID: 7821825670310598583}
   - component: {fileID: 364982819452263514}
   - component: {fileID: 5710314962678899659}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: KnightLv2Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
