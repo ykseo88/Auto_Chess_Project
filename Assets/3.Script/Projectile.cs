@@ -9,11 +9,17 @@ public class Projectile : MonoBehaviour
     public UnitController unitController;
     public UnitData unitData;
     private Rigidbody rb;
-    private CapsuleCollider collider;
+    private Collider collider;
     private bool isStuck = false;
     public float stuckDepth = 0.1f;
     private Vector3 stuckPos;
     private Vector3 stuckDir;
+    public GameObject Trail;
+
+    public float WheelSpeed = 1f;
+
+    public bool isLaser = false;
+    public bool isWheel = false;
     
     [SerializeField] private ParticleSystem Blood;
     [SerializeField] private ParticleSystem GroundImpact;
@@ -31,11 +37,12 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        Trail.SetActive(false);
         isStuck = true;
         rb.isKinematic = true;
         collider.enabled = false;
         transform.SetParent(other.transform);
-        stuckPos = transform.localPosition;
+        stuckPos = transform.localPosition + new Vector3(0, stuckDepth, 0);
         stuckDir = transform.localRotation.eulerAngles;
         other.transform.root.TryGetComponent(out UnitData targetUnitData);
         if (targetUnitData != null && other.gameObject.layer == LayerMask.NameToLayer("BodyParts") && targetUnitData.Team.teamName != unitData.Team.teamName)
@@ -54,13 +61,31 @@ public class Projectile : MonoBehaviour
     {
         if (!rb.isKinematic)
         {
-            Vector3 velocity = rb.velocity;
-            transform.rotation = Quaternion.LookRotation(velocity, Vector3.up);
+            if (isLaser)
+            {
+                Laser();
+            }
+            else if (isWheel)
+            {
+                Wheel();
+            }
         }
         else
         {
             transform.localPosition = stuckPos;
             transform.localRotation = Quaternion.Euler(stuckDir);
         }
+    }
+
+    private void Laser()
+    {
+        Vector3 velocity = rb.velocity;
+        transform.rotation = Quaternion.LookRotation(velocity, Vector3.up);
+    }
+
+    private void Wheel()
+    {
+        
+        transform.rotation *= Quaternion.Euler(new Vector3(WheelSpeed, 0, 0f)); 
     }
 }

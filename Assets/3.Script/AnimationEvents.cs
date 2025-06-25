@@ -10,6 +10,7 @@ public class AnimationEvents : MonoBehaviour
     private UnitController unitController;
     private UnitData unitData;
     public GameObject projectilePrefab;
+    public ParticleSystem MagicPrefab;
     public float projectileSpeed;
     public Transform shootPoint;
 
@@ -22,10 +23,14 @@ public class AnimationEvents : MonoBehaviour
     public float launchAngleDegrees = 30f; // 발사 각도 (도)
     public float initialForceMagnitude = 10f; // 초기 힘의 크기 (N)
 
+    public GameObject ThrowWeapon;
+
     public int ShotGunShellNum = 10;
     public float Spread = 1f;
 
     private float AttackTerm = 10f;
+    public LayerMask killLayer;
+    public float MagicRange;
 
     private void OnGunshotEffect()
     {
@@ -43,6 +48,11 @@ public class AnimationEvents : MonoBehaviour
         if (projectilePrefab != null)
         {
             PoolManager.Instance.PoolGameObjectQueuePlus(projectilePrefab, 10);
+        }
+
+        if (MagicPrefab != null)
+        {
+            PoolManager.Instance.PoolParticleSystemQueuePlus(MagicPrefab, 10);
         }
     }
 
@@ -200,7 +210,8 @@ public class AnimationEvents : MonoBehaviour
     {
         // 1. 투사체 생성 및 Rigidbody 참조
         targetTransform = unitController.closeTarget.transform;
-        GameObject projectile = PoolManager.Instance.GameObjectPoolActive(projectilePrefab, shootPoint.position, Quaternion.LookRotation(unitController.closeTarget.position));
+        Vector3 ShootDir = targetTransform.position - shootPoint.position;
+        GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.LookRotation(ShootDir.normalized));
         projectile.TryGetComponent(out Projectile projectileScript);
         projectile.TryGetComponent(out projectileRigidbody);
         projectileScript.parentUnitObj = Unit.gameObject;
@@ -290,6 +301,18 @@ public class AnimationEvents : MonoBehaviour
         rb2.AddForce(initialVelocity2 * rb2.mass, ForceMode.Impulse);
         Debug.Log($"Applied Impulse Force with Higher Angle: {initialVelocity2 * rb2.mass}");
         */
+    }
+
+    
+
+    private void OffThrowWeapon()
+    {
+        ThrowWeapon.SetActive(false);
+    }
+    
+    private void OnThrowWeapon()
+    {
+        ThrowWeapon.SetActive(true);
     }
 
     private void LaunchProjectileWithCalculatedAnglesLowGunShot()
@@ -908,5 +931,22 @@ public class AnimationEvents : MonoBehaviour
         rb2.AddForce(initialVelocity2 * rb2.mass, ForceMode.Impulse);
         Debug.Log($"Applied Impulse Force with Higher Angle: {initialVelocity2 * rb2.mass}");
         */
+    }
+
+    private void MagicBoom()
+    {
+        targetTransform = unitController.closeTarget.transform;
+        ParticleSystem magic = PoolManager.Instance.ParticleSystemPoolActive(MagicPrefab, targetTransform.position, Quaternion.identity, 5f);
+        Collider[] detectedColliders = Physics.OverlapSphere(transform.position, MagicRange, killLayer);
+
+        foreach (Collider detectedCollider in detectedColliders)
+        {
+            Debug.Log(detectedCollider.gameObject.name);
+            detectedCollider.transform.TryGetComponent(out UnitData targetUnitData);
+            if (targetUnitData.Team.teamName != unitData.Team.teamName)
+            {
+                targetUnitData.HP -= unitData.Damage;
+            }
+        }
     }
 }

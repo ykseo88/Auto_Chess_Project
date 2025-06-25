@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AbilityManager : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class AbilityManager : MonoBehaviour
         InsertAbilityDictionary("Banneret", BanneretAbility);
         InsertAbilityDictionary("WarLord", WarLordAbility);
         InsertAbilityDictionary("Knight", KnightAbility);
+        InsertAbilityDictionary("Bandit", BanditAbility);
+        InsertAbilityDictionary("OutLaw", OutLawAbility);
+        InsertAbilityDictionary("Deputy", DeputyAbility);
     }
 
     private bool ContainNameList(List<SAOCardDatabase.UnitElement> list, string name)
@@ -85,6 +89,8 @@ public class AbilityManager : MonoBehaviour
             Debug.LogWarning($"Ability {CardName} already exists in the dictionary.");
         }
     }
+    
+    //--------------------Knight---------------------------------------
     
     public void OldSwordManAbility(GameObject cardObj)
     {
@@ -457,4 +463,86 @@ public class AbilityManager : MonoBehaviour
                     }
                 }
     }
+    
+    //--------------------Wester---------------------------------------
+    public void BanditAbility(GameObject cardObj)
+    {
+        cardObj.transform.TryGetComponent(out Card cardObjCard);
+        if (!cardObjCard.boolAbilityValue)
+        {
+            cardObjCard.SellPrice++;
+            cardObjCard.boolAbilityValue = true;
+        }
+    }
+    public void OutLawAbility(GameObject cardObj)
+    {
+        cardObj.transform.TryGetComponent(out Card cardObjCard);
+        if (!cardObjCard.boolAbilityValue)
+        {
+            if (hand.handCards.Count < 6)
+            {
+                GameObject tempCard = Instantiate(cardObj, hand.transform);
+                tempCard.transform.localScale = new Vector3(0.7f, 0.7f, 1);
+                tempCard.transform.TryGetComponent(out Card tempCardComponent);
+                
+                List<Shop.CardInven> allowChoiceCards = new List<Shop.CardInven>();
+                
+                int rank = shop.shopRank - 1;
+                if (rank == 0) rank = 1;
+                
+                for (int i = 0; i < shop.cardPool[rank].Count; i++)
+                {
+                    for(int j = 0; j < shop.cardPool[rank][i].currentNum; j++)
+                    {
+                        allowChoiceCards.Add(shop.cardPool[rank][i]);
+                    }
+                }
+
+                Shop.CardInven tempCardData = allowChoiceCards[Random.Range(0, allowChoiceCards.Count)];
+                Debug.Log($"아웃로 효과로 얻은 카드: {tempCardData.card.Name}");
+                tempCardComponent.InsertCard(tempCardData.card);
+                tempCardComponent.isChoiceCard = false;
+                tempCardComponent.parentList = hand.handCards;
+                tempCardComponent.inventorys = tempCardData;
+                tempCardComponent.inventorys.currentNum--;
+                tempCardComponent.SetStarting();
+                tempCardComponent.parentList.Add(tempCard);
+            }
+
+            cardObjCard.boolAbilityValue = true;
+        }
+    }
+
+    public void DeputyAbility(GameObject cardObj)
+    {
+        cardObj.transform.TryGetComponent(out Card cardObjCard);
+
+        int plusMaxGold = 1;
+        int checkSellCard = 10;
+        if(cardObjCard.currentCardData.Golden) plusMaxGold *= 2;
+        
+        if (cardObjCard.currentCardData.Golden) plusMaxGold *= 2;
+        
+        if (cardObjCard.intAbilityValue2 < 0)
+        {
+            cardObjCard.intAbilityValue2 = field.SellCardCount;
+            cardObjCard.intAbilityValue1 = 0;
+        }
+        
+        cardObjCard.intAbilityValue1 = field.SellCardCount - cardObjCard.intAbilityValue2;
+
+        if (cardObjCard.intAbilityValue1 >= checkSellCard)
+        {
+            field.maxGold += plusMaxGold;
+            
+            int tempLeast = cardObjCard.intAbilityValue1 % checkSellCard;
+            int tempInt = cardObjCard.intAbilityValue1 - tempLeast;
+            cardObjCard.intAbilityValue2 += tempInt;
+            cardObjCard.intAbilityValue1 = tempLeast;
+            cardObjCard.UpdateCardInfo();
+        }
+        
+        
+    }
+    //--------------------Wester---------------------------------------
 }

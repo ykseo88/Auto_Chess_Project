@@ -5131,7 +5131,7 @@ Transform:
   m_GameObject: {fileID: 7884425396021186166}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 18.628658, y: 0.94, z: 8.35}
+  m_LocalPosition: {x: 18.628658, y: 2.962, z: -6.477}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10069,6 +10069,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentUnitObj: {fileID: 0}
+  unitController: {fileID: 0}
+  unitData: {fileID: 0}
   Blood: {fileID: 198615267133080452, guid: 1293174ea2a13fa498c40e4189cba075, type: 3}
   GroundImpact: {fileID: 198029139897396496, guid: 060b0fe5e48e76444ad08bbaae251c06,
     type: 3}

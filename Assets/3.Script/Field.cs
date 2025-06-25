@@ -11,6 +11,8 @@ public class Field : MonoBehaviour
     public ReadyTurn readyTurn;
     public int consumedGold = 0;
     public int takeGold = 0;
+    public int SellCardCount = 0;
+    public int BuyCardCount = 0;
     private int preGold = 0;
     
 

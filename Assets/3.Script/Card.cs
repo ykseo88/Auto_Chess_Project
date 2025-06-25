@@ -153,6 +153,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 if (parentList == shop.currentSellCards && field.Gold >= BuyPrice)
                 {
                     field.Gold -= BuyPrice;
+                    field.BuyCardCount++;
                     shop.currentSellCards.Remove(gameObject);
                     shop.SetSellCards();
                 }
@@ -179,6 +180,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 if (parentList == shop.currentSellCards && field.Gold >= BuyPrice)
                 {
                     field.Gold -= BuyPrice;
+                    field.BuyCardCount++;
                     shop.currentSellCards.Remove(gameObject);
                     shop.SetSellCards();
                 }
@@ -193,8 +195,9 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 parentList.Add(gameObject);
                 break;
             case "Shop":
-                if (parentList == field.fieldCards)
+                if (parentList == field.fieldCards || parentList == hand.handCards)
                 {
+                    field.SellCardCount++;
                     parentList.Remove(gameObject);
                     inventorys.currentNum++;
                     field.Gold += SellPrice;
@@ -267,7 +270,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     private void OnAbility()
     {
-        if (parentList == field.fieldCards && AbilityManager.Instance.abilityDictionary.ContainsKey(currentCardData.Name))
+        if (parentList == field.fieldCards && AbilityManager.Instance.abilityDictionary.ContainsKey(currentCardData.Name) && !isChoiceCard)
         {
             Debug.Log($"{currentCardData.Name} 카드의 능력이 발동 중입니다.");
             AbilityManager.Instance.abilityDictionary[currentCardData.Name](gameObject);

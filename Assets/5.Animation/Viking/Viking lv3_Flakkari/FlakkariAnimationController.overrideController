@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FlakkariAnimationController
+  m_Controller: {fileID: 9100000, guid: f09ed736bd58d9745a33d18cdfbd897a, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1d1f36208fb59ff47a3493999a4b98ca, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cffafab639353c94785cab890b9f8ca4, type: 2}

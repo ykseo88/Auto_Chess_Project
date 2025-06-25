@@ -175,7 +175,8 @@ MonoBehaviour:
       UnitName: OutLaw
       UnitAmount: 3
     Description: "\uC774 \uCE74\uB4DC\uAC00 \uD544\uB4DC\uC5D0 \uC9C4\uC785\uD558\uBA74
-      \uB3D9\uC77C\uD55C \uCE74\uB4DC\uB97C \uD55C\uC7A5 \uC5BB\uC2B5\uB2C8\uB2E4."
+      \uD604\uC7AC \uC0C1\uC810 \uB2E8\uACC4\uC758 \uCE74\uB4DC\uB97C \uBB34\uC791\uC704\uB85C
+      1\uC7A5 \uC5BB\uC2B5\uB2C8\uB2E4."
     Image: {fileID: 21300000, guid: 32dc0d4c0fbafe849aeec3ab94d2eeaf, type: 3}
     TypeImage: {fileID: 21300000, guid: 0bf48e1cd00c45a4db6c51a2df31e78a, type: 3}
     RankImage: {fileID: 21300000, guid: 6c92e953858828945b18c0931e615c43, type: 3}
@@ -259,9 +260,92 @@ MonoBehaviour:
       UnitName: Thralls
       UnitAmount: 4
     Description: "1\uD68C \uBB34\uB8CC\uB85C \uC0C8\uB85C\uACE0\uCE68\uC774 \uAC00\uB2A5\uD569\uB2C8\uB2E4."
-    Image: {fileID: 21300000, guid: 959f22bef86de0243acb3ca3bc6f3eeb, type: 3}
+    Image: {fileID: 21300000, guid: 9c8b3745a381cbc4a92f2a981368a30d, type: 3}
     TypeImage: {fileID: 21300000, guid: 4bacdf4fb5db3f340a1a3fa561bb4ccf, type: 3}
     RankImage: {fileID: 21300000, guid: 675c7937e9f816e4d83a35cc6ae967b1, type: 3}
     BackgroundImage: {fileID: 0}
     Golden: 0
     MaxNum: 16
+  - ID: Card_Viking_lv2_0
+    Name: Vedir
+    Rank: 2
+    Type: 1
+    Units:
+    - Unit: {fileID: 1015277382743670091, guid: 618341a6cd45bef449755aa7e734d7d6,
+        type: 3}
+      UnitName: Vedir
+      UnitAmount: 3
+    Description: "\uB0B4 \uC720\uB2DB\uB4E4\uC758 \uC0AC\uC815\uAC70\uB9AC\uAC00
+      50% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: fb0b89e74c9c97e49bd592cacc8623e3, type: 3}
+    TypeImage: {fileID: 21300000, guid: 4bacdf4fb5db3f340a1a3fa561bb4ccf, type: 3}
+    RankImage: {fileID: 21300000, guid: 6c92e953858828945b18c0931e615c43, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16
+  - ID: Card_Viking_lv3_0
+    Name: Flakkari
+    Rank: 3
+    Type: 1
+    Units:
+    - Unit: {fileID: 1015277382743670091, guid: 7d1558cf5aca3e14195e1315fef5cca5,
+        type: 3}
+      UnitName: Flakkari
+      UnitAmount: 3
+    Description: "\uB0B4 \uD140\uC6D0\uB4E4\uC758 \uACF5\uACA9\uB825\uC774 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: f9205ca2af8a9d54682e37212a61fb1a, type: 3}
+    TypeImage: {fileID: 21300000, guid: 4bacdf4fb5db3f340a1a3fa561bb4ccf, type: 3}
+    RankImage: {fileID: 21300000, guid: 5320b7a58b1f58e4eb6ccbba746b732c, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16
+  - ID: Card_Viking_lv4_0
+    Name: Berserker
+    Rank: 4
+    Type: 1
+    Units:
+    - Unit: {fileID: 1015277382743670091, guid: 9a84eb7eedc83d549ad6c6f3a84c4d66,
+        type: 3}
+      UnitName: BerserKer
+      UnitAmount: 3
+    Description: "\uB0B4 \uD300\uC6D0\uB4E4\uC758 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: b52d5d309b1fc0a49a635ed4583a9756, type: 3}
+    TypeImage: {fileID: 21300000, guid: 4bacdf4fb5db3f340a1a3fa561bb4ccf, type: 3}
+    RankImage: {fileID: 21300000, guid: d1d79f394b8564841afcdf8225a12ada, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16
+  - ID: Card_Viking_lv5_0
+    Name: Volva
+    Rank: 5
+    Type: 1
+    Units:
+    - Unit: {fileID: 1015277382743670091, guid: af7f8e2a98bb8db46b508cba5722d785,
+        type: 3}
+      UnitName: Volva
+      UnitAmount: 3
+    Description: "\uB0B4 \uC720\uB2DB\uB4E4\uC758 \uACF5\uACA9 \uC18D\uB3C4\uAC00
+      2\uBC30 \uC99D\uAC00\uD569\uB2C8\uB2E4. (\uC911\uBCF5 \uC801\uC6A9 \uBD88\uAC00)"
+    Image: {fileID: 21300000, guid: d7a013934f7c8a94e99b339c4218eaaf, type: 3}
+    TypeImage: {fileID: 21300000, guid: 4bacdf4fb5db3f340a1a3fa561bb4ccf, type: 3}
+    RankImage: {fileID: 21300000, guid: 754989aca04736a4ea306f069213754e, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 16
+  - ID: Card_Viking_lv6_0
+    Name: Jarl
+    Rank: 6
+    Type: 1
+    Units:
+    - Unit: {fileID: 7100041582013144896, guid: f1bd22b16f5407846930fec9abbac6c2,
+        type: 3}
+      UnitName: Jarl
+      UnitAmount: 3
+    Description: "\uB0B4 \uBC14\uC774\uD0B9 \uCE74\uB4DC\uB4E4\uC758 \uBC84\uD504\uB7C9\uC774
+      2\uBC30\uAC00 \uB429\uB2C8\uB2E4."
+    Image: {fileID: 21300000, guid: 168dbdd9861e50441b89044b7548298c, type: 3}
+    TypeImage: {fileID: 21300000, guid: 4bacdf4fb5db3f340a1a3fa561bb4ccf, type: 3}
+    RankImage: {fileID: 21300000, guid: b44428771f1f0c24ebe2d821085ddc3d, type: 3}
+    BackgroundImage: {fileID: 0}
+    Golden: 0
+    MaxNum: 7
