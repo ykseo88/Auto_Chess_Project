@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     public int maxPlusGold = 6;
     
     public CombatTurn combatTurn;
+    
+    public CameraController cameraController;
 
     private void Awake()
     {
@@ -66,8 +68,17 @@ public class GameManager : MonoBehaviour
         {
             combatTurn.resultImage.sprite = combatTurn.victorySprite;
             combatTurn.resultImage.gameObject.SetActive(true);
-            StartCoroutine(EndCountDown());
-            isPlayerWin = false;
+
+            if (roundManager.currentRoundIndex == 15)
+            {
+                combatTurn.RoundScore.gameObject.SetActive(true);
+                combatTurn.backToTitle.gameObject.SetActive(true);
+            }
+            else
+            {
+                StartCoroutine(EndCountDown());
+                isPlayerWin = false;
+            }
         }
         else if(isEnemyWin)
         {
@@ -93,7 +104,7 @@ public class GameManager : MonoBehaviour
         }
         
         combatTurn.countDownImage.gameObject.SetActive(false);
-
+        cameraController.OffCusor();
         startCountDown = BackupCount;
         isFightStart = true;
     }
@@ -138,6 +149,7 @@ public class GameManager : MonoBehaviour
         isFightStart = false;
         roundManager.currentRoundIndex++;
         roundManager.currentRoundInfo = roundManager.roundInfos[roundManager.currentRoundIndex-1];
+        cameraController.OnCusor();
         endCountDown = BackupCount;
         OnCardTurnStart();
     }

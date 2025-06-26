@@ -16,7 +16,11 @@ public class CameraController : MonoBehaviour
     private float yaw = 0.0f; // Y축 회전 (좌우)
     private float pitch = 0.0f; // X축 회전 (상하)
     
-    private bool cursorLocked = true; // 커서 잠금 상태
+    private bool cursorLocked = false; // 커서 잠금 상태
+    
+    private RoundManager roundManager;
+
+    public bool firstOff = false;
 
     void Start()
     {
@@ -24,31 +28,57 @@ public class CameraController : MonoBehaviour
         Vector3 rot = transform.eulerAngles;
         yaw = rot.y;
         pitch = rot.x;
+        
+        roundManager = FindObjectOfType<RoundManager>();
+        OnCusor();
     }
 
     void Update()
     {
-        if (GameManager.Instance.isFightStart && !GameManager.Instance.isEnemyWin)
+
+        if (cursorLocked)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            cursorLocked = true;
             HandleMovement();
             HandleRotation();
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            cursorLocked = false;
         }
 
         if (GameManager.Instance.isAssignTurn)
         {
             UnitAssignControll();
         }
-        
-        
+
+        TabOnOffCursor();
+
+    }
+
+    public void OffCusor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        cursorLocked = true;
+    }
+    
+    public void OnCusor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        cursorLocked = false;
+    }
+
+    private void TabOnOffCursor()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab) && GameManager.Instance.isFightStart)
+        {
+            switch (cursorLocked)
+            {
+                case true:
+                    OnCusor();
+                    break;
+                case false:
+                    OffCusor();
+                    break;
+            }
+        }
     }
 
     private void UnitAssignControll()
