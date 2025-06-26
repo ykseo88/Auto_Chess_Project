@@ -744,6 +744,8 @@ public class AnimationEvents : MonoBehaviour
              projectile.TryGetComponent(out Bullet projectileScript);
              projectile.TryGetComponent(out projectileRigidbody);
             projectileScript.parentUnitObj = Unit.gameObject;
+            projectileScript.unitController =  unitController;
+            projectileScript.unitData = unitData;
         
             if (!projectile.TryGetComponent(out projectileRigidbody))
             {

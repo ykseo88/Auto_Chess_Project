@@ -95,6 +95,7 @@ public class Shop : MonoBehaviour
 
     public void ReRoll()
     {
+        
         if (toolTip.ToolTipPanel.activeSelf)
         {
             toolTip.ToolTipPanel.SetActive(false);
@@ -122,6 +123,7 @@ public class Shop : MonoBehaviour
                 currentAllowCards.Remove(tempCardData);
             }
             currentAllowCards = backUpList.ToList();
+            ReRollPrice = 1;
         }
     }
 

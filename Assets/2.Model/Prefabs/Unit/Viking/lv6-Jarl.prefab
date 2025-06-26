@@ -2567,12 +2567,12 @@ MonoBehaviour:
   Type: Viking
   AttackType: Melee
   Team: {fileID: 0}
-  HP: 1000
+  HP: 100
   Rank: 6
   Damage: 100
-  AttackDistance: 3
+  AttackDistance: 1
   AttackRate: 1
-  MoveSpeed: 4
+  MoveSpeed: 1
   Triple: 0
   isDead: 0
 --- !u!114 &405567154703042809

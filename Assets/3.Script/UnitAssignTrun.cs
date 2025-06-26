@@ -20,6 +20,9 @@ public class UnitAssignTrun : MonoBehaviour
     public SpawnCard currentSpawnCard;
     
     private Queue<GameObject> assignUnitList = new Queue<GameObject>();
+
+
+    
     
     
     
@@ -53,6 +56,17 @@ public class UnitAssignTrun : MonoBehaviour
             field.fieldCards[i].transform.TryGetComponent(out Card card);
             
             tempCard.InsertCard(card.currentCardData);
+
+            for (int j = 0; j < card.BuffRateDicArray.Length; j++)
+            {
+                float tempBuff = 0;
+                foreach (var buff in card.BuffRateDicArray[j])
+                {
+                    tempBuff += buff.Value;
+                }
+                tempCard.Buffs[j] =  tempBuff;
+            }
+            
             SpawnCards.Add(temp);
         }
         
@@ -96,12 +110,20 @@ public class UnitAssignTrun : MonoBehaviour
                 {
                     GameObject temp = assignUnitList.Dequeue();
                     GameObject tempUnit = Instantiate(temp, hit.point, Quaternion.LookRotation(GameManager.Instance.PlayerSpawnPoint.transform.forward));
-                    temp.transform.TryGetComponent(out UnitData unitData);
+                    tempUnit.transform.TryGetComponent(out UnitData unitData);
+                    
+                    unitData.HP *= currentSpawnCard.Buffs[0];
+                    unitData.Damage *= currentSpawnCard.Buffs[1];
+                    unitData.MoveSpeed *= currentSpawnCard.Buffs[2];
+                    unitData.AttackRate *= currentSpawnCard.Buffs[3];
+                    unitData.AttackDistance *= currentSpawnCard.Buffs[4];
+                    
                     unitData.Team = GameManager.Instance.playerTeam;
                     GameManager.Instance.playerTeam.PlayerUnitList.Add(tempUnit);
-
                     currentSpawnCard.GetUnitsByUnit(temp).UnitAmount--;
                     currentSpawnCard.UpdateCardInfo();
+                    
+                    Debug.Log($"소환된 유닛: {unitData.name} 데미지: {unitData.Damage}");
                 }
             }
         }

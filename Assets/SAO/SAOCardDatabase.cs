@@ -39,6 +39,7 @@ public class SAOCardDatabase : ScriptableObject
         public Type Type;
         public List<UnitElement> Units;
         public string Description;
+        public string GoldenDescription;
         public Sprite Image;
         public Sprite TypeImage;
         public Sprite RankImage;

@@ -73,7 +73,14 @@ public class ToolTip : MonoBehaviour
     private void InputToolTipInput(SAOCardDatabase.CardData inputData)
     {
         Title.text = inputData.Name;
-        Description.text = inputData.Description;
+        if (inputData.Golden)
+        {
+            Description.text = inputData.GoldenDescription;
+        }
+        else
+        {
+            Description.text = inputData.Description;
+        }
         rankImage.sprite = inputData.RankImage;
         typeImage.sprite = inputData.TypeImage;
 

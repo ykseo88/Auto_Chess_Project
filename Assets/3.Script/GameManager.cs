@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public int pesonalIDNum = 0;
+
     public Team playerTeam;
     public Team enemyTeam;
 

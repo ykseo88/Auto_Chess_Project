@@ -70,7 +70,7 @@ public class TripleSystem : MonoBehaviour
                 tripleCards.Remove(smallestCard);
                 field.fieldCards.Remove(smallestCard.gameObject);
                 smallestCard.inventorys.currentNum++;
-                Destroy(smallestCard.gameObject);
+                smallestCard.OnSell();
                 
                 
                 Dictionary<string, SAOCardDatabase.UnitElement> goldenCardUnitsDic = new Dictionary<string, SAOCardDatabase.UnitElement>();
@@ -111,7 +111,7 @@ public class TripleSystem : MonoBehaviour
                 for (int i = 0; i < tripleCards.Count; i++)
                 {
                     field.fieldCards.Remove(tripleCards[i].gameObject);
-                    Destroy(tripleCards[i].gameObject);
+                    tripleCards[i].OnSell();
                 }
                 
                 choice.OnChoice(shop.shopRank == shop.maxRank ? shop.shopRank : shop.shopRank + 1);

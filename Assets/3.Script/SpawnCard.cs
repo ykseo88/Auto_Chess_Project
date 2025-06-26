@@ -30,6 +30,8 @@ public class SpawnCard : MonoBehaviour, IPointerClickHandler
 
     public float maxRayDistance = 50f;
 
+    public float[] Buffs = new float[5];
+
     private void Start()
     {
         ParentPanel.root.TryGetComponent(out unitAssignTrun);
@@ -37,7 +39,6 @@ public class SpawnCard : MonoBehaviour, IPointerClickHandler
 
     public void InsertCard(SAOCardDatabase.CardData insertData)
     {
-        
         InputCardData(insertData);
         UpdateCardInfo();
     }

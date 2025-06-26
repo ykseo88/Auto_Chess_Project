@@ -8057,6 +8057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7884425396021186166, guid: b482e5c0e8a0c5341a6c780b45cce159,
     type: 3}
+  MagicPrefab: {fileID: 0}
   projectileSpeed: 0
   shootPoint: {fileID: 6200912612199035765}
   Gunshot: {fileID: 9204977669076025993}
@@ -8066,8 +8067,13 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   launchAngleDegrees: 30
   initialForceMagnitude: 300
+  ThrowWeapon: {fileID: 0}
   ShotGunShellNum: 10
   Spread: 0
+  killLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  MagicRange: 0
 --- !u!1 &7281935587478288675
 GameObject:
   m_ObjectHideFlags: 0
@@ -8362,7 +8368,7 @@ MonoBehaviour:
   Team: {fileID: 0}
   HP: 1000
   Rank: 1
-  Damage: 1
+  Damage: 100
   AttackDistance: 100
   AttackRate: 1
   MoveSpeed: 2

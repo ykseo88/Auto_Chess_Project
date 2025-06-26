@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
+    public int personalID;
     public SAOCardDatabase cardDatabase;
     
     public SAOCardDatabase.CardData currentCardData;
@@ -47,12 +48,37 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     
     public bool turnEnd = false;
     public bool turnStart = false;
+    public bool isWaitDestroy = false;
+    public bool isSellNow = false;
+    public bool isFieldChanged = false;
+    
+    public Dictionary<int, float> HealthRateDic = new Dictionary<int, float>();
+    public Dictionary<int, float> DamageRateDic = new Dictionary<int, float>();
+    public Dictionary<int, float> AttackSpeedRateDic = new Dictionary<int, float>();
+    public Dictionary<int, float> AttackRangeRateDic = new Dictionary<int, float>();
+    public Dictionary<int, float> MoveSpeedRateDic = new Dictionary<int, float>();
+    
+    public Dictionary<int, float>[] BuffRateDicArray = new Dictionary<int, float>[5];
 
     [SerializeField] private float customScale = 0.7f; 
     
     void Start()
     {
         SetStarting();
+        personalID = GameManager.Instance.pesonalIDNum;
+        GameManager.Instance.pesonalIDNum++;
+        
+        HealthRateDic.Add(-1, 1f);
+        DamageRateDic.Add(-1, 1f);
+        AttackSpeedRateDic.Add(-1, 1f);
+        AttackRangeRateDic.Add(-1, 1f);
+        MoveSpeedRateDic.Add(-1, 1f);
+
+        BuffRateDicArray[0] = HealthRateDic;
+        BuffRateDicArray[1] = DamageRateDic;
+        BuffRateDicArray[2] = MoveSpeedRateDic;
+        BuffRateDicArray[3] = AttackSpeedRateDic;
+        BuffRateDicArray[4] = AttackRangeRateDic;
     }
 
     public void SetStarting()
@@ -110,6 +136,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             currentCardData.Units.Add(new SAOCardDatabase.UnitElement(insertData.Units[i].Unit, insertData.Units[i].UnitName, insertData.Units[i].UnitAmount));
         }
         currentCardData.Description = insertData.Description;
+        currentCardData.GoldenDescription = insertData.GoldenDescription;
         currentCardData.Image = insertData.Image;
         currentCardData.TypeImage = insertData.TypeImage;
         currentCardData.RankImage = insertData.RankImage;
@@ -201,7 +228,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                     parentList.Remove(gameObject);
                     inventorys.currentNum++;
                     field.Gold += SellPrice;
-                    Destroy(gameObject);
+                    OnSell();
                 }
                 else
                 {
@@ -272,7 +299,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     {
         if (parentList == field.fieldCards && AbilityManager.Instance.abilityDictionary.ContainsKey(currentCardData.Name) && !isChoiceCard)
         {
-            Debug.Log($"{currentCardData.Name} 카드의 능력이 발동 중입니다.");
+            //Debug.Log($"{currentCardData.Name} 카드의 능력이 발동 중입니다.");
             AbilityManager.Instance.abilityDictionary[currentCardData.Name](gameObject);
         }
     }
@@ -332,6 +359,18 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         if (transform.localScale.x != customScale)
         {
             transform.localScale = new Vector3(customScale, customScale, 1);
+        }
+    }
+
+    public void OnSell()
+    {
+        if (!isWaitDestroy)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            isSellNow = true;
         }
     }
     

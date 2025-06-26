@@ -269,12 +269,12 @@ MonoBehaviour:
   Type: Viking
   AttackType: Range
   Team: {fileID: 0}
-  HP: 200
+  HP: 100
   Rank: 3
-  Damage: 10
-  AttackDistance: 100
+  Damage: 100
+  AttackDistance: 1
   AttackRate: 1
-  MoveSpeed: 3
+  MoveSpeed: 1
   Triple: 0
   isDead: 0
 --- !u!136 &5222040628683416497
