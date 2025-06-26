@@ -48,7 +48,7 @@ public class Team : MonoBehaviour
 
     private void WinSign()
     {
-        if(EnemyUnitList.Count == 0)
+        if(EnemyUnitList.Count == 0 && GameManager.Instance.isFightStart)
         {
             if (teamName == "Player")
             {
@@ -58,8 +58,6 @@ public class Team : MonoBehaviour
             {
                 GameManager.Instance.isEnemyWin = true;
             }
-            
-            GameManager.Instance.isFightStart = false;
             Debug.Log($"{teamName} 승리!");
         }
     }

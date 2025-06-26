@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.isFightStart)
+        if (GameManager.Instance.isFightStart && !GameManager.Instance.isEnemyWin)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;

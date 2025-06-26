@@ -21,7 +21,7 @@ public class WinState : IUnitState
         navMeshAgent = unitController.agent;
         navMeshAgent.enabled = false;
         if(unitData.Team.teamName == "Player")GameManager.Instance.isPlayerWin = true;
-        else GameManager.Instance.isPlayerWin = true;
+        else GameManager.Instance.isEnemyWin = true;
         
     }
 

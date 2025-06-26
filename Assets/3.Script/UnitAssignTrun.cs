@@ -21,6 +21,8 @@ public class UnitAssignTrun : MonoBehaviour
     
     private Queue<GameObject> assignUnitList = new Queue<GameObject>();
 
+    public GameObject CombatTurn;
+
 
     
     
@@ -37,6 +39,9 @@ public class UnitAssignTrun : MonoBehaviour
     private void OnEnable()
     {
         MakeSpawnCards();
+        CombatTurn.transform.TryGetComponent(out CombatTurn combatTurn);
+        combatTurn.countDownImage.gameObject.SetActive(true);
+        CombatTurn.SetActive(false);
     }
 
     private void MakeSpawnCards()
@@ -87,6 +92,7 @@ public class UnitAssignTrun : MonoBehaviour
         GameManager.Instance.isCombatTurn = true;
         GameManager.Instance.isFightStart = false;
         
+        CombatTurn.SetActive(true);
         gameObject.SetActive(false);
     }
 

@@ -18,8 +18,12 @@ public class ReadyTurn : MonoBehaviour
     public Field field;
     public Shop shop;
     public Hand hand;
+    public RoundManager roundManager;
+    
     public Choice choice;
     public TMP_Text Gold;
+    public Text ReRollGold;
+    public TMP_Text currentRound;
 
     private IEnumerator ChangeToCombat()
     {
@@ -55,6 +59,7 @@ public class ReadyTurn : MonoBehaviour
 
     private void OnEnable()
     {
+        
         field = transform.GetComponentInChildren<Field>();
         shop = transform.GetComponentInChildren<Shop>();
         field.readyTurn = this;
@@ -71,11 +76,14 @@ public class ReadyTurn : MonoBehaviour
             shop.LockedReRoll();
         }
         field.UpdateGold();
+        currentRound.text = roundManager.currentRoundIndex.ToString();
     }
 
     private void Start()
     {
         Camera = Camera.main;
+        roundManager = GameObject.Find("RoundManager").GetComponent<RoundManager>();
+        ReRollGold = ReRollButton.transform.GetChild(0).GetComponent<Text>();
         StartButton.onClick.AddListener(CombatStart);
         ReRollButton.onClick.AddListener(shop.ReRoll);
         UpgradeButton.onClick.AddListener(shop.UpgradeShop);
@@ -84,6 +92,12 @@ public class ReadyTurn : MonoBehaviour
 
     private void Update()
     {
-        
+        UpdateUIValue();
+    }
+
+    private void UpdateUIValue()
+    {
+        currentRound.text = roundManager.currentRoundIndex.ToString();
+        ReRollGold.text = shop.ReRollPrice.ToString();
     }
 }

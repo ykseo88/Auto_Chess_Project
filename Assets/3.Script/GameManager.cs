@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     public Transform[] enemySpawnPoints;
     
     public int maxPlusGold = 6;
+    
+    public CombatTurn combatTurn;
 
     private void Awake()
     {
@@ -62,8 +64,17 @@ public class GameManager : MonoBehaviour
 
         if (isPlayerWin)
         {
+            combatTurn.resultImage.sprite = combatTurn.victorySprite;
+            combatTurn.resultImage.gameObject.SetActive(true);
             StartCoroutine(EndCountDown());
             isPlayerWin = false;
+        }
+        else if(isEnemyWin)
+        {
+            combatTurn.resultImage.sprite = combatTurn.defeatSprite;
+            combatTurn.resultImage.gameObject.SetActive(true);
+            combatTurn.RoundScore.gameObject.SetActive(true);
+            combatTurn.backToTitle.gameObject.SetActive(true);
         }
         
         TimeSlow();
@@ -80,6 +91,8 @@ public class GameManager : MonoBehaviour
             Debug.Log(startCountDown);
             startCountDown--;
         }
+        
+        combatTurn.countDownImage.gameObject.SetActive(false);
 
         startCountDown = BackupCount;
         isFightStart = true;
@@ -119,6 +132,7 @@ public class GameManager : MonoBehaviour
             field.maxGold++;
             maxPlusGold--;
         }
+        combatTurn.resultImage.gameObject.SetActive(false);
         readyUI.SetActive(true);
         isReadyTurn = true;
         isFightStart = false;
@@ -126,6 +140,19 @@ public class GameManager : MonoBehaviour
         roundManager.currentRoundInfo = roundManager.roundInfos[roundManager.currentRoundIndex-1];
         endCountDown = BackupCount;
         OnCardTurnStart();
+    }
+
+    private IEnumerator GameOverCountDown()
+    {
+        WaitForSeconds wfs = new WaitForSeconds(1f);
+        int BackupCount = endCountDown;
+
+        while (endCountDown >= 0)
+        {
+            yield return wfs;
+            Debug.Log(endCountDown);
+            endCountDown--;
+        }
     }
 
     private void ClearMap()
