@@ -15,10 +15,18 @@ public class ToolTip : MonoBehaviour
     public TMP_Text Description;
     public GameObject UnitInfo;
     public GameObject ToolTipPanel;
+    
+    public SAOCardDatabase.CardData currentCardData;
 
     private void Update()
     {
         OnOffToolTip();
+        InputToolTipInput(currentCardData);
+    }
+
+    private void UpdateTooltipInfo()
+    {
+        
     }
 
     private void OnOffToolTip()
@@ -51,10 +59,12 @@ public class ToolTip : MonoBehaviour
                 Debug.Log("eventData.button");
                 GameObject temp = topMostUI.gameObject;
                 Card tempCard = topMostUI.gameObject.GetComponentInParent<Card>();
+                SpawnCard tempSpawnCard = temp.GetComponent<SpawnCard>();
                 if (temp.CompareTag("Card"))
                 {
-                    InputToolTipInput(tempCard.currentCardData);
-                    ToolTipPanel.transform.position  = tempCard.transform.position;
+                    if(tempCard != null) currentCardData = tempCard.currentCardData;
+                    if(tempSpawnCard != null) currentCardData = tempSpawnCard.currentCardData;
+                    ToolTipPanel.transform.position  = temp.transform.position;
                     ToolTipPanel.gameObject.SetActive(true);
                 }
                 else if(temp.gameObject.Equals(ToolTipPanel))
