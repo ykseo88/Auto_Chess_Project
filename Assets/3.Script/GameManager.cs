@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
     public CameraController cameraController;
     
     public bool isTimeChange = false;
+    
+    public SaveManager saveManager;
 
     private void Awake()
     {
@@ -206,6 +208,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
             isTimeChange = false;
         }
+        saveManager.SaveBattelData();
+        saveManager.SaveBattelData();
         DestroyProjectile();
         OnCardTurnStart();
     }
