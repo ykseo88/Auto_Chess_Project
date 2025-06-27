@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5715042030944215743}
   m_Layer: 3
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   parentUnitObj: {fileID: 0}
   unitController: {fileID: 0}
   unitData: {fileID: 0}
-  stuckDepth: 0.1
+  stuckDepth: -0.001
   Trail: {fileID: 3204843819202437793}
   WheelSpeed: 1
   isLaser: 1

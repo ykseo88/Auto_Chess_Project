@@ -1610,16 +1610,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890edeb47b7975041a13dd5be94dd02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: '"Banneret"'
+  Name: Knight
   Type: Knight
   AttackType: Melee
   Team: {fileID: 0}
+  MaxHp: 0
   HP: 500
-  Rank: 3
-  Damage: 100
-  AttackDistance: 6
-  AttackRate: 4
-  MoveSpeed: 4
+  Rank: 6
+  Damage: 50
+  AttackDistance: 5
+  AttackRate: 3
+  MoveSpeed: 3
   Triple: 0
   isDead: 0
 --- !u!136 &1299922572932581572
@@ -2931,6 +2932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
+  MagicPrefab: {fileID: 0}
   projectileSpeed: 0
   shootPoint: {fileID: 0}
   Gunshot: {fileID: 0}
@@ -2940,8 +2942,13 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   launchAngleDegrees: 30
   initialForceMagnitude: 10
+  ThrowWeapon: {fileID: 0}
   ShotGunShellNum: 10
   Spread: 0
+  killLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  MagicRange: 0
 --- !u!1 &7850465251647495628
 GameObject:
   m_ObjectHideFlags: 0

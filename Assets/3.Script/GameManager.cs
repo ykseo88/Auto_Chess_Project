@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public bool isCombatTurn = false;
     public bool isReadyTurn = false;
     public bool isAssignTurn = false;
+    public bool isTitle = false;
 
     public bool isEnemyWin = false;
     public bool isPlayerWin = false;
@@ -42,6 +43,8 @@ public class GameManager : MonoBehaviour
     public CombatTurn combatTurn;
     
     public CameraController cameraController;
+    
+    public bool isTimeChange = false;
 
     private void Awake()
     {
@@ -88,6 +91,7 @@ public class GameManager : MonoBehaviour
             combatTurn.backToTitle.gameObject.SetActive(true);
         }
         
+        TimeControll();
         TimeSlow();
     }
 
@@ -109,19 +113,65 @@ public class GameManager : MonoBehaviour
         isFightStart = true;
     }
 
-    private void TimeSlow()
+    private void TimeControll()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (Time.timeScale < 1)
+            if (isTimeChange)
             {
                 Time.timeScale = 1;
+                isTimeChange = false;
             }
             else
             {
                 Time.timeScale *= 0.01f;
+                isTimeChange = true;
             }
-            
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (isTimeChange)
+            {
+                Time.timeScale = 1;
+                isTimeChange = false;
+            }
+            else
+            {
+                Time.timeScale *= 0.01f;
+                isTimeChange = true;
+            }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (isTimeChange)
+            {
+                Time.timeScale = 1;
+                isTimeChange = false;
+            }
+            else
+            {
+                Time.timeScale *= 3f;
+                isTimeChange = true;
+            }
+        }
+    }
+
+    private void TimeSlow()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            if (isTimeChange)
+            {
+                Time.timeScale = 1;
+                isTimeChange = false;
+            }
+            else
+            {
+                Time.timeScale *= 3f;
+                isTimeChange = true;
+            }
         }
     }
     
@@ -151,6 +201,12 @@ public class GameManager : MonoBehaviour
         roundManager.currentRoundInfo = roundManager.roundInfos[roundManager.currentRoundIndex-1];
         cameraController.OnCusor();
         endCountDown = BackupCount;
+        if (isTimeChange)
+        {
+            Time.timeScale = 1;
+            isTimeChange = false;
+        }
+        DestroyProjectile();
         OnCardTurnStart();
     }
 
@@ -249,6 +305,15 @@ public class GameManager : MonoBehaviour
         }
         playerTeam.PlayerUnitList.Clear();
         
+    }
+
+    private void DestroyProjectile()
+    {
+        GameObject[] DestroyList = GameObject.FindGameObjectsWithTag("Projectile");
+        for (int i = 0; i < DestroyList.Length; i++)
+        {
+            Destroy(DestroyList[i]);
+        }
     }
 }
     

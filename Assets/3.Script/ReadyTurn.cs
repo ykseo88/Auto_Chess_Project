@@ -24,6 +24,8 @@ public class ReadyTurn : MonoBehaviour
     public TMP_Text Gold;
     public Text ReRollGold;
     public TMP_Text currentRound;
+    
+    public TimtLimit timerLimit;
 
     private IEnumerator ChangeToCombat()
     {
@@ -77,6 +79,7 @@ public class ReadyTurn : MonoBehaviour
         }
         field.UpdateGold();
         currentRound.text = roundManager.currentRoundIndex.ToString();
+        timerLimit.tempTimeLimitSecond = timerLimit.inputTimeLimitSecond;
     }
 
     private void Start()

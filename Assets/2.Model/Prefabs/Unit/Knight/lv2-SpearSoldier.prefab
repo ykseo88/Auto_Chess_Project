@@ -265,15 +265,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890edeb47b7975041a13dd5be94dd02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: '"SpearMan"'
+  Name: SpearMan
   Type: Knight
   AttackType: Melee
   Team: {fileID: 0}
+  MaxHp: 0
   HP: 100
   Rank: 1
-  Damage: 30
+  Damage: 20
   AttackDistance: 4
-  AttackRate: 2
+  AttackRate: 1
   MoveSpeed: 2
   Triple: 0
   isDead: 0
@@ -3637,6 +3638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
+  MagicPrefab: {fileID: 0}
   projectileSpeed: 0
   shootPoint: {fileID: 0}
   Gunshot: {fileID: 0}
@@ -3646,8 +3648,13 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   launchAngleDegrees: 30
   initialForceMagnitude: 10
+  ThrowWeapon: {fileID: 0}
   ShotGunShellNum: 10
   Spread: 0
+  killLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  MagicRange: 0
 --- !u!1 &8734473011174038139
 GameObject:
   m_ObjectHideFlags: 0

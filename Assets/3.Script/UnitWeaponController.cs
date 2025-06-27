@@ -23,7 +23,7 @@ public class UnitWeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateState();
+
     }
     
     public void ChangeState(IWeaponState newState)
@@ -32,27 +32,5 @@ public class UnitWeaponController : MonoBehaviour
         currentState = newState;
         currentState.Enter();
         Debug.Log($"현재 상태: {currentState}");
-    }
-
-    public void UpdateState()
-    {
-        switch (unitController.currentState)
-        {
-            case WaitState ws:
-                ChangeState(new WWaitState(this));
-                break;
-            case DieState ws:
-                ChangeState(new WDieState(this));
-                break;
-            case AttackState ws:
-                ChangeState(new WAttackState(this));
-                break;
-            case RunState ws:
-                ChangeState(new WRunState(this));
-                break;
-            case WinState ws:
-                ChangeState(new WWinState(this));
-                break;
-        }
     }
 }

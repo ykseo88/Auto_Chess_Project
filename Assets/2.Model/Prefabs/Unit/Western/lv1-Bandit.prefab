@@ -2499,6 +2499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7884425396021186166, guid: 123b7f99d5ccb0044918fd3e9fe43dbd,
     type: 3}
+  MagicPrefab: {fileID: 0}
   projectileSpeed: 0
   shootPoint: {fileID: 6520909000008355716}
   Gunshot: {fileID: 4736341250557958058}
@@ -2508,8 +2509,13 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   launchAngleDegrees: 30
   initialForceMagnitude: 50
+  ThrowWeapon: {fileID: 0}
   ShotGunShellNum: 10
   Spread: 0
+  killLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  MagicRange: 0
 --- !u!1 &5522169407065715337
 GameObject:
   m_ObjectHideFlags: 0
@@ -3296,13 +3302,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890edeb47b7975041a13dd5be94dd02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: '"Bandit"'
+  Name: Bandit
   Type: Western
   AttackType: Range
   Team: {fileID: 0}
-  HP: 1000
+  MaxHp: 75
+  HP: 75
   Rank: 1
-  Damage: 1
+  Damage: 10
   AttackDistance: 30
   AttackRate: 1
   MoveSpeed: 2

@@ -156,26 +156,7 @@ public class UnitAssignTrun : MonoBehaviour
     public void Reset()
     {
         GameManager.Instance.DestroyPlayerUnits();
-        foreach (GameObject card in SpawnCards)
-        {
-            Destroy(card);
-        }
-        SpawnCards.Clear();
-        for (int i = 0; i < field.fieldCards.Count; i++)
-        {
-            GameObject temp = Instantiate(SpawnCardPrefab);
-            temp.transform.TryGetComponent(out SpawnCard tempCard);
-            tempCard.ParentPanel = CardPanel.transform;
-            temp.transform.SetParent(tempCard.ParentPanel);
-            
-            field.fieldCards[i].transform.TryGetComponent(out Card card);
-            
-            tempCard.InsertCard(card.currentCardData);
-            SpawnCards.Add(temp);
-        }
-        
-        currentSpawnCard = SpawnCards[0].transform.GetComponent<SpawnCard>();
-        ChangeCurrentCard(currentSpawnCard);
+        MakeSpawnCards();
     }
 
     private void UpdateChoiceEffect()

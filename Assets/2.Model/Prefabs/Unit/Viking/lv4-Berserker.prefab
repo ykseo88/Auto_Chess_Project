@@ -265,16 +265,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890edeb47b7975041a13dd5be94dd02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: '"Sword Soldier"'
-  Type: Knight
+  Name: BerserKer
+  Type: Viking
   AttackType: Melee
   Team: {fileID: 0}
-  HP: 100
-  Rank: 1
+  MaxHp: 200
+  HP: 200
+  Rank: 4
   Damage: 100
-  AttackDistance: 1
+  AttackDistance: 2.25
   AttackRate: 1
-  MoveSpeed: 1
+  MoveSpeed: 3
   Triple: 0
   isDead: 0
 --- !u!136 &5222040628683416497

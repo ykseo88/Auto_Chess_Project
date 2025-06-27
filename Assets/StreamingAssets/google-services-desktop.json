@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "309378146738",
+    "project_id": "battlemerge-8e0ad",
+    "storage_bucket": "battlemerge-8e0ad.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309378146738:android:50c0e7d080b1f5e9f344ab",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.Auto_Chess_Project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWuw-EGs3ca2V9si23TZYwnAn4WJ6w5kg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

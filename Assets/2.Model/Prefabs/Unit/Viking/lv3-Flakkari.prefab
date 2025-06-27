@@ -265,16 +265,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890edeb47b7975041a13dd5be94dd02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: '"Flakkari"'
+  Name: Flakkari
   Type: Viking
   AttackType: Range
   Team: {fileID: 0}
-  HP: 100
+  MaxHp: 0
+  HP: 200
   Rank: 3
-  Damage: 100
-  AttackDistance: 1
-  AttackRate: 1
-  MoveSpeed: 1
+  Damage: 20
+  AttackDistance: 15
+  AttackRate: 1.5
+  MoveSpeed: 2
   Triple: 0
   isDead: 0
 --- !u!136 &5222040628683416497

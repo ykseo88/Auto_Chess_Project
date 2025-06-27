@@ -15,6 +15,8 @@ public class WaitState : IUnitState
         animator = unitController.animator;
         //animator.SetTrigger("Idle");
         unitController.transform.TryGetComponent(out navMeshAgent);
+        unitController.gameObject.transform.TryGetComponent(out UnitData unitData);
+        unitData.MaxHp = unitData.HP;
     }
 
     public void Update()

@@ -11,6 +11,7 @@ TagManager:
   - ActivateTrigger
   - Enemy
   - Ground
+  - Projectile
   layers:
   - Default
   - TransparentFX

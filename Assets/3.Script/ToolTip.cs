@@ -59,12 +59,20 @@ public class ToolTip : MonoBehaviour
                 Debug.Log("eventData.button");
                 GameObject temp = topMostUI.gameObject;
                 Card tempCard = topMostUI.gameObject.GetComponentInParent<Card>();
-                SpawnCard tempSpawnCard = temp.GetComponent<SpawnCard>();
+                SpawnCard tempSpawnCard = temp.GetComponentInParent<SpawnCard>();
                 if (temp.CompareTag("Card"))
                 {
-                    if(tempCard != null) currentCardData = tempCard.currentCardData;
-                    if(tempSpawnCard != null) currentCardData = tempSpawnCard.currentCardData;
-                    ToolTipPanel.transform.position  = temp.transform.position;
+                    if (tempCard != null)
+                    {
+                        currentCardData = tempCard.currentCardData;
+                        ToolTipPanel.transform.position  = temp.transform.position;
+                    }
+
+                    if (tempSpawnCard != null)
+                    {
+                        currentCardData = tempSpawnCard.currentCardData;
+                        ToolTipPanel.transform.position  = tempSpawnCard.transform.position;
+                    }
                     ToolTipPanel.gameObject.SetActive(true);
                 }
                 else if(temp.gameObject.Equals(ToolTipPanel))

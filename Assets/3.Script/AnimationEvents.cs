@@ -951,4 +951,9 @@ public class AnimationEvents : MonoBehaviour
             }
         }
     }
+
+    private void OffGunShot()
+    {
+        Gunshot.gameObject.SetActive(false);
+    }
 }

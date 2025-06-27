@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 7442433737005554862}
   m_Layer: 0
   m_Name: Spear
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,6 +276,9 @@ MonoBehaviour:
   unitData: {fileID: 0}
   stuckDepth: 0.1
   Trail: {fileID: 714008085165940711}
+  WheelSpeed: 1
+  isLaser: 0
+  isWheel: 0
   Blood: {fileID: 198615267133080452, guid: 1293174ea2a13fa498c40e4189cba075, type: 3}
   GroundImpact: {fileID: 198029139897396496, guid: 060b0fe5e48e76444ad08bbaae251c06,
     type: 3}

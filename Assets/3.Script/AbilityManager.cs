@@ -229,7 +229,7 @@ public class AbilityManager : MonoBehaviour
         //턴이 종료될 때마다 SwordMan 2기 추가
         cardObj.transform.TryGetComponent(out Card cardObjCard);
         
-        string unitName = "SpearMan";
+        string unitName = "SwordMan";
         int plusUnitNum = 2;
         if(cardObjCard.currentCardData.Golden) plusUnitNum *= 2;
         
@@ -256,6 +256,7 @@ public class AbilityManager : MonoBehaviour
         
         int plusUnitNum = 2;
         if (cardObjCard.currentCardData.Golden) plusUnitNum *= 2;
+        string TargetUnitName = "SwordMan";
 
         if (!cardObjCard.boolAbilityValue)
         {
@@ -263,14 +264,14 @@ public class AbilityManager : MonoBehaviour
             for (int i = 0; i < field.fieldCards.Count; i++)
             {
                 field.fieldCards[i].transform.TryGetComponent(out Card card);
-                if (card.currentCardData.Name == "SwordMan")
+                if (card.currentCardData.Name == TargetUnitName)
                 {
                     //card.currentCardData.Units.FirstOrDefault(c => c.UnitName == "SwordMan").UnitAmount += 2;
                     //card.UpdateCardInfo();
 
                     for (int j = 0; j < card.currentCardData.Units.Count; j++)
                     {
-                        if (card.currentCardData.Units[j].UnitName == "SwordMan")
+                        if (card.currentCardData.Units[j].UnitName == TargetUnitName)
                         {
                             card.currentCardData.Units[j].UnitAmount += plusUnitNum;
                             card.UpdateCardInfo();

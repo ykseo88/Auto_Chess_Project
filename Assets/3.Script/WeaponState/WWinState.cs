@@ -9,11 +9,16 @@ public class WWinState : IWeaponState
     
     public WWinState(UnitWeaponController weaponController) => this.weaponController = weaponController;
     private Animator animator;
+    private ParticleSystem GunShot;
     
     public void Enter()
     {
         animator = weaponController.animator;
         animator.SetTrigger(Win);
+        weaponController.transform.TryGetComponent(out AnimationEvents animationEvents);
+        GunShot = animationEvents.Gunshot;
+        GunShot.Pause();
+        GunShot.transform.position -= new Vector3(0, 3f, 0);
     }
 
     public void Update()

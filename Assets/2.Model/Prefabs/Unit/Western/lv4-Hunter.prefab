@@ -8362,12 +8362,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890edeb47b7975041a13dd5be94dd02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: '"Hunter"'
+  Name: Hunter
   Type: Western
   AttackType: Range
   Team: {fileID: 0}
-  HP: 1000
-  Rank: 1
+  MaxHp: 50
+  HP: 50
+  Rank: 5
   Damage: 100
   AttackDistance: 100
   AttackRate: 1

@@ -9,7 +9,7 @@ public class TimtLimit : MonoBehaviour
     private ReadyTurn readyTurn;
     private TMP_Text timeText;
     public float inputTimeLimitSecond = 30f;
-    private float tempTimeLimitSecond;
+    public float tempTimeLimitSecond;
     private int minute;
     private int second;
 

@@ -7930,6 +7930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 868578436988253087, guid: f9c15d425bd71f64489e9ad2e314acae,
     type: 3}
+  MagicPrefab: {fileID: 0}
   projectileSpeed: 0
   shootPoint: {fileID: 1907675152905382594}
   Gunshot: {fileID: 0}
@@ -7939,8 +7940,13 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   launchAngleDegrees: 30
   initialForceMagnitude: 25
+  ThrowWeapon: {fileID: 0}
   ShotGunShellNum: 10
   Spread: 0
+  killLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  MagicRange: 0
 --- !u!1 &7281935587478288675
 GameObject:
   m_ObjectHideFlags: 0
@@ -8229,15 +8235,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890edeb47b7975041a13dd5be94dd02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: '"Hunter"'
+  Name: Bomber
   Type: Western
   AttackType: Range
   Team: {fileID: 0}
-  HP: 1000
+  MaxHp: 0
+  HP: 100
   Rank: 1
-  Damage: 1
+  Damage: 100
   AttackDistance: 50
-  AttackRate: 1
+  AttackRate: 0.1
   MoveSpeed: 2
   Triple: 0
   isDead: 0
