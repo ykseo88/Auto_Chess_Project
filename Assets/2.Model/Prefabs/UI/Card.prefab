@@ -32,10 +32,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6298003662274811527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7762628533680734493
 CanvasRenderer:
@@ -65,10 +65,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title
+  m_text: "\uCE74\uB4DC \uC774\uB984"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7bd2db614363e92469eb59cdd50ab2fb, type: 2}
-  m_sharedMaterial: {fileID: 8985816680076289586, guid: 7bd2db614363e92469eb59cdd50ab2fb,
+  m_fontAsset: {fileID: 11400000, guid: e0c9f7b8fe7b8ae4a9520f456f0753c6, type: 2}
+  m_sharedMaterial: {fileID: -203879947266115966, guid: e0c9f7b8fe7b8ae4a9520f456f0753c6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -93,13 +93,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.3
+  m_fontSize: 28.2
   m_fontSizeBase: 18.3
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -245,8 +245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 135.6}
-  m_SizeDelta: {x: 175, y: 30}
+  m_AnchoredPosition: {x: 0, y: 134.87}
+  m_SizeDelta: {x: 163.9, y: 30.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4078883864422250002
 CanvasRenderer:
@@ -742,6 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cc3f42b89b1274a9511cb7a31a727a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  personalID: 0
   cardDatabase: {fileID: 11400000, guid: ca70c6a51d88fbc46a6bebd2af39eef2, type: 2}
   currentCardData:
     ID: 
@@ -750,6 +751,7 @@ MonoBehaviour:
     Type: 0
     Units: []
     Description: 
+    GoldenDescription: 
     Image: {fileID: 0}
     TypeImage: {fileID: 0}
     RankImage: {fileID: 0}
@@ -766,6 +768,7 @@ MonoBehaviour:
       Type: 0
       Units: []
       Description: 
+      GoldenDescription: 
       Image: {fileID: 0}
       TypeImage: {fileID: 0}
       RankImage: {fileID: 0}
@@ -793,6 +796,9 @@ MonoBehaviour:
   choicePanel: {fileID: 0}
   turnEnd: 0
   turnStart: 0
+  isWaitDestroy: 0
+  isSellNow: 0
+  isFieldChanged: 0
   customScale: 0.7
 --- !u!225 &-6920399016703954981
 CanvasGroup:

@@ -6,6 +6,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public SaveData loadData = new SaveData();
+    public bool isContinue = false;
+    
+    public SAOCardDatabase cardDatabase;
+    public SAOUnitPrefabDatabase unitDatabase;
+    public SAOSpriteDatabase spriteDatabase;
 
     public int pesonalIDNum = 0;
 
@@ -25,6 +31,8 @@ public class GameManager : MonoBehaviour
     public bool isPlayerWin = false;
 
     public Field field;
+    public Shop shop;
+    public Hand hand;
     public RoundManager roundManager;
     public GameObject readyUI;
     
@@ -47,6 +55,8 @@ public class GameManager : MonoBehaviour
     public bool isTimeChange = false;
     
     public SaveManager saveManager;
+    
+    public bool isSave = false;
 
     private void Awake()
     {
@@ -76,6 +86,13 @@ public class GameManager : MonoBehaviour
 
             if (roundManager.currentRoundIndex == 15)
             {
+                if (!isSave)
+                {
+                    saveManager.SaveLog(true);
+                    saveManager.ClearBattleSave();
+                    saveManager.PushSaveData();
+                    isSave = true;
+                }
                 combatTurn.RoundScore.gameObject.SetActive(true);
                 combatTurn.backToTitle.gameObject.SetActive(true);
             }
@@ -87,6 +104,13 @@ public class GameManager : MonoBehaviour
         }
         else if(isEnemyWin)
         {
+            if (!isSave)
+            {
+                saveManager.SaveLog(false);
+                saveManager.ClearBattleSave();
+                saveManager.PushSaveData();
+                isSave = true;
+            }
             combatTurn.resultImage.sprite = combatTurn.defeatSprite;
             combatTurn.resultImage.gameObject.SetActive(true);
             combatTurn.RoundScore.gameObject.SetActive(true);
@@ -181,6 +205,8 @@ public class GameManager : MonoBehaviour
     {
         WaitForSeconds wfs = new WaitForSeconds(1f);
         int BackupCount = endCountDown;
+        
+        
 
         while (endCountDown >= 0)
         {
@@ -208,8 +234,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
             isTimeChange = false;
         }
-        saveManager.SaveBattelData();
-        saveManager.SaveBattelData();
+        
         DestroyProjectile();
         OnCardTurnStart();
     }
@@ -319,5 +344,7 @@ public class GameManager : MonoBehaviour
             Destroy(DestroyList[i]);
         }
     }
+
+    
 }
     

@@ -60,7 +60,10 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     
     public Dictionary<int, float>[] BuffRateDicArray = new Dictionary<int, float>[5];
 
-    [SerializeField] private float customScale = 0.7f; 
+    [SerializeField] private float customScale = 0.7f;
+
+    public bool isMove = true;
+    public bool isClick = true;
     
     void Start()
     {
@@ -68,17 +71,17 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         personalID = GameManager.Instance.pesonalIDNum;
         GameManager.Instance.pesonalIDNum++;
         
-        HealthRateDic.Add(-1, 1f);
-        DamageRateDic.Add(-1, 1f);
-        AttackSpeedRateDic.Add(-1, 1f);
-        AttackRangeRateDic.Add(-1, 1f);
-        MoveSpeedRateDic.Add(-1, 1f);
-
         BuffRateDicArray[0] = HealthRateDic;
         BuffRateDicArray[1] = DamageRateDic;
         BuffRateDicArray[2] = MoveSpeedRateDic;
         BuffRateDicArray[3] = AttackSpeedRateDic;
         BuffRateDicArray[4] = AttackRangeRateDic;
+        
+        HealthRateDic.Add(-1, 1f);
+        DamageRateDic.Add(-1, 1f);
+        AttackSpeedRateDic.Add(-1, 1f);
+        AttackRangeRateDic.Add(-1, 1f);
+        MoveSpeedRateDic.Add(-1, 1f);
     }
 
     public void SetStarting()
@@ -149,14 +152,17 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!isChoiceCard)
+        if (isMove)
         {
-            returnParent = transform.parent.gameObject;
-            transform.SetParent(transform.root);
-            canvasGroup.blocksRaycasts = false;
-            if (parentList == shop.currentSellCards)
+            if (!isChoiceCard)
             {
-                inventorys.currentNum--;
+                returnParent = transform.parent.gameObject;
+                transform.SetParent(transform.root);
+                canvasGroup.blocksRaycasts = false;
+                if (parentList == shop.currentSellCards)
+                {
+                    inventorys.currentNum--;
+                }
             }
         }
     }
@@ -334,23 +340,26 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     {
         if (isChoiceCard)
         {
-            GameObject choiceCard = eventData.pointerCurrentRaycast.gameObject;
-            if (hand.handCards.Count < 6)
+            if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("카드 선택됨: " + currentCardData.Name);
-                GameObject tempCard = Instantiate(gameObject, hand.transform);
-                tempCard.transform.localScale = new Vector3(0.7f, 0.7f, 1);
-                tempCard.transform.TryGetComponent(out Card tempCardComponent);
-                tempCardComponent.InsertCard(currentCardData);
-                tempCardComponent.isChoiceCard = false;
-                tempCardComponent.parentList = hand.handCards;
-                tempCardComponent.inventorys = inventorys;
-                inventorys.currentNum--;
-                tempCardComponent.SetStarting();
-                tempCardComponent.parentList.Add(tempCard);
+                GameObject choiceCard = eventData.pointerCurrentRaycast.gameObject;
+                if (hand.handCards.Count < 6)
+                {
+                    Debug.Log("카드 선택됨: " + currentCardData.Name);
+                    GameObject tempCard = Instantiate(gameObject, hand.transform);
+                    tempCard.transform.localScale = new Vector3(0.7f, 0.7f, 1);
+                    tempCard.transform.TryGetComponent(out Card tempCardComponent);
+                    tempCardComponent.InsertCard(currentCardData);
+                    tempCardComponent.isChoiceCard = false;
+                    tempCardComponent.parentList = hand.handCards;
+                    tempCardComponent.inventorys = inventorys;
+                    inventorys.currentNum--;
+                    tempCardComponent.SetStarting();
+                    tempCardComponent.parentList.Add(tempCard);
                 
+                }
+                choicePanel.SetActive(false);
             }
-            choicePanel.SetActive(false);
         }
     }
 
@@ -373,5 +382,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             isSellNow = true;
         }
     }
+
+    
     
 }

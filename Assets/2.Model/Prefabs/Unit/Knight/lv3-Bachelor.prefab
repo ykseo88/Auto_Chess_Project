@@ -2072,7 +2072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890edeb47b7975041a13dd5be94dd02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Bachelor
+  Name: "\uBD80\uAD00"
   Type: Knight
   AttackType: Melee
   Team: {fileID: 0}

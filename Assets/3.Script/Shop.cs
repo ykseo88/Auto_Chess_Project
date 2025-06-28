@@ -16,7 +16,11 @@ public class Shop : MonoBehaviour
     public Sprite unlockImage;
     public bool isLocked = false;
     
+    public SaveManager saveManager;
+    
     private ToolTip toolTip;
+    
+    public RoundManager roundManager;
 
     [System.Serializable]
     public class CardInven
@@ -54,12 +58,11 @@ public class Shop : MonoBehaviour
 
     public List<GameObject> currentSellCards;
 
-    private void Start()
+    private void Awake()
     {
         transform.root.TryGetComponent(out toolTip);
         transform.root.TryGetComponent(out readyTurn);
         currentShopRankImage.sprite = shopRankImages[shopRank - 1];
-        
         
         for (int i = 0; i < maxRank; i++)
         {
@@ -75,10 +78,56 @@ public class Shop : MonoBehaviour
             cardPool[tempRank].Add(temp);
         }
         
-        SetSellCards();
-        FreeReRoll();
-        UpdateUpgradeButton();
+        
     }
+
+    private void Start()
+    {
+        SetStart();
+    }
+
+    public void SetStart()
+    {
+        SetSellCards();
+        
+        if (GameManager.Instance.isContinue)
+        {
+            SaveData loadData = LoadManager.Instance.loadData;
+            
+            shopRank = loadData.battleSave.saveShopRank;
+
+            for (int i = 0; i < loadData.battleSave.saveShop.Count; i++)
+            {
+                GameObject tempCardObj = Instantiate(cardPrefab);
+                tempCardObj.transform.SetParent(transform);
+                tempCardObj.transform.TryGetComponent(out Card tempCard);
+
+                LoadManager.Instance.LoadCard(tempCard, loadData.battleSave.saveShop[i]);
+
+                tempCard.inventorys = GetInvenByID(tempCard.currentCardData.ID);
+
+                currentSellCards.Add(tempCardObj);
+                tempCard.UpdateCardInfo();
+            }
+        }
+        else
+        {
+            if (!isLocked)
+            {
+                FreeReRoll();
+            }
+            else
+            {
+                LockedReRoll();
+            }
+        }
+        
+        SetSellCards();
+        UpdateShopInfo();
+        roundManager.SetStartRound();
+    }
+
+    
 
     public void LockShop()
     {
@@ -95,7 +144,6 @@ public class Shop : MonoBehaviour
 
     public void ReRoll()
     {
-        
         if (toolTip.ToolTipPanel.activeSelf)
         {
             toolTip.ToolTipPanel.SetActive(false);
@@ -250,5 +298,29 @@ public class Shop : MonoBehaviour
             }
         }
         return tempList;
+    }
+    
+    public Shop.CardInven GetInvenByID(string id)
+    {
+        foreach (var rank in cardPool)
+        {
+            for (int i = 0; i < rank.Value.Count; i++)
+            {
+                if (rank.Value[i].card.ID == id)
+                {
+                    return rank.Value[i];
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public void UpdateShopInfo()
+    {
+        readyTurn.ReRollButton.transform.GetChild(0).GetComponent<Text>().text = ReRollPrice.ToString();
+        UpdateUpgradeButton();
+        currentShopRankImage.sprite = shopRankImages[shopRank - 1];
+        readyTurn.currentRound.text = roundManager.currentRoundIndex.ToString();
     }
 }

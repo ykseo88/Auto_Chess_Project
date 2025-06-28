@@ -1703,7 +1703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890edeb47b7975041a13dd5be94dd02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Banneret
+  Name: "\uBC30\uB108\uB81B"
   Type: Knight
   AttackType: Melee
   Team: {fileID: 0}

@@ -13,60 +13,60 @@ MonoBehaviour:
   m_Name: SAOUnitDatabase
   m_EditorClassIdentifier: 
   UnitPrefabs:
-  - Name: SwordMan
+  - Name: "\uAC80\uC0AC"
     UnitId: 0
     Unit: {fileID: 1015277382743670091, guid: c0d76cb9aefef4e4a996242b470409b2, type: 3}
-  - Name: BowMan
+  - Name: "\uAD81\uBCD1"
     UnitId: 1
     Unit: {fileID: 730948036133473203, guid: 76f0bca3f36f3ae4fb3ae0f601dd064b, type: 3}
-  - Name: SpearMan
+  - Name: "\uCC3D\uBCD1"
     UnitId: 2
     Unit: {fileID: 1015277382743670091, guid: db6d18f9917cd0640ae58990852da6d4, type: 3}
-  - Name: Bachelor
+  - Name: "\uBD80\uAD00"
     UnitId: 3
     Unit: {fileID: 5214124157295079514, guid: 44c2a127499059c4fb46513f0f51fad5, type: 3}
-  - Name: Banneret
+  - Name: "\uBC30\uB108\uB81B"
     UnitId: 4
     Unit: {fileID: 3637295338793833923, guid: 1e729a0aa78c4b04ba7cdc4dea08d7ad, type: 3}
-  - Name: WarLord
+  - Name: "\uC6CC\uB85C\uB4DC"
     UnitId: 5
     Unit: {fileID: 7957023106250218011, guid: 8e7dc812a07121247972f7b1be596723, type: 3}
-  - Name: Knight
+  - Name: "\uAE30\uC0AC"
     UnitId: 6
     Unit: {fileID: 4365756304651908956, guid: 653416dbb3ab44146b8651bc634c4930, type: 3}
-  - Name: Bandit
+  - Name: "\uB3C4\uC801"
     UnitId: 7
     Unit: {fileID: 6602246735337940206, guid: 83414b21a0eb86b488b38fec1d270f2b, type: 3}
-  - Name: OutLaw
+  - Name: "\uBB34\uBC95\uC790"
     UnitId: 8
     Unit: {fileID: 5552456964816726746, guid: 4963636fb6cbc7c4eab4f20925fab4bb, type: 3}
-  - Name: Deputy
+  - Name: "\uBCF4\uC548\uAD00"
     UnitId: 9
     Unit: {fileID: 225793473645016178, guid: 640d32a9d40b10149af54bd8bb64c54d, type: 3}
-  - Name: Hunter
+  - Name: "\uC0AC\uB0E5\uAFBC"
     UnitId: 10
     Unit: {fileID: 7499373804371572254, guid: 4c842175d42d0eb45a5d6a1800b0fafc, type: 3}
-  - Name: ChainGun
+  - Name: "\uCCB4\uC778\uAC74"
     UnitId: 11
     Unit: {fileID: 6594074249560481506, guid: 6d85f925bab94da40b58d6594135350c, type: 3}
-  - Name: Bomber
+  - Name: "\uD3ED\uD0C4\uAD11"
     UnitId: 12
     Unit: {fileID: 7499373804371572254, guid: 6ac11ad77cc6fe34486c2c107e81a5d9, type: 3}
-  - Name: Thralls
+  - Name: "\uB178\uC608 \uC804\uC0AC"
     UnitId: 13
     Unit: {fileID: 1015277382743670091, guid: b299f7cc24146c34b826da6b6285cab3, type: 3}
-  - Name: Vedir
+  - Name: "\uC218\uB835\uAFBC"
     UnitId: 14
     Unit: {fileID: 1015277382743670091, guid: 618341a6cd45bef449755aa7e734d7d6, type: 3}
-  - Name: Flakkari
+  - Name: "\uB5A0\uB3CC\uC774"
     UnitId: 15
     Unit: {fileID: 1015277382743670091, guid: 7d1558cf5aca3e14195e1315fef5cca5, type: 3}
-  - Name: Berserker
+  - Name: "\uAD11\uC804\uC0AC"
     UnitId: 16
     Unit: {fileID: 1015277382743670091, guid: 9a84eb7eedc83d549ad6c6f3a84c4d66, type: 3}
-  - Name: Volva
+  - Name: "\uC8FC\uC220\uC0AC"
     UnitId: 17
     Unit: {fileID: 1015277382743670091, guid: af7f8e2a98bb8db46b508cba5722d785, type: 3}
-  - Name: ChainGun
+  - Name: "\uC57C\uB97C"
     UnitId: 18
     Unit: {fileID: 7100041582013144896, guid: f1bd22b16f5407846930fec9abbac6c2, type: 3}

@@ -26,6 +26,19 @@ public class RoundManager : MonoBehaviour
 
     private void Start()
     {
+
+        SetStartRound();
+
+    }
+
+    public void SetStartRound()
+    {
+        
+        if (GameManager.Instance.isContinue)
+        {
+            currentRoundIndex = LoadManager.Instance.loadData.battleSave.saveRoundIndex;
+        }
+        
         currentRoundInfo = roundInfos[currentRoundIndex-1];
     }
 }

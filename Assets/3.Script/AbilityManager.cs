@@ -226,11 +226,11 @@ public class AbilityManager : MonoBehaviour
     
     public void SwordManAbility(GameObject cardObj)
     {
-        //턴이 종료될 때마다 SwordMan 2기 추가
+        //턴이 종료될 때마다 SwordMan 1기 추가
         cardObj.transform.TryGetComponent(out Card cardObjCard);
         
-        string unitName = "SwordMan";
-        int plusUnitNum = 2;
+        string unitName = "병사";
+        int plusUnitNum = 1;
         if(cardObjCard.currentCardData.Golden) plusUnitNum *= 2;
         
         if(cardObjCard.turnEnd)
@@ -256,7 +256,7 @@ public class AbilityManager : MonoBehaviour
         
         int plusUnitNum = 2;
         if (cardObjCard.currentCardData.Golden) plusUnitNum *= 2;
-        string TargetUnitName = "SwordMan";
+        string TargetUnitName = "병사";
 
         if (!cardObjCard.boolAbilityValue)
         {
@@ -291,8 +291,8 @@ public class AbilityManager : MonoBehaviour
         cardObj.transform.TryGetComponent(out Card cardObjCard);
         Debug.Log("씨발 왜 안돼");
         
-        string unitName = "SpearMan";
-        string targetUnitName = "SwordMan";
+        string unitName = "창병";
+        string targetUnitName = "병사";
         int changeUnitNum = 2;
         if(cardObjCard.currentCardData.Golden) changeUnitNum *= 2;
         
@@ -337,8 +337,8 @@ public class AbilityManager : MonoBehaviour
         //턴이 종료될 때마다 SwordMan 2기를 SpearMan으로 변환
                 cardObj.transform.TryGetComponent(out Card cardObjCard);
                 
-                string unitName = "BowMan";
-                string targetUnitName = "SwordMan";
+                string unitName = "궁병";
+                string targetUnitName = "병사";
                 int changeUnitNum = 2;
                 if(cardObjCard.currentCardData.Golden) changeUnitNum *= 2;
                 
@@ -380,8 +380,8 @@ public class AbilityManager : MonoBehaviour
         //턴이 종료될 때마다 SwordMan 2기를 SpearMan으로 변환
                 cardObj.transform.TryGetComponent(out Card cardObjCard);
                 
-                string unitName = "Bachelor";
-                string targetUnitName = "SpearMan";
+                string unitName = "부관";
+                string targetUnitName = "창병";
                 int changeUnitNum = 2;
                 if(cardObjCard.currentCardData.Golden) changeUnitNum *= 2;
                 
@@ -425,8 +425,8 @@ public class AbilityManager : MonoBehaviour
                 cardObj.transform.TryGetComponent(out Card cardObjCard);
                 Debug.Log("씨발 왜 안돼");
                 
-                string unitName = "Banneret";
-                string targetUnitName = "Bachelor";
+                string unitName = "부관";
+                string targetUnitName = "배너렛";
                 int changeUnitNum = 2;
                 if(cardObjCard.currentCardData.Golden) changeUnitNum *= 2;
                 
@@ -469,8 +469,8 @@ public class AbilityManager : MonoBehaviour
         //턴이 종료될 때마다 SwordMan 2기를 SpearMan으로 변환
                 cardObj.transform.TryGetComponent(out Card cardObjCard);
                 
-                string unitName = "WarLord";
-                string targetUnitName = "Banneret";
+                string unitName = "워로드";
+                string targetUnitName = "배너렛";
                 int changeUnitNum = 2;
                 if(cardObjCard.currentCardData.Golden) changeUnitNum *= 2;
                 
@@ -514,8 +514,8 @@ public class AbilityManager : MonoBehaviour
                 cardObj.transform.TryGetComponent(out Card cardObjCard);
                 Debug.Log("씨발 왜 안돼");
                 
-                string unitName = "Knight";
-                string targetUnitName = "WarLord";
+                string unitName = "기사";
+                string targetUnitName = "워로드";
                 int changeUnitNum = 2;
                 if(cardObjCard.currentCardData.Golden) changeUnitNum *= 2;
                 

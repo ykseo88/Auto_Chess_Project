@@ -32,10 +32,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6298003662274811527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7762628533680734493
 CanvasRenderer:
@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Title
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7bd2db614363e92469eb59cdd50ab2fb, type: 2}
-  m_sharedMaterial: {fileID: 8985816680076289586, guid: 7bd2db614363e92469eb59cdd50ab2fb,
+  m_fontAsset: {fileID: 11400000, guid: e0c9f7b8fe7b8ae4a9520f456f0753c6, type: 2}
+  m_sharedMaterial: {fileID: -203879947266115966, guid: e0c9f7b8fe7b8ae4a9520f456f0753c6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -93,13 +93,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.3
+  m_fontSize: 28.7
   m_fontSizeBase: 18.3
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 5.2781677, y: 0, z: 5.9733887, w: -0.74920654}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -763,6 +763,7 @@ MonoBehaviour:
     Type: 0
     Units: []
     Description: 
+    GoldenDescription: 
     Image: {fileID: 0}
     TypeImage: {fileID: 0}
     RankImage: {fileID: 0}
@@ -782,6 +783,12 @@ MonoBehaviour:
   ParentPanel: {fileID: 0}
   unitAssignTrun: {fileID: 0}
   maxRayDistance: 50
+  Buffs:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!1 &7846739440075152706
 GameObject:
   m_ObjectHideFlags: 0

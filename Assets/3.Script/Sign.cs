@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -90,7 +91,7 @@ public class LoginManager : MonoBehaviour
         messegePanel.SetActive(false);
     }
 
-    public void GameStart()
+    public async void GameStart()
     {
         SceneManager.LoadScene(1);
     }

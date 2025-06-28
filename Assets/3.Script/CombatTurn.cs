@@ -72,6 +72,14 @@ public class CombatTurn : MonoBehaviour
 
     private void UpdateRoundScore()
     {
-        RoundScore.text = "Round Score: " + roundManager.currentRoundIndex.ToString();
+        if (roundManager.currentRoundIndex == 15)
+        {
+            RoundScore.text = "Round Score: " + roundManager.currentRoundIndex.ToString();
+        }
+        else
+        {
+            RoundScore.text = "Round Score: " + (roundManager.currentRoundIndex - 1).ToString();
+        }
+       
     }
 }

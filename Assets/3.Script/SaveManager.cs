@@ -39,6 +39,14 @@ public class SaveManager : MonoBehaviour
         
         SaveInsertCardData(card.currentCardData, saveCard.SaveCardData);
         
+        string cardname = card.gameObject.name;
+        string cardDataname = card.currentCardData.Name;
+        
+        saveCard.SaveintAbilityValue1 = card.intAbilityValue1;
+        saveCard.SavefloatAbilityValue = card.floatAbilityValue;
+        saveCard.SaveboolAbilityValue = card.boolAbilityValue;
+        saveCard.SaveintAbilityValue2 = card.intAbilityValue2;
+        
         for (int i = 0; i < card.BuffRateDicArray.Length; i++)
         {
             foreach (var buff in card.BuffRateDicArray[i])
@@ -64,29 +72,35 @@ public class SaveManager : MonoBehaviour
             tempUnitElemet.SaveUnitId = unitDatabase.GetIdByUnitPrefab(cardData.Units[i].Unit);
             tempUnitElemet.SaveUnitName = cardData.Units[i].UnitName;
             tempUnitElemet.SaveUnitAmount = cardData.Units[i].UnitAmount;
+            saveData.SaveUnitElemts.Add(tempUnitElemet);
         }
         saveData.SaveDescription = cardData.Description;
         saveData.SaveGoldenDescription = cardData.GoldenDescription;
         saveData.SaveImageId = spriteDatabase.GetIdBySprite(cardData.Image);
         saveData.SaveTypeImageId = spriteDatabase.GetIdBySprite(cardData.TypeImage);
         saveData.SaveRankImageId = spriteDatabase.GetIdBySprite(cardData.RankImage);
-        saveData.SaveBackgroundImageId = spriteDatabase.GetIdBySprite(cardData.BackgroundImage);
+        if(cardData.BackgroundImage != null)saveData.SaveBackgroundImageId = spriteDatabase.GetIdBySprite(cardData.BackgroundImage);
         saveData.Golden = cardData.Golden;
         saveData.MaxNum = cardData.MaxNum;
-
-        
     }
 
     public void SaveBattelData()
     {
+        ClearBattleSave();
         //현재 라운드 저장
         saveData.battleSave.saveRoundIndex = roundManager.currentRoundIndex;
+        
+        //카드 개인번호 발급 현황 저장
+        saveData.battleSave.savePersonalIdNum = GameManager.Instance.pesonalIDNum;
         
         //현재 골드 정보 저장
         saveData.battleSave.saveMaxGold = field.maxGold;
         saveData.battleSave.saveCurrentGold = field.Gold;
         saveData.battleSave.saveConsumeGold = field.consumedGold;
         saveData.battleSave.saveTakeGold = field.takeGold;
+        saveData.battleSave.saveSellCardCount = field.SellCardCount;
+        saveData.battleSave.saveBuyCardCount = field.BuyCardCount;
+        saveData.battleSave.savePreGold = field.preGold;
         
         //필드 카드 정보 저장
         for (int i = 0; i < field.fieldCards.Count; i++)
@@ -106,6 +120,9 @@ public class SaveManager : MonoBehaviour
             saveData.battleSave.saveHands.Add(tempSaveCard);
         }
         
+        //상점 랭크 저장
+        saveData.battleSave.saveShopRank = shop.shopRank;
+        
         //상점 매물 정보 저장
         for (int i = 0; i < shop.currentSellCards.Count; i++)
         {
@@ -116,7 +133,7 @@ public class SaveManager : MonoBehaviour
         }
         
         //상점 재고 저장
-        foreach (var rank in shop.cardPool)
+        /*foreach (var rank in shop.cardPool)
         {
             for (int i = 0; i < rank.Value.Count; i++)
             {
@@ -126,7 +143,25 @@ public class SaveManager : MonoBehaviour
                 tempSaveCardInven.SaveMaxNum =  rank.Value[i].maxNum;
                 tempSaveCardInven.SaveCurrentNum = rank.Value[i].currentNum;
             }
+        }*/
+    }
+
+    public void SaveLog(bool win)
+    {
+        Log tempLog = new Log();
+
+        tempLog.isWin = win;
+        tempLog.score = roundManager.currentRoundIndex - 1;
+
+        for (int i = 0; i < field.fieldCards.Count; i++)
+        {
+            field.fieldCards[i].transform.TryGetComponent(out Card card);
+            SaveCard tempSaveCard = new SaveCard();
+            SaveInsertCard(card, tempSaveCard);
+            tempLog.finalField.Add(tempSaveCard);
         }
+        
+        saveData.logSave.Push(tempLog);
     }
 
     public async void PushSaveData()
@@ -157,6 +192,21 @@ public class SaveManager : MonoBehaviour
         {
             Debug.LogError($"Firebase Firestore 저장 실패: {e.Message}");
         }
+    }
+
+    public void ClearBattleSave()
+    {
+        saveData.battleSave =  new BattleSave();
+    }
+
+    public void ClearLog()
+    {
+        saveData.logSave = new Stack<Log>();
+    }
+
+    public void ClearSave()
+    {
+        saveData = new SaveData();
     }
     
 }

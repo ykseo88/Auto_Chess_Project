@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890edeb47b7975041a13dd5be94dd02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Volva
+  Name: "\uC8FC\uC220\uC0AC"
   Type: Viking
   AttackType: Range
   Team: {fileID: 0}

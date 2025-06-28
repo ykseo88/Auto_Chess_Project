@@ -114,22 +114,26 @@ public class UnitAssignTrun : MonoBehaviour
 
                 if (hit.collider.gameObject.CompareTag("Ground"))
                 {
-                    GameObject temp = assignUnitList.Dequeue();
-                    GameObject tempUnit = Instantiate(temp, hit.point, Quaternion.LookRotation(GameManager.Instance.PlayerSpawnPoint.transform.forward));
-                    tempUnit.transform.TryGetComponent(out UnitData unitData);
+                    GameObject temp;
+                    if (assignUnitList.Count > 0)
+                    {
+                        temp = assignUnitList.Dequeue();
+                        GameObject tempUnit = Instantiate(temp, hit.point, Quaternion.LookRotation(GameManager.Instance.PlayerSpawnPoint.transform.forward));
+                        tempUnit.transform.TryGetComponent(out UnitData unitData);
                     
-                    unitData.HP *= currentSpawnCard.Buffs[0];
-                    unitData.Damage *= currentSpawnCard.Buffs[1];
-                    unitData.MoveSpeed *= currentSpawnCard.Buffs[2];
-                    unitData.AttackRate *= currentSpawnCard.Buffs[3];
-                    unitData.AttackDistance *= currentSpawnCard.Buffs[4];
+                        unitData.HP *= currentSpawnCard.Buffs[0];
+                        unitData.Damage *= currentSpawnCard.Buffs[1];
+                        unitData.MoveSpeed *= currentSpawnCard.Buffs[2];
+                        unitData.AttackRate *= currentSpawnCard.Buffs[3];
+                        unitData.AttackDistance *= currentSpawnCard.Buffs[4];
                     
-                    unitData.Team = GameManager.Instance.playerTeam;
-                    GameManager.Instance.playerTeam.PlayerUnitList.Add(tempUnit);
-                    currentSpawnCard.GetUnitsByUnit(temp).UnitAmount--;
-                    currentSpawnCard.UpdateCardInfo();
+                        unitData.Team = GameManager.Instance.playerTeam;
+                        GameManager.Instance.playerTeam.PlayerUnitList.Add(tempUnit);
+                        currentSpawnCard.GetUnitsByUnit(temp).UnitAmount--;
+                        currentSpawnCard.UpdateCardInfo();
                     
-                    Debug.Log($"소환된 유닛: {unitData.name} 데미지: {unitData.Damage}");
+                        Debug.Log($"소환된 유닛: {unitData.name} 데미지: {unitData.Damage}");
+                    }
                 }
             }
         }

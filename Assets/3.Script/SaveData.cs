@@ -1,70 +1,98 @@
-using System.Collections;
 using System.Collections.Generic;
+using Firebase.Firestore; // 꼭 필요!
 using UnityEngine;
 
+[FirestoreData]
 public class SaveData
 {
-    public BattleSave battleSave = new BattleSave();
+    [FirestoreProperty]
+    public BattleSave battleSave { get; set; } = new BattleSave();
+    [FirestoreProperty] public Stack<Log> logSave { get; set; } = new Stack<Log>();
 }
 
+[FirestoreData]
+public class Log
+{
+    [FirestoreProperty] public bool isWin { get; set; }
+    [FirestoreProperty] public int score { get; set; }
+    [FirestoreProperty] public List<SaveCard> finalField { get; set; } = new List<SaveCard>();
+}
+
+[FirestoreData]
 public class BattleSave
 {
-    public int saveRoundIndex;//라운드 진행
-    
-    public int saveMaxGold;//최대 골드
-    public int saveCurrentGold;//현재 골드
-    public int saveConsumeGold;//이번 판 소모 골드
-    public int saveTakeGold;//이번 판 획득 골드
-    
-    public List<SaveCard> saveFields = new List<SaveCard>();//필드 목록
-    public List<SaveCard> saveHands = new List<SaveCard>();//손패 목록
-    public List<SaveCard> saveShop = new List<SaveCard>();//매물 목록
-    
-    public List<SaveCardInven> saveCardInvens = new List<SaveCardInven>();//상점 재고
+    [FirestoreProperty] public int saveRoundIndex { get; set; }
+    [FirestoreProperty] public int savePersonalIdNum { get; set; }
+    [FirestoreProperty] public int saveMaxGold { get; set; }
+    [FirestoreProperty] public int saveCurrentGold { get; set; }
+    [FirestoreProperty] public int saveConsumeGold { get; set; }
+    [FirestoreProperty] public int saveTakeGold { get; set; }
+    [FirestoreProperty] public int saveSellCardCount { get; set; }
+    [FirestoreProperty] public int saveBuyCardCount { get; set; }
+    [FirestoreProperty] public int savePreGold { get; set; }
+    [FirestoreProperty] public int saveShopRank { get; set; }
+
+    [FirestoreProperty] public List<SaveCard> saveFields { get; set; } = new List<SaveCard>();
+    [FirestoreProperty] public List<SaveCard> saveHands { get; set; } = new List<SaveCard>();
+    [FirestoreProperty] public List<SaveCard> saveShop { get; set; } = new List<SaveCard>();
+    [FirestoreProperty] public List<SaveCardInven> saveCardInvens { get; set; } = new List<SaveCardInven>();
 }
 
+[FirestoreData]
 public class SaveCardInven
 {
-    public int rank;
-    public SaveCardData card = new SaveCardData();
-    public int SaveMaxNum;
-    public int SaveCurrentNum;
+    [FirestoreProperty] public int rank { get; set; }
+    [FirestoreProperty] public SaveCardData card { get; set; } = new SaveCardData();
+    [FirestoreProperty] public int SaveMaxNum { get; set; }
+    [FirestoreProperty] public int SaveCurrentNum { get; set; }
 }
 
+[FirestoreData]
 public class SaveCard
 {
-    public int SavePersonalId;
-    public SaveCardData SaveCardData = new SaveCardData();
-    public List<SaveBuffData> SaveBuffs = new List<SaveBuffData>();
+    [FirestoreProperty] public int SavePersonalId { get; set; }
+    [FirestoreProperty] public SaveCardData SaveCardData { get; set; } = new SaveCardData();
+    
+    [FirestoreProperty] public int SaveintAbilityValue1 { get; set; }
+    [FirestoreProperty] public int SaveintAbilityValue2 { get; set; }
+    [FirestoreProperty] public float SavefloatAbilityValue { get; set; }
+    [FirestoreProperty] public bool SaveboolAbilityValue { get; set; }
+    [FirestoreProperty] public List<SaveBuffData> SaveBuffs { get; set; } = new List<SaveBuffData>();
 }
 
+[FirestoreData]
 public class SaveCardData
 {
-    public string SaveId;
-    public string SaveName;
-    public string SaveType;
-    List<SaveUnitElemt> SaveUnitElemts = new List<SaveUnitElemt>();
-    public string SaveDescription;
-    public string SaveGoldenDescription;
-    public int SaveImageId;
-    public int SaveTypeImageId;
-    public int SaveRankImageId;
-    public int SaveBackgroundImageId;
-    public bool Golden; // 트리플 카드 여부
-    public int MaxNum; // 카드 최대 개수
-    
+    [FirestoreProperty] public string SaveId { get; set; }
+    [FirestoreProperty] public string SaveName { get; set; }
+    [FirestoreProperty] public string SaveType { get; set; }
+
+    [FirestoreProperty] public List<SaveUnitElemt> SaveUnitElemts { get; set; } = new List<SaveUnitElemt>();
+
+    [FirestoreProperty] public string SaveDescription { get; set; }
+    [FirestoreProperty] public string SaveGoldenDescription { get; set; }
+
+    [FirestoreProperty] public int SaveImageId { get; set; }
+    [FirestoreProperty] public int SaveTypeImageId { get; set; }
+    [FirestoreProperty] public int SaveRankImageId { get; set; }
+    [FirestoreProperty] public int SaveBackgroundImageId { get; set; }
+
+    [FirestoreProperty] public bool Golden { get; set; }
+    [FirestoreProperty] public int MaxNum { get; set; }
 }
 
+[FirestoreData]
 public class SaveUnitElemt
 {
-    public int SaveUnitId;
-    public string SaveUnitName;
-    public int SaveUnitAmount;
+    [FirestoreProperty] public int SaveUnitId { get; set; }
+    [FirestoreProperty] public string SaveUnitName { get; set; }
+    [FirestoreProperty] public int SaveUnitAmount { get; set; }
 }
 
+[FirestoreData]
 public class SaveBuffData
 {
-    public int SaveBuffIndex;
-    public int SaveBuffPersonalId;
-    public float BuffValue;
+    [FirestoreProperty] public int SaveBuffIndex { get; set; }
+    [FirestoreProperty] public int SaveBuffPersonalId { get; set; }
+    [FirestoreProperty] public float BuffValue { get; set; }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ReadyTurn : MonoBehaviour
@@ -11,6 +12,7 @@ public class ReadyTurn : MonoBehaviour
     public Button ReRollButton;
     public Button UpgradeButton;
     public Button LockButton;
+    public Button ToTitleBUtton;
 
     public GameObject unitAssignTurn;
     public Camera Camera;
@@ -24,6 +26,8 @@ public class ReadyTurn : MonoBehaviour
     public TMP_Text Gold;
     public Text ReRollGold;
     public TMP_Text currentRound;
+    
+    public SaveManager saveManager;
     
     public TimtLimit timerLimit;
 
@@ -50,6 +54,23 @@ public class ReadyTurn : MonoBehaviour
         gameObject.SetActive(false);
     }
     
+    private IEnumerator AutoSave(float saveTerm)
+    {
+        float currentTime = 0;
+        while (currentTime < saveTerm)
+        {
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+        saveManager.SaveBattelData();
+        saveManager.PushSaveData();
+    }
+
+    public void BackToTitle()
+    {
+        SceneManager.LoadScene(1);
+    }
+    
     public void CombatStart()
     {
         transform.TryGetComponent(out ToolTip toolTip);
@@ -61,7 +82,6 @@ public class ReadyTurn : MonoBehaviour
 
     private void OnEnable()
     {
-        
         field = transform.GetComponentInChildren<Field>();
         shop = transform.GetComponentInChildren<Shop>();
         field.readyTurn = this;
@@ -69,17 +89,9 @@ public class ReadyTurn : MonoBehaviour
         field.consumedGold = 0;
         field.takeGold = 0;
         field.UpdateGold();
-        if (!shop.isLocked)
-        {
-            shop.FreeReRoll();
-        }
-        else
-        {
-            shop.LockedReRoll();
-        }
-        field.UpdateGold();
         currentRound.text = roundManager.currentRoundIndex.ToString();
         timerLimit.tempTimeLimitSecond = timerLimit.inputTimeLimitSecond;
+        StartCoroutine(AutoSave(0.2f));
     }
 
     private void Start()
@@ -91,6 +103,7 @@ public class ReadyTurn : MonoBehaviour
         ReRollButton.onClick.AddListener(shop.ReRoll);
         UpgradeButton.onClick.AddListener(shop.UpgradeShop);
         LockButton.onClick.AddListener(shop.LockShop);
+        ToTitleBUtton.onClick.AddListener(BackToTitle);
     }
 
     private void Update()

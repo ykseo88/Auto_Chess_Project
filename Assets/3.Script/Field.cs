@@ -13,12 +13,49 @@ public class Field : MonoBehaviour
     public int takeGold = 0;
     public int SellCardCount = 0;
     public int BuyCardCount = 0;
-    private int preGold = 0;
+    public int preGold = 0;
+    
+    public GameObject cardPrefab;
     
 
     private void Start()
     {
+        SetStart();
+    }
+
+    public void SetStart()
+    {
         transform.root.TryGetComponent(out readyTurn);
+
+        if (GameManager.Instance.isContinue)
+        {
+            SaveData loadData = LoadManager.Instance.loadData;
+            
+            maxGold = loadData.battleSave.saveMaxGold;
+            Gold = loadData.battleSave.saveCurrentGold;
+            consumedGold = loadData.battleSave.saveConsumeGold;
+            takeGold = loadData.battleSave.saveTakeGold;
+            SellCardCount = loadData.battleSave.saveSellCardCount;
+            BuyCardCount = loadData.battleSave.saveBuyCardCount;
+            preGold = loadData.battleSave.savePreGold;
+
+            for (int i = 0; i < loadData.battleSave.saveFields.Count; i++)
+            {
+                GameObject tempCardObj = Instantiate(cardPrefab);
+                tempCardObj.transform.SetParent(transform);
+                tempCardObj.transform.TryGetComponent(out Card tempCard);
+                
+                LoadManager.Instance.LoadCard(tempCard, loadData.battleSave.saveFields[i]);
+
+                tempCard.inventorys = GameManager.Instance.shop.GetInvenByID(tempCard.currentCardData.ID);
+                tempCard.inventorys.currentNum--;
+                
+                fieldCards.Add(tempCardObj);
+                
+                tempCard.UpdateCardInfo();
+            }
+        }
+        
         UpdateGold();
     }
 

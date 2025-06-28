@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - ID: Card_Knight_Lv1_0
-    Name: SwordMan
+    Name: "\uBCD1\uC0AC"
     Rank: 1
     Type: 0
     Units:
     - Unit: {fileID: 1015277382743670091, guid: c0d76cb9aefef4e4a996242b470409b2,
         type: 3}
-      UnitName: SwordMan
+      UnitName: "\uBCD1\uC0AC"
       UnitAmount: 4
     Description: "\uD134\uC774 \uC885\uB8CC\uB420 \uB54C\uB9C8\uB2E4 SwordMan\uC744
       2\uAE30 \uCD94\uAC00"
@@ -33,13 +33,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Knight_Lv1_1
-    Name: FreshMan
+    Name: "\uC2E0\uBCD1 \uBAA8\uC9D1"
     Rank: 1
     Type: 0
     Units:
     - Unit: {fileID: 1015277382743670091, guid: c0d76cb9aefef4e4a996242b470409b2,
         type: 3}
-      UnitName: SwordMan
+      UnitName: "\uBCD1\uC0AC"
       UnitAmount: 3
     Description: "\uD544\uB4DC\uC5D0 \uC9C4\uC785\uD560 \uB54C SwordMan\uC5D0 SwordMan\uC744
       2\uAE30 \uCD94\uAC00\uD569\uB2C8\uB2E4."
@@ -52,13 +52,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Knight_Lv2_0
-    Name: SpearMan
+    Name: "\uCC3D\uBCD1"
     Rank: 2
     Type: 0
     Units:
     - Unit: {fileID: 1015277382743670091, guid: db6d18f9917cd0640ae58990852da6d4,
         type: 3}
-      UnitName: SpearMan
+      UnitName: "\uCC3D\uBCD1"
       UnitAmount: 2
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       SwordMan 2\uAE30\uB97C SpearMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -71,12 +71,12 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Knight_Lv2_1
-    Name: BowMan
+    Name: "\uAD81\uBCD1"
     Rank: 2
     Type: 0
     Units:
     - Unit: {fileID: 730948036133473203, guid: 76f0bca3f36f3ae4fb3ae0f601dd064b, type: 3}
-      UnitName: BowMan
+      UnitName: "\uAD81\uBCD1"
       UnitAmount: 2
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       SwordMan 2\uAE30\uB97C BowMan\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -89,13 +89,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Knight_Lv3_0
-    Name: Bachelor
+    Name: "\uBD80\uAD00"
     Rank: 3
     Type: 0
     Units:
     - Unit: {fileID: 5214124157295079514, guid: 44c2a127499059c4fb46513f0f51fad5,
         type: 3}
-      UnitName: Bachelor
+      UnitName: "\uBD80\uAD00"
       UnitAmount: 2
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       SpearMan 2\uAE30\uB97C Bachelor\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -108,13 +108,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Knight_Lv4_0
-    Name: Banneret
+    Name: "\uBC30\uB108\uB81B"
     Rank: 4
     Type: 0
     Units:
     - Unit: {fileID: 3637295338793833923, guid: 1e729a0aa78c4b04ba7cdc4dea08d7ad,
         type: 3}
-      UnitName: Banneret
+      UnitName: "\uBC30\uB108\uB81B"
       UnitAmount: 2
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       Bachelor 2\uAE30\uB97C Banneret\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -127,13 +127,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Knight_Lv5_0
-    Name: WarLord
+    Name: "\uC6CC\uB85C\uB4DC"
     Rank: 5
     Type: 0
     Units:
     - Unit: {fileID: 7957023106250218011, guid: 8e7dc812a07121247972f7b1be596723,
         type: 3}
-      UnitName: WarLord
+      UnitName: "\uC6CC\uB85C\uB4DC"
       UnitAmount: 2
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       Banneret 2\uAE30\uB97C WarLord\uC73C\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -146,13 +146,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Knight_Lv6_0
-    Name: Knight
+    Name: "\uAE30\uC0AC"
     Rank: 6
     Type: 0
     Units:
     - Unit: {fileID: 4365756304651908956, guid: 653416dbb3ab44146b8651bc634c4930,
         type: 3}
-      UnitName: Knight
+      UnitName: "\uAE30\uC0AC"
       UnitAmount: 2
     Description: "\uD134\uC774 \uB05D\uB0A0 \uB54C\uB9C8\uB2E4 \uD544\uB4DC \uC704\uC758
       WarLord 2\uAE30\uB97C Knight\uB85C \uC2B9\uAE09\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -165,13 +165,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 7
   - ID: Card_Western_Lv1_0
-    Name: Bandit
+    Name: "\uB3C4\uC801"
     Rank: 1
     Type: 2
     Units:
     - Unit: {fileID: 6602246735337940206, guid: 83414b21a0eb86b488b38fec1d270f2b,
         type: 3}
-      UnitName: Bandit
+      UnitName: "\uB3C4\uC801"
       UnitAmount: 3
     Description: "\uC774 \uCE74\uB4DC\uAC00 \uD544\uB4DC\uC5D0 \uC9C4\uC785\uD55C
       \uD6C4 \uD310\uB9E4 \uC2DC, 1\uACE8\uB4DC\uB97C \uB354 \uBC1B\uC2B5\uB2C8\uB2E4."
@@ -184,13 +184,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Western_Lv2_0
-    Name: OutLaw
+    Name: "\uBB34\uBC95\uC790"
     Rank: 2
     Type: 2
     Units:
     - Unit: {fileID: 5552456964816726746, guid: 4963636fb6cbc7c4eab4f20925fab4bb,
         type: 3}
-      UnitName: OutLaw
+      UnitName: "\uBB34\uBC95\uC790"
       UnitAmount: 3
     Description: "\uC774 \uCE74\uB4DC\uAC00 \uD544\uB4DC\uC5D0 \uC9C4\uC785\uD558\uBA74
       \uD604\uC7AC \uC0C1\uC810 \uB2E8\uACC4\uBCF4\uB2E4 \uD55C \uB2E8\uACC4 \uB0AE\uC740
@@ -209,12 +209,12 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Western_Lv3_0
-    Name: Deputy
+    Name: "\uBCF4\uC548\uAD00"
     Rank: 3
     Type: 2
     Units:
     - Unit: {fileID: 225793473645016178, guid: 640d32a9d40b10149af54bd8bb64c54d, type: 3}
-      UnitName: Deputy
+      UnitName: "\uBCF4\uC548\uAD00"
       UnitAmount: 3
     Description: "\uCE74\uB4DC\uB97C 10\uC7A5 \uD314 \uB54C\uB9C8\uB2E4 \uCD5C\uB300
       \uACE8\uB4DC \uC218\uAC00 1 \uC99D\uAC00\uD569\uB2C8\uB2E4."
@@ -227,13 +227,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Western_Lv4_0
-    Name: Hunter
+    Name: "\uC0AC\uB0E5\uAFBC"
     Rank: 4
     Type: 2
     Units:
     - Unit: {fileID: 7499373804371572254, guid: 4c842175d42d0eb45a5d6a1800b0fafc,
         type: 3}
-      UnitName: Hunter
+      UnitName: "\uC0AC\uB0E5\uAFBC"
       UnitAmount: 3
     Description: "5\uACE8\uB4DC\uB97C \uC0AC\uC6A9\uD560 \uB54C\uB9C8\uB2E4 \uB2E4\uC74C
       \uC804\uD22C\uC5D0\uC11C \uC774 \uCE74\uB4DC \uC720\uB2DB\uB4E4\uC758 \uB370\uBBF8\uC9C0\uAC00
@@ -248,13 +248,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Western_Lv5_0
-    Name: ChainGun
+    Name: "\uCCB4\uC778\uAC74"
     Rank: 5
     Type: 2
     Units:
     - Unit: {fileID: 6594074249560481506, guid: 6d85f925bab94da40b58d6594135350c,
         type: 3}
-      UnitName: ChainGun
+      UnitName: "\uCCB4\uC778\uAC74"
       UnitAmount: 1
     Description: "\uC774 \uCE74\uB4DC\uAC00 \uC9C4\uC785\uD560 \uB54C, \uB79C\uB364\uD55C
       \uCE74\uB4DC\uC758 \uB79C\uB364\uD55C \uC720\uB2DB \uC218\uAC00 4\uC99D\uAC00\uD569\uB2C8\uB2E4."
@@ -267,13 +267,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Western_Lv6_0
-    Name: Bomber
+    Name: "\uD3ED\uD0C4\uAD11"
     Rank: 6
     Type: 2
     Units:
     - Unit: {fileID: 7499373804371572254, guid: 6ac11ad77cc6fe34486c2c107e81a5d9,
         type: 3}
-      UnitName: Bomber
+      UnitName: "\uD3ED\uD0C4\uAD11"
       UnitAmount: 2
     Description: "\uCE74\uB4DC \uAD6C\uB9E4 \uBE44\uC6A9\uC774 2\uACE8\uB4DC\uAC00
       \uB429\uB2C8\uB2E4."
@@ -286,13 +286,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 7
   - ID: Card_Viking_lv1_0
-    Name: Thralls
+    Name: "\uB178\uC608 \uC804\uC0AC"
     Rank: 1
     Type: 1
     Units:
     - Unit: {fileID: 1015277382743670091, guid: b299f7cc24146c34b826da6b6285cab3,
         type: 3}
-      UnitName: Thralls
+      UnitName: "\uB178\uC608 \uC804\uC0AC"
       UnitAmount: 4
     Description: "1\uD68C \uBB34\uB8CC\uB85C \uC0C8\uB85C\uACE0\uCE68\uC774 \uAC00\uB2A5\uD569\uB2C8\uB2E4."
     GoldenDescription: "2\uD68C \uBB34\uB8CC\uB85C \uC0C8\uB85C\uACE0\uCE68\uC774
@@ -304,13 +304,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Viking_lv2_0
-    Name: Vedir
+    Name: "\uC218\uB835\uAFBC"
     Rank: 2
     Type: 1
     Units:
     - Unit: {fileID: 1015277382743670091, guid: 618341a6cd45bef449755aa7e734d7d6,
         type: 3}
-      UnitName: Vedir
+      UnitName: "\uC218\uB835\uAFBC"
       UnitAmount: 3
     Description: "\uB0B4 \uC720\uB2DB\uB4E4\uC758 \uC0AC\uC815\uAC70\uB9AC\uAC00
       50% \uC99D\uAC00\uD569\uB2C8\uB2E4."
@@ -323,13 +323,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Viking_lv3_0
-    Name: Flakkari
+    Name: "\uB5A0\uB3CC\uC774"
     Rank: 3
     Type: 1
     Units:
     - Unit: {fileID: 1015277382743670091, guid: 7d1558cf5aca3e14195e1315fef5cca5,
         type: 3}
-      UnitName: Flakkari
+      UnitName: "\uB5A0\uB3CC\uC774"
       UnitAmount: 3
     Description: "\uB0B4 \uD140\uC6D0\uB4E4\uC758 \uACF5\uACA9\uB825\uC774 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
     GoldenDescription: "\uB0B4 \uD140\uC6D0\uB4E4\uC758 \uACF5\uACA9\uB825\uC774
@@ -341,13 +341,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Viking_lv4_0
-    Name: Berserker
+    Name: "\uAD11\uC804\uC0AC"
     Rank: 4
     Type: 1
     Units:
     - Unit: {fileID: 1015277382743670091, guid: 9a84eb7eedc83d549ad6c6f3a84c4d66,
         type: 3}
-      UnitName: BerserKer
+      UnitName: "\uAD11\uC804\uC0AC"
       UnitAmount: 3
     Description: "\uB0B4 \uD300\uC6D0\uB4E4\uC758 \uCCB4\uB825\uC774 50% \uC99D\uAC00\uD569\uB2C8\uB2E4."
     GoldenDescription: "\uB0B4 \uD300\uC6D0\uB4E4\uC758 \uCCB4\uB825\uC774 100% \uC99D\uAC00\uD569\uB2C8\uB2E4."
@@ -358,13 +358,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Viking_lv5_0
-    Name: Volva
+    Name: "\uC8FC\uC220\uC0AC"
     Rank: 5
     Type: 1
     Units:
     - Unit: {fileID: 1015277382743670091, guid: af7f8e2a98bb8db46b508cba5722d785,
         type: 3}
-      UnitName: Volva
+      UnitName: "\uC8FC\uC220\uC0AC"
       UnitAmount: 3
     Description: "\uB0B4 \uC720\uB2DB\uB4E4\uC758 \uACF5\uACA9 \uC18D\uB3C4\uAC00
       2\uBC30 \uC99D\uAC00\uD569\uB2C8\uB2E4. (\uC911\uBCF5 \uC801\uC6A9 \uBD88\uAC00)"
@@ -377,13 +377,13 @@ MonoBehaviour:
     Golden: 0
     MaxNum: 16
   - ID: Card_Viking_lv6_0
-    Name: Jarl
+    Name: "\uC57C\uB97C"
     Rank: 6
     Type: 1
     Units:
     - Unit: {fileID: 7100041582013144896, guid: f1bd22b16f5407846930fec9abbac6c2,
         type: 3}
-      UnitName: Jarl
+      UnitName: "\uC57C\uB97C"
       UnitAmount: 3
     Description: "\uB0B4 \uCE74\uB4DC\uB4E4\uC758 \uBC84\uD504\uB7C9\uC774 2\uBC30\uAC00
       \uB429\uB2C8\uB2E4."

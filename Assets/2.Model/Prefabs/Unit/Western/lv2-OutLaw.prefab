@@ -2851,7 +2851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890edeb47b7975041a13dd5be94dd02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: OutLaw
+  Name: "\uBB34\uBC95\uC790"
   Type: Western
   AttackType: Range
   Team: {fileID: 0}
