@@ -150,6 +150,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9729ee2659befc4ba76d8784b3edb1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  result: {fileID: 7387092551552610507}
+  score: {fileID: 6714247591284485236}
+  finalFieldView: {fileID: 6870149405872573321}
+  finalFieldList: []
+  finalFieldPanel: {fileID: 0}
+  CloseButton: {fileID: 0}
+  cardPrefab: {fileID: 7013359366097256599, guid: ba6bce4339977494fb3a8a50fcf1783b,
+    type: 3}
 --- !u!1 &4945324271568446112
 GameObject:
   m_ObjectHideFlags: 0

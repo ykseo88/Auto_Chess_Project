@@ -33,12 +33,13 @@ public class LoadManager : MonoBehaviour
     {
         Instance = this;
         db = FirebaseFirestore.DefaultInstance;
+        Load();
     }
 
     void Start()
     {
         
-        Load();
+        
     }
     
     void Update()

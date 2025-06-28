@@ -43,8 +43,9 @@ public class LogPanel : MonoBehaviour
             
             for(int j = 0; j < tempLog.finalField.Count; j++)
             {
+                Card card = new Card();
+                tempIndex.finalFieldList.Add(card);
                 LoadManager.Instance.LoadCard(card, tempLog.finalField[j]);
-                card.UpdateCardInfo();
             }
         }
     }
