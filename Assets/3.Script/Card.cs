@@ -303,7 +303,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     private void OnAbility()
     {
-        if (parentList == field.fieldCards && AbilityManager.Instance.abilityDictionary.ContainsKey(currentCardData.Name) && !isChoiceCard)
+        if (parentList == field.fieldCards && AbilityManager.Instance.abilityDictionary.ContainsKey(currentCardData.Name) && !isChoiceCard && isMove)
         {
             //Debug.Log($"{currentCardData.Name} 카드의 능력이 발동 중입니다.");
             AbilityManager.Instance.abilityDictionary[currentCardData.Name](gameObject);

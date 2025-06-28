@@ -161,7 +161,7 @@ public class SaveManager : MonoBehaviour
             tempLog.finalField.Add(tempSaveCard);
         }
         
-        saveData.logSave.Push(tempLog);
+        saveData.logSave.Add(tempLog);
     }
 
     public async void PushSaveData()
@@ -201,7 +201,7 @@ public class SaveManager : MonoBehaviour
 
     public void ClearLog()
     {
-        saveData.logSave = new Stack<Log>();
+        saveData.logSave = new List<Log>();
     }
 
     public void ClearSave()

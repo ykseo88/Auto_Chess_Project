@@ -7,7 +7,7 @@ public class SaveData
 {
     [FirestoreProperty]
     public BattleSave battleSave { get; set; } = new BattleSave();
-    [FirestoreProperty] public Stack<Log> logSave { get; set; } = new Stack<Log>();
+    [FirestoreProperty] public List<Log> logSave { get; set; } = new List<Log>();
 }
 
 [FirestoreData]

@@ -10,7 +10,7 @@ public class LogIndex : MonoBehaviour
     public TMP_Text score;
     public Button finalFieldView;
 
-    public List<Card> finalFieldList = new List<Card>();
+    public int FinalFieldIndex;
     
     public GameObject finalFieldPanel;
     public GameObject CloseButton;
@@ -29,12 +29,14 @@ public class LogIndex : MonoBehaviour
 
     private void ActiveFieldPanel()
     {
-        for (int i = 0; i < finalFieldList.Count; i++)
+        SaveData loadData = LoadManager.Instance.loadData;
+        for (int i = 0; i < loadData.logSave[FinalFieldIndex].finalField.Count; i++)
         {
             GameObject tempCard = Instantiate(cardPrefab, finalFieldPanel.transform);
             tempCard.transform.TryGetComponent(out Card card);
-            card.InputCardData(finalFieldList[i].currentCardData);
             card.isMove = false;
+            LoadManager.Instance.LoadCard(card, loadData.logSave[FinalFieldIndex].finalField[i]);
+            
         }
         finalFieldPanel.SetActive(true);
         CloseButton.SetActive(true);

@@ -22,10 +22,12 @@ public class LogPanel : MonoBehaviour
         
         for (int i = 0; i < MaxActiveNum; i++)
         {
-            Log tempLog = loadData.logSave.Pop();
+            if (loadData.logSave.Count <= i) break;
+            Log tempLog = loadData.logSave[i];
             GameObject tempObj = Instantiate(LogIndexPrefab, transform);
             tempObj.transform.TryGetComponent(out LogIndex tempIndex);
             tempIndex.finalFieldPanel = finalFieldPanel;
+            tempIndex.CloseButton = FinalFieldViewCloseButton.gameObject;
 
             switch (tempLog.isWin)
             {
@@ -40,13 +42,8 @@ public class LogPanel : MonoBehaviour
             }
             
             tempIndex.score.text = "달성 라운드: " + tempLog.score.ToString();
-            
-            for(int j = 0; j < tempLog.finalField.Count; j++)
-            {
-                Card card = new Card();
-                tempIndex.finalFieldList.Add(card);
-                LoadManager.Instance.LoadCard(card, tempLog.finalField[j]);
-            }
+
+            tempIndex.FinalFieldIndex = i;
         }
     }
 
