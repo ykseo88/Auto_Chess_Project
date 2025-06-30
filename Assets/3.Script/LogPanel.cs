@@ -55,24 +55,9 @@ public class LogPanel : MonoBehaviour
 
     private void CloseFieldView()
     {
-        DestroyAllChildren(finalFieldPanel.transform);
+        GameManager.Instance.DestroyAllChildren(finalFieldPanel.transform);
         finalFieldPanel.SetActive(false);
     }
     
-    public void DestroyAllChildren(Transform parent)
-    {
-        List<GameObject> childrenToDestroy = new List<GameObject>();
-        foreach (Transform child in parent) // 'transform'은 이 스크립트가 붙은 오브젝트의 Transform
-        {
-            childrenToDestroy.Add(child.gameObject);
-        }
-
-        // 2. 임시 리스트에 있는 자식들을 파괴
-        foreach (GameObject child in childrenToDestroy)
-        {
-            Destroy(child); // 또는 DestroyImmediate(child); 에디터에서 즉시 파괴할 때
-        }
-
-        Debug.Log(transform.name + "의 모든 자식 오브젝트가 파괴되었습니다.");
-    }
+    
 }

@@ -305,7 +305,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     {
         if (parentList == field.fieldCards && AbilityManager.Instance.abilityDictionary.ContainsKey(currentCardData.Name) && !isChoiceCard && isMove)
         {
-            //Debug.Log($"{currentCardData.Name} 카드의 능력이 발동 중입니다.");
+            Debug.Log($"{currentCardData.Name} 카드의 능력이 발동 중입니다.");
             AbilityManager.Instance.abilityDictionary[currentCardData.Name](gameObject);
         }
     }
@@ -338,9 +338,11 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     
     public void OnPointerClick(PointerEventData eventData)
     {
+        
+        
         if (isChoiceCard)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (eventData.button == PointerEventData.InputButton.Left)
             {
                 GameObject choiceCard = eventData.pointerCurrentRaycast.gameObject;
                 if (hand.handCards.Count < 6)

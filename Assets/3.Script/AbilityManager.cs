@@ -106,26 +106,26 @@ public class AbilityManager : MonoBehaviour
 
     private void Start()
     {
-        InsertAbilityDictionary("SwordMan", SwordManAbility);
-        InsertAbilityDictionary("FreshMan", FreshManAbility);
-        InsertAbilityDictionary("SpearMan", SpearManAbility);
-        InsertAbilityDictionary("BowMan", BowManAbility);
-        InsertAbilityDictionary("Bachelor", BachelorAbility);
-        InsertAbilityDictionary("Banneret", BanneretAbility);
-        InsertAbilityDictionary("WarLord", WarLordAbility);
-        InsertAbilityDictionary("Knight", KnightAbility);
-        InsertAbilityDictionary("Bandit", BanditAbility);
-        InsertAbilityDictionary("OutLaw", OutLawAbility);
-        InsertAbilityDictionary("Deputy", DeputyAbility);
-        InsertAbilityDictionary("Hunter", HunterAbility);
-        InsertAbilityDictionary("ChainGun", ChainGunAbility);
-        InsertAbilityDictionary("Bomber", BomberAbility);
-        InsertAbilityDictionary("Thralls", ThrallsAbility);
-        InsertAbilityDictionary("Vedir", VedirAbility);
-        InsertAbilityDictionary("Flakkari", FlakkariAbility);
-        InsertAbilityDictionary("Berserker", BerserkerAbility);
-        InsertAbilityDictionary("Volva", VolvaAbility);
-        InsertAbilityDictionary("Jarl", JarlAbility);
+        InsertAbilityDictionary("병사", SwordManAbility);
+        InsertAbilityDictionary("신병 모집", FreshManAbility);
+        InsertAbilityDictionary("창병", SpearManAbility);
+        InsertAbilityDictionary("궁병", BowManAbility);
+        InsertAbilityDictionary("부관", BachelorAbility);
+        InsertAbilityDictionary("배너렛", BanneretAbility);
+        InsertAbilityDictionary("워로드", WarLordAbility);
+        InsertAbilityDictionary("기사", KnightAbility);
+        InsertAbilityDictionary("도적", BanditAbility);
+        InsertAbilityDictionary("무법자", OutLawAbility);
+        InsertAbilityDictionary("보안관", DeputyAbility);
+        InsertAbilityDictionary("사냥꾼", HunterAbility);
+        InsertAbilityDictionary("체인건", ChainGunAbility);
+        InsertAbilityDictionary("폭탄광", BomberAbility);
+        InsertAbilityDictionary("노예 전사", ThrallsAbility);
+        InsertAbilityDictionary("수렵꾼", VedirAbility);
+        InsertAbilityDictionary("떠돌이", FlakkariAbility);
+        InsertAbilityDictionary("광전사", BerserkerAbility);
+        InsertAbilityDictionary("주술사", VolvaAbility);
+        InsertAbilityDictionary("야를", JarlAbility);
     }
 
     private bool ContainNameList(List<SAOCardDatabase.UnitElement> list, string name)

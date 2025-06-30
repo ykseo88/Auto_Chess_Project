@@ -89,6 +89,7 @@ public class ReadyTurn : MonoBehaviour
         field.consumedGold = 0;
         field.takeGold = 0;
         field.UpdateGold();
+        shop.FreeReRoll();
         currentRound.text = roundManager.currentRoundIndex.ToString();
         timerLimit.tempTimeLimitSecond = timerLimit.inputTimeLimitSecond;
         StartCoroutine(AutoSave(0.2f));

@@ -30,6 +30,7 @@ public class Hand : MonoBehaviour
                 
                 tempCard.inventorys = GameManager.Instance.shop.GetInvenByID(tempCard.currentCardData.ID);
                 tempCard.inventorys.currentNum--;
+                tempCard.parentList = handCards;
                 
                 handCards.Add(tempCardObj);
                 tempCard.UpdateCardInfo();

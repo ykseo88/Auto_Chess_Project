@@ -49,7 +49,7 @@ public class Field : MonoBehaviour
 
                 tempCard.inventorys = GameManager.Instance.shop.GetInvenByID(tempCard.currentCardData.ID);
                 tempCard.inventorys.currentNum--;
-                
+                tempCard.parentList = fieldCards;
                 fieldCards.Add(tempCardObj);
                 
                 tempCard.UpdateCardInfo();

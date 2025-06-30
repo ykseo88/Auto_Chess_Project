@@ -95,6 +95,9 @@ public class Shop : MonoBehaviour
             SaveData loadData = LoadManager.Instance.loadData;
             
             shopRank = loadData.battleSave.saveShopRank;
+            
+            currentSellCards.Clear();
+            GameManager.Instance.DestroyAllChildren(transform);
 
             for (int i = 0; i < loadData.battleSave.saveShop.Count; i++)
             {
@@ -105,6 +108,7 @@ public class Shop : MonoBehaviour
                 LoadManager.Instance.LoadCard(tempCard, loadData.battleSave.saveShop[i]);
 
                 tempCard.inventorys = GetInvenByID(tempCard.currentCardData.ID);
+                tempCard.parentList = currentSellCards;
 
                 currentSellCards.Add(tempCardObj);
                 tempCard.UpdateCardInfo();
