@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    private SaveData saveData = new SaveData();
     
     public SAOUnitPrefabDatabase unitDatabase;
     public SAOSpriteDatabase spriteDatabase;
@@ -88,19 +87,19 @@ public class SaveManager : MonoBehaviour
     {
         ClearBattleSave();
         //현재 라운드 저장
-        saveData.battleSave.saveRoundIndex = roundManager.currentRoundIndex;
+        LoadManager.Instance.loadData.battleSave.saveRoundIndex = roundManager.currentRoundIndex;
         
         //카드 개인번호 발급 현황 저장
-        saveData.battleSave.savePersonalIdNum = GameManager.Instance.pesonalIDNum;
+        LoadManager.Instance.loadData.battleSave.savePersonalIdNum = GameManager.Instance.pesonalIDNum;
         
         //현재 골드 정보 저장
-        saveData.battleSave.saveMaxGold = field.maxGold;
-        saveData.battleSave.saveCurrentGold = field.Gold;
-        saveData.battleSave.saveConsumeGold = field.consumedGold;
-        saveData.battleSave.saveTakeGold = field.takeGold;
-        saveData.battleSave.saveSellCardCount = field.SellCardCount;
-        saveData.battleSave.saveBuyCardCount = field.BuyCardCount;
-        saveData.battleSave.savePreGold = field.preGold;
+        LoadManager.Instance.loadData.battleSave.saveMaxGold = field.maxGold;
+        LoadManager.Instance.loadData.battleSave.saveCurrentGold = field.Gold;
+        LoadManager.Instance.loadData.battleSave.saveConsumeGold = field.consumedGold;
+        LoadManager.Instance.loadData.battleSave.saveTakeGold = field.takeGold;
+        LoadManager.Instance.loadData.battleSave.saveSellCardCount = field.SellCardCount;
+        LoadManager.Instance.loadData.battleSave.saveBuyCardCount = field.BuyCardCount;
+        LoadManager.Instance.loadData.battleSave.savePreGold = field.preGold;
         
         //필드 카드 정보 저장
         for (int i = 0; i < field.fieldCards.Count; i++)
@@ -108,7 +107,7 @@ public class SaveManager : MonoBehaviour
             field.fieldCards[i].transform.TryGetComponent(out Card card);
             SaveCard tempSaveCard = new SaveCard();
             SaveInsertCard(card, tempSaveCard);
-            saveData.battleSave.saveFields.Add(tempSaveCard);
+            LoadManager.Instance.loadData.battleSave.saveFields.Add(tempSaveCard);
         }
         
         //손패 카드 정보 저장
@@ -117,11 +116,11 @@ public class SaveManager : MonoBehaviour
             hand.handCards[i].transform.TryGetComponent(out Card card);
             SaveCard tempSaveCard = new SaveCard();
             SaveInsertCard(card, tempSaveCard);
-            saveData.battleSave.saveHands.Add(tempSaveCard);
+            LoadManager.Instance.loadData.battleSave.saveHands.Add(tempSaveCard);
         }
         
         //상점 랭크 저장
-        saveData.battleSave.saveShopRank = shop.shopRank;
+        LoadManager.Instance.loadData.battleSave.saveShopRank = shop.shopRank;
         
         //상점 매물 정보 저장
         for (int i = 0; i < shop.currentSellCards.Count; i++)
@@ -129,7 +128,7 @@ public class SaveManager : MonoBehaviour
             shop.currentSellCards[i].transform.TryGetComponent(out Card card);
             SaveCard tempSaveCard = new SaveCard();
             SaveInsertCard(card, tempSaveCard);
-            saveData.battleSave.saveShop.Add(tempSaveCard);
+            LoadManager.Instance.loadData.battleSave.saveShop.Add(tempSaveCard);
         }
         
         //상점 재고 저장
@@ -148,6 +147,9 @@ public class SaveManager : MonoBehaviour
 
     public void SaveLog(bool win)
     {
+        if(LoadManager.Instance.loadData.logSave == null) 
+            LoadManager.Instance.loadData.logSave = new List<Log>();
+        Debug.Log($"전적 기록: {(win ? "승리" : "패배")}, 라운드: {roundManager.currentRoundIndex - 1}");
         Log tempLog = new Log();
 
         tempLog.isWin = win;
@@ -161,7 +163,7 @@ public class SaveManager : MonoBehaviour
             tempLog.finalField.Add(tempSaveCard);
         }
         
-        saveData.logSave.Add(tempLog);
+        LoadManager.Instance.loadData.logSave.Add(tempLog);
     }
 
     public async void PushSaveData()
@@ -171,6 +173,8 @@ public class SaveManager : MonoBehaviour
             Debug.LogError("Firestore가 초기화되지 않아 데이터를 저장할 수 없습니다.");
             return;
         }
+        
+        Debug.Log($"PushSaveData 호출됨: {LoadManager.Instance.loadData}");
 
         // 1. 저장할 데이터의 경로 정의
         // 보통 사용자별로 저장하므로, 인증된 유저의 UID를 사용합니다.
@@ -184,7 +188,7 @@ public class SaveManager : MonoBehaviour
         {
             // 2. C# 객체를 Firestore에 저장 (자동 직렬화)
             // JsonUtility.ToJson(saveData)로 문자열을 만들 필요 없이 saveData 객체 자체를 넘겨줍니다.
-            await docRef.SetAsync(saveData);
+            await docRef.SetAsync(LoadManager.Instance.loadData);
 
             Debug.Log($"Firebase Firestore에 데이터가 성공적으로 저장되었습니다: playerSaves/{userId}");
         }
@@ -196,17 +200,17 @@ public class SaveManager : MonoBehaviour
 
     public void ClearBattleSave()
     {
-        saveData.battleSave =  new BattleSave();
+        LoadManager.Instance.loadData.battleSave =  new BattleSave();
     }
 
     public void ClearLog()
     {
-        saveData.logSave = new List<Log>();
+        LoadManager.Instance.loadData.logSave = new List<Log>();
     }
 
     public void ClearSave()
     {
-        saveData = new SaveData();
+        LoadManager.Instance.loadData = new SaveData();
     }
     
 }

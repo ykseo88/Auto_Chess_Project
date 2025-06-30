@@ -32,6 +32,11 @@ public class LoginManager : MonoBehaviour
     [Header("Messege UI")]
     [SerializeField] private TMP_Text messegeStatus;
     [SerializeField] private Button confirmButton;
+    
+    [Header("Etc UI")]
+    [SerializeField] private Button ExitButton;
+    
+    
 
     private FirebaseAuth auth;
     private Action confirm;
@@ -42,6 +47,7 @@ public class LoginManager : MonoBehaviour
         signUpButtonS.onClick.AddListener(OnRegisterClicked);
         signUpButtonL.onClick.AddListener(ShowRegister);
         BackButton.onClick.AddListener(ShowLogin);
+        ExitButton.onClick.AddListener(Exit);
     }
 
     private void Start()
@@ -58,6 +64,11 @@ public class LoginManager : MonoBehaviour
                 Application.Quit();
             }
         });
+    }
+
+    private void Exit()
+    {
+        Application.Quit();
     }
 
     public void ShowLogin()//로그인 창 팝업

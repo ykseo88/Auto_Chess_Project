@@ -16,6 +16,8 @@ public class LoadManager : MonoBehaviour
     public SAOUnitPrefabDatabase unitDatabase;
     public SAOSpriteDatabase spriteDatabase;
     
+    public SaveManager saveManager;
+    
     public SaveData loadData;
     
     public async void Load()
@@ -26,6 +28,7 @@ public class LoadManager : MonoBehaviour
         if (docSnapshot.Exists)
         {
             loadData = docSnapshot.ConvertTo<SaveData>();
+            //saveManager.saveData = loadData;
         }
     }
 

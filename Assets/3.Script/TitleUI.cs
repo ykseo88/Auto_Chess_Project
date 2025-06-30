@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TitleUI : MonoBehaviour
@@ -10,6 +11,7 @@ public class TitleUI : MonoBehaviour
     public Button ExitButton;
     public Button ContinueButton;
     public Button LogButton;
+    public Button LogOutButton;
     
     public GameObject LogPanel;
 
@@ -22,12 +24,18 @@ public class TitleUI : MonoBehaviour
         ExitButton.onClick.AddListener(ExitGame);
         ContinueButton.onClick.AddListener(GameContinue);
         LogButton.onClick.AddListener(OnOffLogPanel);
+        LogOutButton.onClick.AddListener(LogOut);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void LogOut()
+    {
+        SceneManager.LoadScene(0);
     }
 
     private void GameStart()
@@ -39,11 +47,14 @@ public class TitleUI : MonoBehaviour
 
     private void GameContinue()
     {
-        GameManager.Instance.isReadyTurn = true;
-        GameManager.Instance.isContinue = true;
-        GameManager.Instance.pesonalIDNum = LoadManager.Instance.loadData.battleSave.savePersonalIdNum;
-        readyTurn.SetActive(true);
-        gameObject.SetActive(false);
+        if (LoadManager.Instance.loadData.battleSave != null)
+        {
+            GameManager.Instance.isReadyTurn = true;
+            GameManager.Instance.isContinue = true;
+            GameManager.Instance.pesonalIDNum = LoadManager.Instance.loadData.battleSave.savePersonalIdNum;
+            readyTurn.SetActive(true);
+            gameObject.SetActive(false);
+        }
     }
 
     private void ExitGame()

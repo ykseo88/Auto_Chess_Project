@@ -57,6 +57,7 @@ public class LogPanel : MonoBehaviour
     {
         GameManager.Instance.DestroyAllChildren(finalFieldPanel.transform);
         finalFieldPanel.SetActive(false);
+        FinalFieldViewCloseButton.gameObject.SetActive(false);
     }
     
     

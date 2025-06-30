@@ -36,6 +36,7 @@ public class LogIndex : MonoBehaviour
             tempCard.transform.TryGetComponent(out Card card);
             card.isMove = false;
             LoadManager.Instance.LoadCard(card, loadData.logSave[FinalFieldIndex].finalField[i]);
+            card.UpdateCardInfo();
             
         }
         finalFieldPanel.SetActive(true);

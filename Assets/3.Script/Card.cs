@@ -92,10 +92,10 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         GameObject tempField = GameObject.Find("Field");
         GameObject tempHand = GameObject.Find("Hand");
         GameObject tripleSystemObject = GameObject.Find("TripleSystem");
-        tempShop.transform.TryGetComponent(out shop);
-        tempField.transform.TryGetComponent(out field);
-        tempHand.transform.TryGetComponent(out hand);
-        tripleSystemObject.TryGetComponent(out tripleSystem);
+        if(tempShop != null) tempShop.transform.TryGetComponent(out shop);
+        if(tempField != null) tempField.transform.TryGetComponent(out field);
+        if(tempHand != null) tempHand.transform.TryGetComponent(out hand);
+        if(tripleSystemObject != null) tripleSystemObject.TryGetComponent(out tripleSystem);
         transform.root.TryGetComponent(out readyTurn);
     }
     
@@ -178,7 +178,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         switch (target.name)
         {
             case "Field":
-                if (field.fieldCards.Count == 7)
+                if (field.fieldCards.Count >= 7)
                 {
                     returnToParent();
                     break;
@@ -241,7 +241,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                     returnToParent();
                 }
                 break;
-            
             default:
                 returnToParent();
                 break;
@@ -253,6 +252,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     
     public void returnToParent()
     {
+        
         transform.SetParent(returnParent.transform);
         if (parentList == shop.currentSellCards)
         {
@@ -303,6 +303,12 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     private void OnAbility()
     {
+        if (field == null)
+        {
+            Debug.Log("필드가 초기화되지 않았습니다.");
+            return;
+        }
+            
         if (parentList == field.fieldCards && AbilityManager.Instance.abilityDictionary.ContainsKey(currentCardData.Name) && !isChoiceCard && isMove)
         {
             Debug.Log($"{currentCardData.Name} 카드의 능력이 발동 중입니다.");
@@ -338,8 +344,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        
-        
         if (isChoiceCard)
         {
             if (eventData.button == PointerEventData.InputButton.Left)
@@ -354,7 +358,9 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                     tempCardComponent.InsertCard(currentCardData);
                     tempCardComponent.isChoiceCard = false;
                     tempCardComponent.parentList = hand.handCards;
+                    tempCardComponent.returnParent = hand.gameObject;
                     tempCardComponent.inventorys = inventorys;
+                    tempCardComponent.isMove = true;
                     inventorys.currentNum--;
                     tempCardComponent.SetStarting();
                     tempCardComponent.parentList.Add(tempCard);
