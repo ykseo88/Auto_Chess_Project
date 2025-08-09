@@ -36,7 +36,7 @@ public class RunState : IUnitState
         {
             unitController.ChangeState(new AttackState(unitController));
         }
-        if (unitController.unitData.Team.EnemyTeam.UnitAmount == 0)
+        if (unitController.unitData.Team.EnemyTeam.PlayerUnitList.Count == 0)
         {
             unitController.ChangeState(new WinState(unitController));
         }

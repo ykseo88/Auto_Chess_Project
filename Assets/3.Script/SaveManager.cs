@@ -147,6 +147,10 @@ public class SaveManager : MonoBehaviour
 
     public void SaveLog(bool win)
     {
+        if (LoadManager.Instance.loadData == null)
+        {
+            LoadManager.Instance.loadData = new SaveData();
+        }
         if(LoadManager.Instance.loadData.logSave == null) 
             LoadManager.Instance.loadData.logSave = new List<Log>();
         Debug.Log($"전적 기록: {(win ? "승리" : "패배")}, 라운드: {roundManager.currentRoundIndex - 1}");
@@ -154,6 +158,7 @@ public class SaveManager : MonoBehaviour
 
         tempLog.isWin = win;
         tempLog.score = roundManager.currentRoundIndex - 1;
+        if (win) tempLog.score++;
 
         for (int i = 0; i < field.fieldCards.Count; i++)
         {

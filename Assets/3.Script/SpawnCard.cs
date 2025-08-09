@@ -61,8 +61,6 @@ public class SpawnCard : MonoBehaviour, IPointerClickHandler
         currentCardData.BackgroundImage = insertData.BackgroundImage;
         currentCardData.Golden = insertData.Golden;
         currentCardData.MaxNum = insertData.MaxNum;
-        
-        
     }
     
     public void UpdateCardInfo()

@@ -186,24 +186,6 @@ public class AnimationEvents : MonoBehaviour
         
         // 임펄스 적용
         projectileRigidbody.AddForce(initialVelocity * projectileRigidbody.mass, ForceMode.Impulse);
-
-        //Debug.Log($"Calculated Initial Force Magnitude: {initialForceMagnitude} N");
-        //Debug.Log($"Calculated Initial Velocity Magnitude: {v0} m/s");
-        //Debug.Log($"Possible Launch Angles (Degrees): Lower Angle = {angleRadLow * Mathf.Rad2Deg:F2}°, Higher Angle = {angleRadHigh * Mathf.Rad2Deg:F2}°");
-        //Debug.Log($"Applied Impulse Force with Lower Angle: {initialVelocity * projectileRigidbody.mass}");
-
-        // 만약 두 번째 각도로도 발사하고 싶다면, 새로운 투사체를 생성하고 angleRad2를 적용하면 됩니다.
-        // 예를 들어, 디버깅 목적으로 두 번째 투사체를 쏴볼 수 있습니다.
-        /*
-        GameObject projectile2 = Instantiate(projectilePrefab, shootPoint.position + Vector3.right, Quaternion.identity); // 약간 옆으로 발사
-        Rigidbody rb2;
-        projectile2.TryGetComponent(out rb2);
-        rb2.drag = 0f;
-        
-        Vector3 initialVelocity2 = (horizontalDirection * v0 * Mathf.Cos(angleRad2)) + (Vector3.up * v0 * Mathf.Sin(angleRad2));
-        rb2.AddForce(initialVelocity2 * rb2.mass, ForceMode.Impulse);
-        Debug.Log($"Applied Impulse Force with Higher Angle: {initialVelocity2 * rb2.mass}");
-        */
     }
     
     private void LaunchProjectileWithCalculatedAnglesLow()
@@ -283,24 +265,6 @@ public class AnimationEvents : MonoBehaviour
         
         // 임펄스 적용
         projectileRigidbody.AddForce(initialVelocity * projectileRigidbody.mass, ForceMode.Impulse);
-
-        //Debug.Log($"Calculated Initial Force Magnitude: {initialForceMagnitude} N");
-        //Debug.Log($"Calculated Initial Velocity Magnitude: {v0} m/s");
-        //Debug.Log($"Possible Launch Angles (Degrees): Lower Angle = {angleRadHigh * Mathf.Rad2Deg:F2}°, Higher Angle = {angleRadLow * Mathf.Rad2Deg:F2}°");
-        //Debug.Log($"Applied Impulse Force with Lower Angle: {initialVelocity * projectileRigidbody.mass}");
-
-        // 만약 두 번째 각도로도 발사하고 싶다면, 새로운 투사체를 생성하고 angleRad2를 적용하면 됩니다.
-        // 예를 들어, 디버깅 목적으로 두 번째 투사체를 쏴볼 수 있습니다.
-        /*
-        GameObject projectile2 = Instantiate(projectilePrefab, shootPoint.position + Vector3.right, Quaternion.identity); // 약간 옆으로 발사
-        Rigidbody rb2;
-        projectile2.TryGetComponent(out rb2);
-        rb2.drag = 0f;
-        
-        Vector3 initialVelocity2 = (horizontalDirection * v0 * Mathf.Cos(angleRad2)) + (Vector3.up * v0 * Mathf.Sin(angleRad2));
-        rb2.AddForce(initialVelocity2 * rb2.mass, ForceMode.Impulse);
-        Debug.Log($"Applied Impulse Force with Higher Angle: {initialVelocity2 * rb2.mass}");
-        */
     }
 
     
@@ -395,24 +359,6 @@ public class AnimationEvents : MonoBehaviour
         
         // 임펄스 적용
         projectileRigidbody.AddForce(initialVelocity * projectileRigidbody.mass, ForceMode.Impulse);
-
-        //Debug.Log($"Calculated Initial Force Magnitude: {initialForceMagnitude} N");
-        //Debug.Log($"Calculated Initial Velocity Magnitude: {v0} m/s");
-        //Debug.Log($"Possible Launch Angles (Degrees): Lower Angle = {angleRadHigh * Mathf.Rad2Deg:F2}°, Higher Angle = {angleRadLow * Mathf.Rad2Deg:F2}°");
-        //Debug.Log($"Applied Impulse Force with Lower Angle: {initialVelocity * projectileRigidbody.mass}");
-
-        // 만약 두 번째 각도로도 발사하고 싶다면, 새로운 투사체를 생성하고 angleRad2를 적용하면 됩니다.
-        // 예를 들어, 디버깅 목적으로 두 번째 투사체를 쏴볼 수 있습니다.
-        /*
-        GameObject projectile2 = Instantiate(projectilePrefab, shootPoint.position + Vector3.right, Quaternion.identity); // 약간 옆으로 발사
-        Rigidbody rb2;
-        projectile2.TryGetComponent(out rb2);
-        rb2.drag = 0f;
-        
-        Vector3 initialVelocity2 = (horizontalDirection * v0 * Mathf.Cos(angleRad2)) + (Vector3.up * v0 * Mathf.Sin(angleRad2));
-        rb2.AddForce(initialVelocity2 * rb2.mass, ForceMode.Impulse);
-        Debug.Log($"Applied Impulse Force with Higher Angle: {initialVelocity2 * rb2.mass}");
-        */
     }
 
     private void LaunchProjectileWithCalculatedAnglesHighGunShot()
@@ -501,24 +447,6 @@ public class AnimationEvents : MonoBehaviour
         
         // 임펄스 적용
         projectileRigidbody.AddForce(initialVelocity * projectileRigidbody.mass, ForceMode.Impulse);
-
-        //Debug.Log($"Calculated Initial Force Magnitude: {initialForceMagnitude} N");
-        //Debug.Log($"Calculated Initial Velocity Magnitude: {v0} m/s");
-        //Debug.Log($"Possible Launch Angles (Degrees): Lower Angle = {angleRadLow * Mathf.Rad2Deg:F2}°, Higher Angle = {angleRadHigh * Mathf.Rad2Deg:F2}°");
-        //Debug.Log($"Applied Impulse Force with Lower Angle: {initialVelocity * projectileRigidbody.mass}");
-
-        // 만약 두 번째 각도로도 발사하고 싶다면, 새로운 투사체를 생성하고 angleRad2를 적용하면 됩니다.
-        // 예를 들어, 디버깅 목적으로 두 번째 투사체를 쏴볼 수 있습니다.
-        /*
-        GameObject projectile2 = Instantiate(projectilePrefab, shootPoint.position + Vector3.right, Quaternion.identity); // 약간 옆으로 발사
-        Rigidbody rb2;
-        projectile2.TryGetComponent(out rb2);
-        rb2.drag = 0f;
-        
-        Vector3 initialVelocity2 = (horizontalDirection * v0 * Mathf.Cos(angleRad2)) + (Vector3.up * v0 * Mathf.Sin(angleRad2));
-        rb2.AddForce(initialVelocity2 * rb2.mass, ForceMode.Impulse);
-        Debug.Log($"Applied Impulse Force with Higher Angle: {initialVelocity2 * rb2.mass}");
-        */
     }
 
     private void ChainGunShotHigh()
@@ -607,24 +535,7 @@ public class AnimationEvents : MonoBehaviour
         
         // 임펄스 적용
         projectileRigidbody.AddForce((initialVelocity + new Vector3(randomX, randomY, randomZ)) * projectileRigidbody.mass, ForceMode.Impulse);
-
-        //Debug.Log($"Calculated Initial Force Magnitude: {initialForceMagnitude} N");
-        //Debug.Log($"Calculated Initial Velocity Magnitude: {v0} m/s");
-        //Debug.Log($"Possible Launch Angles (Degrees): Lower Angle = {angleRadLow * Mathf.Rad2Deg:F2}°, Higher Angle = {angleRadHigh * Mathf.Rad2Deg:F2}°");
-        //Debug.Log($"Applied Impulse Force with Lower Angle: {initialVelocity * projectileRigidbody.mass}");
-
-        // 만약 두 번째 각도로도 발사하고 싶다면, 새로운 투사체를 생성하고 angleRad2를 적용하면 됩니다.
-        // 예를 들어, 디버깅 목적으로 두 번째 투사체를 쏴볼 수 있습니다.
-        /*
-        GameObject projectile2 = Instantiate(projectilePrefab, shootPoint.position + Vector3.right, Quaternion.identity); // 약간 옆으로 발사
-        Rigidbody rb2;
-        projectile2.TryGetComponent(out rb2);
-        rb2.drag = 0f;
         
-        Vector3 initialVelocity2 = (horizontalDirection * v0 * Mathf.Cos(angleRad2)) + (Vector3.up * v0 * Mathf.Sin(angleRad2));
-        rb2.AddForce(initialVelocity2 * rb2.mass, ForceMode.Impulse);
-        Debug.Log($"Applied Impulse Force with Higher Angle: {initialVelocity2 * rb2.mass}");
-        */
     }
     
     private void ChainGunShotLow()
@@ -710,24 +621,6 @@ public class AnimationEvents : MonoBehaviour
         
         // 임펄스 적용
         projectileRigidbody.AddForce((initialVelocity + new Vector3(randomX, randomY, randomZ)) * projectileRigidbody.mass, ForceMode.Impulse);
-
-        //Debug.Log($"Calculated Initial Force Magnitude: {initialForceMagnitude} N");
-        //Debug.Log($"Calculated Initial Velocity Magnitude: {v0} m/s");
-        //Debug.Log($"Possible Launch Angles (Degrees): Lower Angle = {angleRadLow * Mathf.Rad2Deg:F2}°, Higher Angle = {angleRadHigh * Mathf.Rad2Deg:F2}°");
-        //Debug.Log($"Applied Impulse Force with Lower Angle: {initialVelocity * projectileRigidbody.mass}");
-
-        // 만약 두 번째 각도로도 발사하고 싶다면, 새로운 투사체를 생성하고 angleRad2를 적용하면 됩니다.
-        // 예를 들어, 디버깅 목적으로 두 번째 투사체를 쏴볼 수 있습니다.
-        /*
-        GameObject projectile2 = Instantiate(projectilePrefab, shootPoint.position + Vector3.right, Quaternion.identity); // 약간 옆으로 발사
-        Rigidbody rb2;
-        projectile2.TryGetComponent(out rb2);
-        rb2.drag = 0f;
-        
-        Vector3 initialVelocity2 = (horizontalDirection * v0 * Mathf.Cos(angleRad2)) + (Vector3.up * v0 * Mathf.Sin(angleRad2));
-        rb2.AddForce(initialVelocity2 * rb2.mass, ForceMode.Impulse);
-        Debug.Log($"Applied Impulse Force with Higher Angle: {initialVelocity2 * rb2.mass}");
-        */
     }
     
     private void ShotGunShotLow()
@@ -818,24 +711,6 @@ public class AnimationEvents : MonoBehaviour
             
             // 임펄스 적용
             projectileRigidbody.AddForce((initialVelocity + new Vector3(randomX, randomY, randomZ)) * projectileRigidbody.mass, ForceMode.Impulse);
-            
-            //Debug.Log($"Calculated Initial Force Magnitude: {initialForceMagnitude} N");
-            //Debug.Log($"Calculated Initial Velocity Magnitude: {v0} m/s");
-            //Debug.Log($"Possible Launch Angles (Degrees): Lower Angle = {angleRadLow * Mathf.Rad2Deg:F2}°, Higher Angle = {angleRadHigh * Mathf.Rad2Deg:F2}°");
-            //Debug.Log($"Applied Impulse Force with Lower Angle: {initialVelocity * projectileRigidbody.mass}");
-            
-            // 만약 두 번째 각도로도 발사하고 싶다면, 새로운 투사체를 생성하고 angleRad2를 적용하면 됩니다.
-            // 예를 들어, 디버깅 목적으로 두 번째 투사체를 쏴볼 수 있습니다.
-            /*
-            GameObject projectile2 = Instantiate(projectilePrefab, shootPoint.position + Vector3.right, Quaternion.identity); // 약간 옆으로 발사
-            Rigidbody rb2;
-            projectile2.TryGetComponent(out rb2);
-            rb2.drag = 0f;
-            
-            Vector3 initialVelocity2 = (horizontalDirection * v0 * Mathf.Cos(angleRad2)) + (Vector3.up * v0 * Mathf.Sin(angleRad2));
-            rb2.AddForce(initialVelocity2 * rb2.mass, ForceMode.Impulse);
-            Debug.Log($"Applied Impulse Force with Higher Angle: {initialVelocity2 * rb2.mass}");
-            */
          }
     }
     
@@ -915,24 +790,6 @@ public class AnimationEvents : MonoBehaviour
         
         // 임펄스 적용
         projectileRigidbody.AddForce(initialVelocity * projectileRigidbody.mass, ForceMode.Impulse);
-
-        //Debug.Log($"Calculated Initial Force Magnitude: {initialForceMagnitude} N");
-        //Debug.Log($"Calculated Initial Velocity Magnitude: {v0} m/s");
-        //Debug.Log($"Possible Launch Angles (Degrees): Lower Angle = {angleRadLow * Mathf.Rad2Deg:F2}°, Higher Angle = {angleRadHigh * Mathf.Rad2Deg:F2}°");
-        //Debug.Log($"Applied Impulse Force with Lower Angle: {initialVelocity * projectileRigidbody.mass}");
-
-        // 만약 두 번째 각도로도 발사하고 싶다면, 새로운 투사체를 생성하고 angleRad2를 적용하면 됩니다.
-        // 예를 들어, 디버깅 목적으로 두 번째 투사체를 쏴볼 수 있습니다.
-        /*
-        GameObject projectile2 = Instantiate(projectilePrefab, shootPoint.position + Vector3.right, Quaternion.identity); // 약간 옆으로 발사
-        Rigidbody rb2;
-        projectile2.TryGetComponent(out rb2);
-        rb2.drag = 0f;
-        
-        Vector3 initialVelocity2 = (horizontalDirection * v0 * Mathf.Cos(angleRad2)) + (Vector3.up * v0 * Mathf.Sin(angleRad2));
-        rb2.AddForce(initialVelocity2 * rb2.mass, ForceMode.Impulse);
-        Debug.Log($"Applied Impulse Force with Higher Angle: {initialVelocity2 * rb2.mass}");
-        */
     }
 
     private void MagicBoom()
