@@ -1,0 +1,100 @@
+@startuml
+title Auto Chess Core Gameplay - Class Diagram
+
+skinparam class {
+    BackgroundColor PaleGreen
+    ArrowColor SeaGreen
+    BorderColor SpringGreen
+}
+
+hide empty members
+
+class GameManager {
+    + static Instance: GameManager
+    + playerTeam: Team
+    + enemyTeam: Team
+    + roundManager: RoundManager
+    + field: Field
+    + isFightStart: bool
+    --
+    + Update()
+    + PlayerUnitSpawn()
+    + EnemyUnitSpawn()
+}
+
+class RoundManager {
+    + currentRoundInfo: RoundInfo
+    + roundInfos: RoundInfo[]
+    --
+    + SetStartRound()
+}
+
+class "RoundInfo" as RoundInfo {
+    + roundIndex: int
+    + EnemyUnits: List<UnitElement>
+}
+
+class Team {
+    + PlayerUnitList: List<GameObject>
+    + UnitAmount: int
+}
+
+class UnitController {
+    + unitData: UnitData
+    + agent: NavMeshAgent
+    + currentState: IUnitState
+    + closeTarget: Transform
+    --
+    + Update()
+    + ChangeState(newState: IUnitState)
+    + FindCloseTarget()
+}
+
+class UnitData {
+    + HP: float
+    + AttackDistance: float
+    + AttackRate: float
+    + Team: Team
+    + isDead: bool
+}
+
+interface IUnitState {
+    + Enter()
+    + Update()
+    + Exit()
+}
+
+class WaitState
+class RunState
+class AttackState
+class DieState
+class WinState
+
+note "State Pattern for Unit Behavior" as N1
+(UnitController, IUnitState) .. N1
+
+' --- Relationships ---
+
+GameManager "1" *-- "1" RoundManager
+GameManager "1" *-- "2" Team
+GameManager "1" *-- "1" Field
+
+RoundManager "1" *-- "1..*" RoundInfo
+
+UnitController "1" *-- "1" UnitData
+UnitController "1" *-- "1" IUnitState
+UnitData "1" *-- "1" Team
+
+IUnitState <|.. WaitState
+IUnitState <|.. RunState
+IUnitState <|.. AttackState
+IUnitState <|.. DieState
+IUnitState <|.. WinState
+
+AttackState ..> UnitController : uses
+RunState ..> UnitController : uses
+DieState ..> UnitController : uses
+
+Team "1" o-- "0..*" UnitController : contains units >
+
+@enduml

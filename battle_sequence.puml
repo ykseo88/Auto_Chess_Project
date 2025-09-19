@@ -1,0 +1,81 @@
+@startuml
+title Auto Chess Battle Sequence
+
+actor User
+participant GameManager
+participant RoundManager
+participant "unit: UnitController" as Unit
+participant "enemy: UnitController" as Enemy
+participant "state: IUnitState" as State
+participant "animator: Animator" as Animator
+
+skinparam participant {
+    BackgroundColor LightBlue
+    BorderColor Blue
+}
+
+skinparam actor {
+    BackgroundColor LightGreen
+    BorderColor Green
+}
+
+User -> GameManager: Start Game
+GameManager -> RoundManager: GetCurrentRoundInfo()
+GameManager -> GameManager: PlayerUnitSpawn()
+GameManager -> GameManager: EnemyUnitSpawn()
+note right: Creates "unit" and "enemy" instances
+
+== Countdown Phase ==
+GameManager -> GameManager: StartCoroutine(StartCountDown())
+alt Countdown Finished
+    GameManager -> GameManager: isFightStart = true
+end
+
+== Battle Phase (Loop) ==
+loop For each frame until battle ends
+    note over Unit, Enemy: Unity Engine calls Update()
+
+    Unit -> GameManager: checks isFightStart
+    activate Unit
+
+    Unit -> Unit: FindCloseTarget()
+    Unit -> State: Update()
+    activate State
+
+    alt Target not in range
+        State -> Unit: ChangeState(RunState)
+        note right: Unit moves towards Enemy
+    else Target in range and current state is RunState
+        State -> Unit: ChangeState(AttackState)
+    end
+
+    alt Current state is AttackState
+        State -> Unit: ChangeState(AttackState)
+        Unit -> State: Enter()
+        State -> Animator: animator.SetTrigger("Attack")
+        
+        note over Animator: Animation plays, then triggers event
+        Animator -> Unit: OnAttackFrame()
+        
+        Unit -> Enemy: TakeDamage(damage)
+        activate Enemy
+        Enemy -> Enemy: unitData.HP -= damage
+        deactivate Enemy
+    end
+    
+    State -> Unit: if (unitData.isDead) ChangeState(DieState)
+    deactivate State
+    deactivate Unit
+end
+
+== End Phase ==
+GameManager -> GameManager: CheckWinCondition()
+alt Player team wins
+    GameManager -> GameManager: isPlayerWin = true
+    GameManager -> GameManager: StartCoroutine(EndCountDown())
+else Enemy team wins
+    GameManager -> GameManager: isEnemyWin = true
+    GameManager -> GameManager: Show GameOver
+end
+
+@enduml
